@@ -1,0 +1,33 @@
+const fs=require('node:fs');
+const path=require('node:path');
+const {execFileSync}=require('node:child_process');
+const {sha,verifyRelease}=require('./releases.cjs');
+const site=require('../src/site.json');
+const version=process.argv[2];
+if(!/^v\d+\.\d+(?:\.\d+)?$/.test(version||''))throw Error('Usage: node scripts/release.cjs vX.Y');
+const target=path.join('docs',version),stage=path.join('.staging',version);
+if(fs.existsSync(target))throw Error(`${target} already exists. Publish a NEW version.`);
+const registry=fs.existsSync('docs/releases.json')?JSON.parse(fs.readFileSync('docs/releases.json','utf8')):[];
+for(const release of registry)verifyRelease(path.join('docs',release.version),release.manifestSha256);
+execFileSync(process.execPath,['scripts/check.cjs',version],{stdio:'inherit'});
+const hash=sha(path.join(stage,'manifest.json'));
+const qa=JSON.parse(fs.readFileSync(path.join('evidence',version,'local','qa.json'),'utf8'));
+const review=JSON.parse(fs.readFileSync(path.join('evidence',version,'visual-review.json'),'utf8'));
+if(!qa.passed||qa.manifestSha256!==hash)throw Error('Current build has not passed browser QA.');
+if(!review.reviewed||!review.reviewer||!review.scope||review.manifestSha256!==hash)throw Error('Current build has not passed visual review.');
+if(registry.length){
+  if(!review.comparison)throw Error('A previous-release visual comparison is required.');
+  const compare=JSON.parse(fs.readFileSync(review.comparison,'utf8'));
+  if(compare.newVersion!==version||compare.newManifestSha256!==hash)throw Error('Stale visual comparison.');
+  if(!review.expectedChanges||!review.unchangedSections)throw Error('Record expected changes and unchanged-section review results.');
+}
+fs.cpSync(stage,target,{recursive:true,errorOnExist:true,force:false});
+verifyRelease(target,hash);
+registry.push({version,date:new Date().toISOString().slice(0,10),manifestSha256:hash});
+fs.writeFileSync('docs/releases.json',JSON.stringify(registry,null,2)+'\n');
+const cards=[...registry].reverse().map(r=>`<article><h2>${r.version}</h2><p>${r.date}</p><a href="${r.version}/index.html">Explore this version →</a><div><a href="${r.version}/eiot/index.html">Enterprise IoT</a> · <a href="${r.version}/rail/index.html">Rail</a></div></article>`).join('');
+fs.writeFileSync('docs/index.html',`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>PSA — Website Versions</title><style>body{font:16px/1.6 Arial,sans-serif;color:#153247;background:#f3f8fb;margin:0}main{max-width:900px;margin:70px auto;padding:0 24px}h1{font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-1.5px;line-height:1.1}h2{margin:0}p{color:#526b80}article{padding:27px;background:#fff;border:1px solid #d2e3ed;border-radius:7px;margin-top:22px}a{color:#0767bb;display:inline-block;padding:8px 0}a:focus-visible{outline:3px solid #169aa7;outline-offset:4px}article div{margin-top:12px;font-size:.9rem}footer{margin-top:40px;font-size:.8rem}</style></head><body><main><p>PROFESSIONAL SOFTWARE ASSOCIATES</p><h1>Engineering, together.</h1><p>Explore the PSA website. Each version remains available at its own permanent address.</p>${cards}<footer><a href="${site.repository}">Source repository</a></footer></main></body></html>`);
+fs.writeFileSync('docs/.nojekyll','');
+fs.writeFileSync('docs/robots.txt','User-agent: *\nDisallow: /psa-website/\n');
+for(const release of registry)verifyRelease(path.join('docs',release.version),release.manifestSha256);
+console.log(`Frozen ${version}; all ${registry.length} release(s) verified. Commit and push to publish.`);

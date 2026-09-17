@@ -1,0 +1,12 @@
+reference/
+evidence/
+reports/
+*.zip
+/*.png
+node_modules/
+.staging/
+tools.local.json
+src/assets/*-original.png
+src/assets/fuel.png
+src/assets/coffee.png
+src/assets/rail.png
