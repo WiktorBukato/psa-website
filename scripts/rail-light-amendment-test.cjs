@@ -12,13 +12,13 @@ const check=(value,name)=>{report.checks.push({name,passed:!!value});if(!value)t
   const page=await browser.newPage({viewport:{width:1920,height:1080}});page.on('pageerror',e=>report.errors.push(e.message));
   await page.goto(base+'rail/index.html',{waitUntil:'networkidle'});
   await page.waitForFunction(()=>document.querySelector('.signal-lamp-red').getAnimations().length>0);
-  check(await page.locator('.scene-light').count()===120,'Six times the original ambient lights');
+  check(await page.locator('.scene-light').count()===180,'180 ambient lights (50 percent more than v0.4.1)');
   check(await page.locator('.scene-signal').count()===2,'Two independently phased illustrative signals');
   const groups=require('../src/rail-scene.json').lightGroups;
   check(groups.leftWindows.energy<1&&groups.lamps.energy>1&&groups.trainWindows.energy>1,'Softer left windows and stronger lamps/train windows');
   for(const id of ['SIG-01','SIG-02']){
    const signal=page.locator(`[data-signal="${id}"]`);
-   for(const [state,phase]of [['red',.2],['dark',.42],['green',.65]]){
+   for(const [state,phase]of [['red',.2],['red',.49999],['green',.5],['green',.65],['green',.99999],['red',1]]){
     const opacity=await signal.evaluate((e,p)=>{
      e.getAnimations({subtree:true}).forEach(a=>{a.pause();const t=a.effect.getTiming();a.currentTime=t.duration*(p+1)+t.delay;});
      return ['red','green'].map(c=>+getComputedStyle(e.querySelector(`.signal-lamp-${c}`)).opacity);
@@ -31,9 +31,9 @@ const check=(value,name)=>{report.checks.push({name,passed:!!value});if(!value)t
     for(let i=0;i<100;i++){
      animations.forEach(a=>{const t=a.effect.getTiming();a.currentTime=t.duration*(i/100+1)+t.delay;});
      const [red,green]=['red','green'].map(c=>+getComputedStyle(e.querySelector(`.signal-lamp-${c}`)).opacity);
-     if(red>.001&&green>.001)return false;
+     if(!((red===1&&green===0)||(green===1&&red===0)))return false;
     }return true;
-   }),`${id}: no simultaneous red/green during the entire cycle`);
+   }),`${id}: exactly one active aspect throughout the cycle`);
   }
   await page.locator('.scene-debug-toggle').click();
   check(await page.locator('.scene-signal').evaluateAll(nodes=>nodes.every(n=>n.getAnimations({subtree:true}).length===0&&['red','green'].every(c=>+getComputedStyle(n.querySelector(`.signal-lamp-${c}`)).opacity===1))),'Debug freezes both signal lenses as lime markers');

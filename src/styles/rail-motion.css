@@ -79,7 +79,7 @@
 .ambient-running .scene-scanlines,.ambient-running .scene-scanband,.ambient-running .aircraft-light{animation-play-state:running}
 @keyframes interlace-drift{to{transform:translateY(8px)}}
 @keyframes interlace-roll{to{top:105%}}
-@keyframes aircraft-blink{0%,48%,100%{opacity:.05}10%,32%{opacity:1}}
+@keyframes aircraft-blink{0%,48%,100%{opacity:.05}10%,32%{opacity:var(--aircraft-brightness)}}
 @keyframes contour-breathe{0%,100%{stroke-width:1.25;opacity:.78}50%{stroke-width:1.8;opacity:1}}
 @keyframes contour-travel{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
 .rail-hero-content{pointer-events:none;z-index:2}.rail-hero .hero-copy{pointer-events:auto}

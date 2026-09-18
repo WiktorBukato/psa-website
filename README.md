@@ -49,3 +49,9 @@ Hover an outlined object or use **Explore scene** with touch/keyboard to inspect
 **Light debug** in the Rail hero shows all ambient-light cores and halos continuously in lime, at their original coordinates and radii. It stops only light shimmer, is available during Pause/reduced motion, and restores the previous motion preference when switched off. Debug starts off on each page load.
 
 The owner-authorized v0.4.1 light amendment expands the ambient map across lit building/train windows, station arches and lamps, with brightness grouped in `src/rail-scene.json`. Two illustrative signal heads cycle through red, dark, green and dark phases independently. They return to the original photograph when motion is paused/reduced, and become stationary lime markers in Light debug. The original v0.4.1 remains recoverable at commit d2990cf; `scripts/release-amendments.json` records the exact allowed file/hash transition. Run `node scripts/rail-light-amendment-test.cjs v0.4.1` for the additional signal-cycle checks.
+
+### v0.4.2 lighting refinement
+
+180 photo-registered ambient lights use depth-scaled cores/halos and quieter peaks. Each light has independent exponential idle intervals, a per-light rate and varied pulse duration/rise; its next pulse is scheduled only after completion. This prevents overlapping pulses and a shared startup wave. Motion tuning, depth scaling and aircraft size/brightness live in `src/rail-scene.json`.
+
+Signal aspects now switch immediately using complementary step animations with a shared start time; exactly one color remains active outside debug. Current scoped checks: `node scripts/rail-light-amendment-test.cjs v0.4.2` and `node scripts/rail-randomness-test.cjs v0.4.2`, in addition to browser, motion, debug, rendered-motion and preservation checks. Historical-release tests should use their corresponding Git revision.

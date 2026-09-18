@@ -844,6 +844,366 @@
       376,
       1,
       "trainWindows"
+    ],
+    [
+      1248,
+      245,
+      0.85,
+      "leftWindows"
+    ],
+    [
+      1263,
+      250,
+      0.85,
+      "leftWindows"
+    ],
+    [
+      1249,
+      259,
+      0.85,
+      "leftWindows"
+    ],
+    [
+      1261,
+      267,
+      0.85,
+      "leftWindows"
+    ],
+    [
+      1705,
+      232,
+      0.85,
+      "rightWindows"
+    ],
+    [
+      1713,
+      213,
+      0.85,
+      "rightWindows"
+    ],
+    [
+      1701,
+      251,
+      0.85,
+      "rightWindows"
+    ],
+    [
+      1712,
+      257,
+      0.85,
+      "rightWindows"
+    ],
+    [
+      1355,
+      214,
+      0.85,
+      "cathedral"
+    ],
+    [
+      1381,
+      214,
+      0.85,
+      "cathedral"
+    ],
+    [
+      1358,
+      260,
+      0.85,
+      "cathedral"
+    ],
+    [
+      1375,
+      257,
+      0.85,
+      "cathedral"
+    ],
+    [
+      1436,
+      287,
+      0.85,
+      "arches"
+    ],
+    [
+      1464,
+      283,
+      0.85,
+      "arches"
+    ],
+    [
+      1478,
+      283,
+      0.85,
+      "arches"
+    ],
+    [
+      1490,
+      283,
+      0.85,
+      "arches"
+    ],
+    [
+      1537,
+      259,
+      0.85,
+      "arches"
+    ],
+    [
+      1544,
+      257,
+      0.85,
+      "arches"
+    ],
+    [
+      1560,
+      278,
+      0.85,
+      "arches"
+    ],
+    [
+      1578,
+      282,
+      0.85,
+      "arches"
+    ],
+    [
+      1608,
+      290,
+      0.85,
+      "arches"
+    ],
+    [
+      1649,
+      267,
+      0.85,
+      "arches"
+    ],
+    [
+      1683,
+      256,
+      0.85,
+      "arches"
+    ],
+    [
+      1724,
+      270,
+      0.85,
+      "arches"
+    ],
+    [
+      1783,
+      282,
+      0.85,
+      "buildingWindows"
+    ],
+    [
+      1808,
+      279,
+      0.85,
+      "buildingWindows"
+    ],
+    [
+      1833,
+      271,
+      0.85,
+      "buildingWindows"
+    ],
+    [
+      1855,
+      278,
+      0.85,
+      "buildingWindows"
+    ],
+    [
+      1901,
+      264,
+      0.85,
+      "buildingWindows"
+    ],
+    [
+      1915,
+      285,
+      0.85,
+      "buildingWindows"
+    ],
+    [
+      1937,
+      264,
+      0.85,
+      "buildingWindows"
+    ],
+    [
+      1951,
+      263,
+      0.85,
+      "buildingWindows"
+    ],
+    [
+      1147,
+      301,
+      1.1,
+      "lamps"
+    ],
+    [
+      1233,
+      302,
+      1.1,
+      "lamps"
+    ],
+    [
+      1260,
+      303,
+      1.1,
+      "lamps"
+    ],
+    [
+      1313,
+      299,
+      1.1,
+      "lamps"
+    ],
+    [
+      1354,
+      300,
+      1.1,
+      "lamps"
+    ],
+    [
+      1436,
+      301,
+      1.1,
+      "lamps"
+    ],
+    [
+      1501,
+      297,
+      1.1,
+      "lamps"
+    ],
+    [
+      1544,
+      296,
+      1.1,
+      "lamps"
+    ],
+    [
+      1667,
+      296,
+      1.1,
+      "lamps"
+    ],
+    [
+      1751,
+      299,
+      1.1,
+      "lamps"
+    ],
+    [
+      1810,
+      300,
+      1.1,
+      "lamps"
+    ],
+    [
+      1967,
+      299,
+      1.1,
+      "lamps"
+    ],
+    [
+      1133,
+      353,
+      1,
+      "trainWindows"
+    ],
+    [
+      1144,
+      351,
+      1,
+      "trainWindows"
+    ],
+    [
+      1197,
+      345,
+      1,
+      "trainWindows"
+    ],
+    [
+      1296,
+      335,
+      1,
+      "trainWindows"
+    ],
+    [
+      1324,
+      331,
+      1,
+      "trainWindows"
+    ],
+    [
+      1365,
+      324,
+      1,
+      "trainWindows"
+    ],
+    [
+      1415,
+      315,
+      1,
+      "trainWindows"
+    ],
+    [
+      1454,
+      309,
+      1,
+      "trainWindows"
+    ],
+    [
+      1726,
+      311,
+      1,
+      "trainWindows"
+    ],
+    [
+      1748,
+      316,
+      1,
+      "trainWindows"
+    ],
+    [
+      1794,
+      365,
+      1,
+      "trainWindows"
+    ],
+    [
+      1832,
+      382,
+      1,
+      "trainWindows"
+    ],
+    [
+      1844,
+      388,
+      1,
+      "trainWindows"
+    ],
+    [
+      1855,
+      394,
+      1,
+      "trainWindows"
+    ],
+    [
+      1870,
+      379,
+      1,
+      "trainWindows"
+    ],
+    [
+      1926,
+      343,
+      1,
+      "trainWindows"
     ]
   ],
   "sources": [
@@ -851,12 +1211,8 @@
     "https://www.networkrail.co.uk/rail-travel/delays-explained/overhead-line-equipment-failures/"
   ],
   "motion": {
-    "lightMin": 2800,
-    "lightMax": 8500,
-    "firstLightMin": 120,
-    "firstLightMax": 3200,
-    "lightDurationMin": 1600,
-    "lightDurationMax": 2700,
+    "lightDurationMin": 1300,
+    "lightDurationMax": 3900,
     "planeDuration": 32000,
     "planeFirstMin": 1800,
     "planeFirstMax": 3200,
@@ -865,7 +1221,18 @@
     "skyTop": 150,
     "skyBottom": 268,
     "skyInset": 24,
-    "signalDuration": 21000
+    "signalDuration": 21000,
+    "lightIdleFloor": 180,
+    "lightIdleMean": 5200,
+    "lightRateMin": 0.7,
+    "lightRateMax": 1.6,
+    "lightPeakMin": 0.48,
+    "lightPeakMax": 0.64,
+    "lightRiseMin": 0.22,
+    "lightRiseMax": 0.65,
+    "signalSwitchAt": 0.5,
+    "planeRadius": 1.4,
+    "planeBrightness": 0.7
   },
   "lightGroups": {
     "lamps": {
@@ -950,5 +1317,18 @@
         ]
       ]
     }
-  ]
+  ],
+  "lightDepth": {
+    "distantGroups": [
+      "leftWindows",
+      "rightWindows",
+      "cathedral",
+      "arches",
+      "buildingWindows"
+    ],
+    "distantScale": 0.72,
+    "nearScale": 1,
+    "farY": 295,
+    "nearY": 470
+  }
 }
