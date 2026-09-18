@@ -88,18 +88,16 @@
 .scene-controls button{font:10px/1.2 var(--mono);letter-spacing:.25px;color:#bfd4d4;background:#032324b8;border:1px solid #81b6b332;border-radius:3px;min-height:38px;padding:8px 12px;display:flex;align-items:center;gap:9px;cursor:pointer;backdrop-filter:blur(8px);transition:border-color .2s,background .2s}
 .scene-controls button:hover{border-color:#ffab7688;background:#0d3434ed}.scene-controls button:disabled{cursor:default;opacity:.7}
 .scene-controls .scene-debug-toggle[aria-pressed=true]{color:var(--debug-light);border-color:var(--debug-light);background:#102d1ded}
-.scene-controls button:focus-visible,.scene-card-close:focus-visible,.scene-inspector select:focus-visible{outline:2px solid #ffc393;outline-offset:3px}
+.scene-controls button:focus-visible,.scene-inspector select:focus-visible{outline:2px solid #ffc393;outline-offset:3px}
 .scene-inspector,.scene-card{position:absolute;z-index:5;color:#dcebec;background:#062b2de8;border:1px solid #cb98665e;border-radius:4px;box-shadow:0 10px 34px #00141477;backdrop-filter:blur(12px);padding:16px;max-width:calc(100% - 32px)}
 .scene-inspector{right:4.2%;bottom:62px;width:300px;font-size:12px}
 .scene-inspector label{font:10px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:9px;color:#9bd3d1}
 .scene-inspector select{width:100%;font:12px/1.5 Arial,sans-serif;color:#dcebec;background:#0d3637;border:1px solid #567e7c;border-radius:3px;min-height:40px;padding:7px}
 .theme-rail #main .scene-inspector p{font-size:10px;color:#9cbdbf;margin-top:9px}
-.scene-card{width:288px;padding-right:26px;pointer-events:auto}
+.scene-card{width:264px;padding:14px;background:#062b2d99;border-color:#cb986650;box-shadow:0 8px 26px #00141438;backdrop-filter:blur(4px);pointer-events:none}
 .scene-asset-id{display:block;color:#ffae77;letter-spacing:1.3px;font:11px/1.3 var(--mono);margin-bottom:6px}
 .theme-rail #main .scene-card h3{font:500 16px/1.3 Arial,sans-serif;margin:0 0 12px;color:#e1eded}
 .scene-card dl{margin:0;font-size:11px;line-height:1.45}.scene-card dl>div{display:grid;grid-template-columns:58px 1fr;gap:10px;margin-top:5px}.scene-card dt{color:#7faeb1}.scene-card dd{margin:0;color:#c9dcdd}
-.theme-rail #main .scene-disclaimer{border-top:1px solid #50727166;margin:12px 0 0;padding-top:8px;font:9px/1.5 var(--mono);color:#8cb1b3;letter-spacing:.1px}
-.scene-card-close{position:absolute;right:3px;top:3px;width:30px;height:30px;background:transparent;border:0;color:#a2c1c1;font-size:20px;cursor:pointer}
 .rail-motion-paused .motion-icon *,.rail-motion-paused .icon-gear{animation:none!important}
 .rail-motion-paused .scene-outline,.rail-motion-paused .scene-tracer{animation-play-state:paused}
 @media(max-width:760px){
@@ -114,3 +112,12 @@
  .scene-light,.scene-aircraft,.scene-scanlines,.scene-scanband{display:none}
  .rail-cap:is(:hover,:focus-visible) .code-cursor{opacity:1}
 }
+
+/* Two overlapping passes keep clouds moving in one direction without a reset seam. */
+.scene-clouds{opacity:0;pointer-events:none}
+.sky-ready .scene-clouds{opacity:var(--cloud-opacity)}
+.cloud-drift{animation:cloud-pass var(--cloud-duration) linear infinite;animation-play-state:paused}
+.cloud-drift-1{animation-delay:var(--cloud-half-duration)}
+.ambient-running .cloud-drift{animation-play-state:running}
+@keyframes cloud-pass{0%{opacity:0;transform:translateX(0)}15%,50%{opacity:1}65%,100%{opacity:0}100%{transform:translateX(var(--cloud-travel))}}
+@media(prefers-reduced-motion:reduce){.sky-ready .scene-clouds{display:none}}

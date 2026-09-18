@@ -55,3 +55,9 @@ The owner-authorized v0.4.1 light amendment expands the ambient map across lit b
 180 photo-registered ambient lights use depth-scaled cores/halos and quieter peaks. Each light has independent exponential idle intervals, a per-light rate and varied pulse duration/rise; its next pulse is scheduled only after completion. This prevents overlapping pulses and a shared startup wave. Motion tuning, depth scaling and aircraft size/brightness live in `src/rail-scene.json`.
 
 Signal aspects now switch immediately using complementary step animations with a shared start time; exactly one color remains active outside debug. Current scoped checks: `node scripts/rail-light-amendment-test.cjs v0.4.2` and `node scripts/rail-randomness-test.cjs v0.4.2`, in addition to browser, motion, debug, rendered-motion and preservation checks. Historical-release tests should use their corresponding Git revision.
+
+### v0.5 scene exploration
+
+The scene now contains 29 inspectable assets: seven trains, six signals, four catenary masts, six track alignments and six infrastructure objects. Curves are registered to the unchanged source photograph. The near white train and red train have separate contours. Hover tooltips are translucent, follow the pointer, and cannot intercept it. The owner requested removal of the close cross and lower disclaimer; Escape, leaving the hero, outside tap, repeated touch selection and the Explore scene toggle provide dismissal.
+
+`src/assets/rail-sky-clouds.webp` is a generated sky-only plate. Two overlapping CSS passes move it in one direction behind the skyline mask defined in `src/rail-scene.json`. Buildings, masts and visible cables are protected; the original photograph remains the no-JS/reduced-motion fallback. Pause and offscreen visibility suspend cloud movement. No video, service, CDN or runtime image processing is needed. Run `node scripts/rail-scene-expansion-test.cjs v0.5` alongside the standard release checks.

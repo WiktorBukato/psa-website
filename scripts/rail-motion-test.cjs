@@ -15,7 +15,7 @@ function check(value,name){report.checks.push({name,passed:!!value});if(!value)t
    page.on('pageerror',e=>report.errors.push(e.message));
    await page.goto(base+'rail/index.html',{waitUntil:'networkidle'});
    check(await page.locator('.rail-telemetry').count()===0,`${width}: static telemetry removed`);
-   check(await page.locator('.scene-object').count()===10,`${width}: ten image objects`);
+   check(await page.locator('.scene-object').count()===require('../src/rail-scene.json').objects.length,`${width}: complete image object inventory`);
    check(await page.locator('.scene-motion-toggle').isDisabled(),`${width}: reduced motion respected`);
    const registration=await page.evaluate(()=>{
     const hero=document.querySelector('.rail-hero').getBoundingClientRect(),plane=document.querySelector('.scene-image-plane').getBoundingClientRect(),img=document.querySelector('.rail-hero-picture img');

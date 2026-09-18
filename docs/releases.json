@@ -28,5 +28,10 @@
     "version": "v0.4.2",
     "date": "2026-09-18",
     "manifestSha256": "cdb7f15aba0b80e77b7e232d60fb97606979cb58ff9da6b703b5f58255916d9f"
+  },
+  {
+    "version": "v0.5",
+    "date": "2026-09-18",
+    "manifestSha256": "48a92649cb6a820a66b276856cb3247422fb206955c5c9232d2ba33a8ed043f4"
   }
 ]
