@@ -37,7 +37,8 @@ const sharp=dependency('sharp');
    results.push({width,section,sameSize,changedPixels:sameSize?changed:null,changedOutsideIcon,normalization:iconBounds[section]?'Only the two separately animated check strokes are allowed to rasterize differently within their existing icon bounds; manually reviewed.':null});
   }
  }
- const normalize=s=>s.replaceAll(previous,'VERSION').replaceAll(version,'VERSION');
+ // Replace the longer token first: v0.4 is also a prefix of v0.4.1.
+ const normalize=s=>[previous,version].sort((a,b)=>b.length-a.length).reduce((text,token)=>text.replaceAll(token,'VERSION'),s);
  for(const file of ['eiot/index.html','index.html','assets/eiot.css','assets/site.css','assets/app.js'])results.push({file,identical:normalize(fs.readFileSync(`docs/${previous}/${file}`,'utf8'))===normalize(fs.readFileSync(`.staging/${version}/${file}`,'utf8'))});
  const preview=await browser.newPage({viewport:{width:1920,height:1080},reducedMotion:'reduce'});
  await preview.goto(pathToFileURL(path.resolve('.staging',version,'rail/index.html')).href);

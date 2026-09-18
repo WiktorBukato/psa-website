@@ -61,6 +61,10 @@
 .scene-light{opacity:0;pointer-events:none}
 .scene-light-core{fill:#fff0c7;filter:drop-shadow(0 0 2px #ffd79d)}
 .scene-light-halo{fill:#ffd28d;opacity:.32;filter:blur(1.7px)}
+.rail-hero.light-debug{--debug-light:#b6ff00}
+.rail-hero.light-debug .scene-light{display:inline;opacity:1}
+.light-debug .scene-light-core{fill:var(--debug-light);filter:drop-shadow(0 0 2px var(--debug-light))}
+.light-debug .scene-light-halo{fill:var(--debug-light)}
 .scene-aircraft{opacity:0;pointer-events:none}
 .aircraft-light{fill:#fff1d9;filter:drop-shadow(0 0 2px #fff0bd);animation:aircraft-blink 1.6s ease-in-out infinite;animation-play-state:paused}
 .scene-scanlines{position:absolute;inset:-8px 0;pointer-events:none;background:repeating-linear-gradient(0deg,#0000 0 2px,#03131666 2px 3px,#bfd8ce12 3px 4px);opacity:.48;animation:interlace-drift 1.2s linear infinite;animation-play-state:paused}
@@ -76,6 +80,7 @@
 .scene-controls[hidden],.rail-scene[hidden],.scene-inspector[hidden],.scene-card[hidden],.scene-card-content[hidden]{display:none}
 .scene-controls button{font:10px/1.2 var(--mono);letter-spacing:.25px;color:#bfd4d4;background:#032324b8;border:1px solid #81b6b332;border-radius:3px;min-height:38px;padding:8px 12px;display:flex;align-items:center;gap:9px;cursor:pointer;backdrop-filter:blur(8px);transition:border-color .2s,background .2s}
 .scene-controls button:hover{border-color:#ffab7688;background:#0d3434ed}.scene-controls button:disabled{cursor:default;opacity:.7}
+.scene-controls .scene-debug-toggle[aria-pressed=true]{color:var(--debug-light);border-color:var(--debug-light);background:#102d1ded}
 .scene-controls button:focus-visible,.scene-card-close:focus-visible,.scene-inspector select:focus-visible{outline:2px solid #ffc393;outline-offset:3px}
 .scene-inspector,.scene-card{position:absolute;z-index:5;color:#dcebec;background:#062b2de8;border:1px solid #cb98665e;border-radius:4px;box-shadow:0 10px 34px #00141477;backdrop-filter:blur(12px);padding:16px;max-width:calc(100% - 32px)}
 .scene-inspector{right:4.2%;bottom:62px;width:300px;font-size:12px}
@@ -94,7 +99,7 @@
  .ecosystem-track{display:none}.environment-nodes>a{border-top:0}
  .environment-nodes>a>.ecosystem-mini-track{display:block;position:absolute;left:0;top:50px;width:100%;height:19px;margin:0;pointer-events:none;overflow:visible}
  .environment-nodes>a>svg:not(.ecosystem-mini-track){margin-bottom:22px}.route-dot{display:block;top:50px;width:9px;height:9px}
- .scene-controls{right:20px;left:20px;bottom:13px;justify-content:flex-end;gap:7px}.scene-controls button{min-height:44px;font-size:9px;padding:8px 10px;gap:7px}
+ .scene-controls{right:20px;left:20px;bottom:13px;justify-content:flex-end;gap:7px}.scene-controls button{min-height:44px;font-size:9px;padding:8px 6px;gap:5px;white-space:nowrap}
  .scene-inspector{right:20px;bottom:65px;width:300px}.scene-card{width:280px}.scene-scanlines{opacity:.32}
 }
 @media(prefers-reduced-motion:reduce){

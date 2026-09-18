@@ -1,0 +1,474 @@
+/* Owner-supplied CSS, scoped to main to preserve the approved shared shell. */
+.theme-eiot #main{line-height:normal;}
+.theme-eiot #main .text-link,.theme-eiot #main .button{min-height:auto;text-align:start}
+.theme-eiot #main .section-heading>p{font-size:inherit}
+.theme-eiot #main{color-scheme: light; --navy: #0c1638; --ink: #071127; --copy: #556984; --muted: #7585a0; --blue: #0864dc; --cyan: #31ced1; --line: #dce6f1; --pale: #f4f8fd; --gradient: linear-gradient(110deg,#1267d7,#2bcbd0); font-family: Arial, Helvetica, sans-serif; font-size: 16px; scroll-behavior: smooth;}
+.theme-eiot #main *{box-sizing: border-box;}
+.theme-eiot #main{margin: 0px; color: var(--navy); background: rgb(255, 255, 255);}
+.theme-eiot #main a{color: inherit; text-decoration: none;}
+.theme-eiot #main button{font: inherit;}
+.theme-eiot #main img{display: block; max-width: 100%;}
+.theme-eiot #main svg{width: 24px; height: 24px; flex-shrink: 0;}
+.theme-eiot #main button,.theme-eiot #main a{-webkit-tap-highlight-color: transparent;}
+.theme-eiot #main a:focus-visible,.theme-eiot #main button:focus-visible{outline: rgb(22, 168, 201) solid 3px; outline-offset: 5px;}
+.theme-eiot #main a,.theme-eiot #main button{touch-action: manipulation;}
+.theme-eiot #main h1,.theme-eiot #main h2,.theme-eiot #main h3,.theme-eiot #main p{margin: 0px;}
+.theme-eiot #main h1,.theme-eiot #main h2,.theme-eiot #main h3{text-wrap: balance;}
+.theme-eiot #main h2{font-size: clamp(1.85rem, 3vw, 2.65rem); line-height: 1.12; letter-spacing: -1.25px; color: var(--ink); font-weight: 700;}
+.theme-eiot #main h3{font-size: 1.25rem; line-height: 1.25; letter-spacing: -0.35px;}
+.theme-eiot #main p{line-height: 1.65;}
+.theme-eiot #main section,.theme-eiot #main [id]{scroll-margin-top: 90px;}
+.theme-eiot #main .container{width: min(1180px, 100% - 80px); margin: auto;}
+.theme-eiot #main .section{padding: 78px 0px;}
+.theme-eiot #main .eyebrow{font-size: 0.875rem; font-weight: 600; color: var(--blue); margin-bottom: 13px; line-height: 1.5;}
+.theme-eiot #main .section-heading{display: flex; justify-content: space-between; align-items: flex-end; gap: 55px; margin-bottom: 35px;}
+.theme-eiot #main .section-heading > p{max-width: 385px; color: var(--copy); line-height: 1.7;}
+.theme-eiot #main .button{display: inline-flex; align-items: center; justify-content: center; gap: 25px; border-radius: 7px; background: var(--gradient); color: rgb(255, 255, 255); padding: 17px 22px; font-size: 0.9375rem; font-weight: 500; white-space: nowrap; box-shadow: rgba(20, 122, 221, 0.086) 0px 5px 16px; transition: filter 0.2s, transform 0.2s;}
+.theme-eiot #main .button svg{width: 18px; height: 18px;}
+.theme-eiot #main .button:hover{filter: brightness(1.07); transform: translateY(-2px);}
+.theme-eiot #main .text-link{display: inline-flex; align-items: center; gap: 12px; color: var(--blue); font-size: 0.9375rem; font-weight: 500; line-height: 1.5; width: fit-content;}
+.theme-eiot #main .text-link svg{width: 18px; height: 18px; transition: transform 0.2s;}
+.theme-eiot #main .text-link:hover svg{transform: translateX(4px);}
+.theme-eiot #main .text-link:hover{text-decoration: underline; text-underline-offset: 5px;}
+
+
+
+
+
+
+
+
+
+
+.theme-eiot #main .small{font-size: 0.8125rem; padding: 12px 15px; gap: 14px;}
+
+.theme-eiot #main .hero{padding: 50px 0px 0px; overflow: hidden; background-color: rgb(243, 249, 255); background-image: linear-gradient(rgba(220, 234, 251, 0.36) 1px, transparent 1px), linear-gradient(90deg, rgba(220, 234, 251, 0.36) 1px, transparent 1px), radial-gradient(at 90% 10%, rgb(225, 249, 255), transparent 60%); background-size: 72px 72px, 72px 72px, 100% 100%;}
+.theme-eiot #main .hero-top{position: relative; padding-bottom: 15px; min-height: 395px;}
+.theme-eiot #main .hero-copy{position: relative; z-index: 2; max-width: 755px;}
+.theme-eiot #main .hero h1{font-size: clamp(2.6rem, 4.2vw, 3.9rem); line-height: 1.035; letter-spacing: -2.5px; color: rgb(2, 7, 12); font-weight: 750;}
+.theme-eiot #main .hero .eyebrow{font-size: 1rem;}
+.theme-eiot #main .hero .lede{font-size: 1.15rem; line-height: 1.5; color: rgb(110, 127, 170); max-width: 630px; margin-top: 23px;}
+.theme-eiot #main .actions{display: flex; gap: 30px; align-items: center; margin-top: 26px;}
+.theme-eiot #main .hero-ribbon{position: absolute; right: -90px; top: 12px; width: 330px; height: 330px; border: 49px solid transparent; border-radius: 66px; transform: rotate(45deg); background: linear-gradient(rgb(240, 249, 255), rgb(240, 249, 255)) padding-box padding-box, linear-gradient(135deg, rgb(9, 89, 197), rgb(50, 208, 209)) border-box border-box; opacity: 0.95;}
+.theme-eiot #main .system-visual{width: 100%; aspect-ratio: 1473 / 290; position: relative; overflow: hidden; margin-top: 25px;}
+.theme-eiot #main .system-visual img{position: absolute; width: 100%; max-width: none; height: auto; top: -182.75%; left: 0px; mix-blend-mode: multiply;}
+.theme-eiot #main .system-caption{padding: 8px 0px 22px; color: rgb(113, 130, 178); font-size: 1rem;}
+.theme-eiot #main .mobile-system{display: none;}
+.theme-eiot #main .proof{background: rgb(255, 255, 255); border-bottom: 1px solid rgb(224, 234, 244);}
+.theme-eiot #main .proof-grid{display: grid; grid-template-columns: repeat(3, 1fr); padding: 25px 0px;}
+.theme-eiot #main .proof-grid > div{display: flex; align-items: center; gap: 19px; padding: 0px 30px; border-left: 1px solid rgb(207, 220, 240);}
+.theme-eiot #main .proof-grid > div:first-child{border: 0px; padding-left: 0px;}
+.theme-eiot #main .proof-grid svg{color: rgb(9, 112, 234); width: 36px; height: 36px;}
+.theme-eiot #main .proof strong{font-size: 2rem; line-height: 1.25; display: block; letter-spacing: -0.8px;}
+.theme-eiot #main .proof small{font-size: 1rem;}
+.theme-eiot #main .proof .iso{font-size: 1.4rem;}
+.theme-eiot #main .proof p > span{display: block; font-size: 0.8125rem; color: rgb(116, 134, 170); margin-top: 4px; line-height: 1.45;}
+.theme-eiot #main .rail-ribbon{background: rgb(13, 23, 52); color: rgb(213, 222, 239);}
+.theme-eiot #main .rail-ribbon .container{display: flex; justify-content: space-between; align-items: center; padding: 14px 0px; font-size: 0.875rem;}
+.theme-eiot #main .rail-ribbon span,.theme-eiot #main .rail-ribbon a{display: flex; gap: 13px; align-items: center;}
+.theme-eiot #main .rail-ribbon svg{width: 21px; height: 21px; color: rgb(53, 213, 220);}
+.theme-eiot #main .rail-ribbon a{color: rgb(53, 213, 220);}
+.theme-eiot #main .cap-grid{display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;}
+.theme-eiot #main .cap-card{position: relative; border: 1px solid var(--line); border-radius: 12px; padding: 25px; background: linear-gradient(140deg, rgb(255, 255, 255), rgb(250, 253, 255)); overflow: hidden;}
+.theme-eiot #main .cap-card::before{content: ""; height: 3px; position: absolute; top: 0px; left: 0px; right: 0px; background: var(--gradient);}
+.theme-eiot #main .card-top{display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; color: var(--blue);}
+.theme-eiot #main .card-top svg{width: 29px; height: 29px;}
+.theme-eiot #main .card-top span{font-size: 0.75rem; color: rgb(141, 157, 177);}
+.theme-eiot #main .cap-card h3{min-height: 50px; max-width: 280px;}
+.theme-eiot #main .cap-card > p{font-size: 0.9375rem; color: var(--copy); margin: 13px 0px 20px; min-height: 75px;}
+.theme-eiot #main .cap-card ul{padding: 15px 0px 0px; margin: 0px; list-style: none; position: relative;}
+.theme-eiot #main .cap-card ul::before{content: ""; width: 38px; height: 2px; background: var(--gradient); position: absolute; top: 0px; left: 0px;}
+.theme-eiot #main .cap-card li{position: relative; font-size: 0.875rem; line-height: 1.5; margin-bottom: 7px; padding-left: 14px; color: rgb(62, 86, 117);}
+.theme-eiot #main .cap-card li::before{content: ""; width: 4px; height: 4px; background: rgb(37, 183, 209); position: absolute; left: 0px; top: 9px;}
+.theme-eiot #main .fit-section{background: var(--pale);}
+.theme-eiot #main .fit-grid{display: grid; grid-template-columns: repeat(2, 1fr); gap: 0px 48px;}
+.theme-eiot #main .fit-card{display: flex; gap: 20px; border-top: 1px solid rgb(213, 226, 241); padding: 25px 0px;}
+.theme-eiot #main .fit-number{font-size: 0.875rem; line-height: 1.6; color: rgb(20, 120, 199); font-variant-numeric: tabular-nums; padding-top: 1px;}
+.theme-eiot #main .fit-card h3{font-size: 1.2rem;}
+.theme-eiot #main .fit-card p{font-size: 0.9375rem; color: var(--copy); margin: 9px 0px 12px;}
+.theme-eiot #main .fit-scope{font-size: 0.75rem; line-height: 1.6; display: block; color: rgb(108, 128, 160);}
+.theme-eiot #main .ai-section{padding: 47px 0px; background: rgb(234, 245, 255);}
+.theme-eiot #main .ai-heading{display: flex; align-items: center; justify-content: space-between; gap: 40px; margin-bottom: 32px;}
+.theme-eiot #main .ai-heading h2{font-size: 1.8rem;}
+.theme-eiot #main .ai-heading h2 span{position: relative; isolation: isolate;}
+.theme-eiot #main .ai-heading h2 span::after{content: ""; position: absolute; z-index: -1; height: 9px; left: -7px; right: -15px; bottom: -1px; background: var(--gradient); border-radius: 0px 0px 14px; opacity: 0.5; transform: skewX(-20deg);}
+.theme-eiot #main .ai-heading p{color: rgb(102, 124, 157); margin-top: 15px; font-size: 0.9375rem;}
+.theme-eiot #main .ai-grid{display: grid; grid-template-columns: repeat(4, 1fr);}
+.theme-eiot #main .ai-grid article{padding: 0px 26px; border-left: 1px solid rgb(203, 222, 239);}
+.theme-eiot #main .ai-grid article:first-child{border: 0px; padding-left: 0px;}
+.theme-eiot #main .ai-grid article:last-child{padding-right: 0px;}
+.theme-eiot #main .ai-grid svg{color: rgb(11, 111, 218); margin-bottom: 14px;}
+.theme-eiot #main .ai-grid h3{font-size: 1rem; line-height: 1.35; margin-bottom: 9px;}
+.theme-eiot #main .ai-grid p{font-size: 0.875rem; color: var(--copy); line-height: 1.6;}
+.theme-eiot #main .trust-section{padding: 59px 0px 22px; text-align: center;}
+.theme-eiot #main .trust-section h2{font-size: 1.65rem;}
+.theme-eiot #main .client-logos{display: grid; grid-template-columns: repeat(6, 1fr); align-items: center; gap: 28px; margin: 24px 0px 0px;}
+.theme-eiot #main .client-logos a{min-width: 0px; height: 70px; display: flex; align-items: center; justify-content: center;}
+.theme-eiot #main .client-logos img{max-width: 125px; max-height: 40px; object-fit: contain; filter: grayscale(1); opacity: 0.7; transition: filter 0.2s, opacity 0.2s;}
+.theme-eiot #main .client-logos a:hover img{filter: none; opacity: 1;}
+.theme-eiot #main .reviews-section{padding: 28px 0px 64px;}
+.theme-eiot #main .reviews-section h2{font-size: 1.45rem; margin-bottom: 20px;}
+.theme-eiot #main .reviews-grid{display: grid; grid-template-columns: 1fr 1fr; gap: 24px;}
+.theme-eiot #main .reviews-grid figure{margin: 0px; padding: 24px 28px; border: 1px solid var(--line); border-radius: 12px; background: linear-gradient(135deg, rgb(255, 255, 255), rgb(248, 252, 255)); display: flex; flex-direction: column; position: relative;}
+.theme-eiot #main .quote{font-family: Georgia, serif; font-size: 3.5rem; line-height: 0.8; color: rgb(22, 157, 208); margin: 3px 0px 10px;}
+.theme-eiot #main .reviews-grid blockquote{font-size: 1.5rem; line-height: 1.45; letter-spacing: -0.3px; margin: 0px 0px 24px; min-height: 70px; max-width: 450px;}
+.theme-eiot #main .reviews-grid figcaption{margin-top: auto; border-top: 1px solid rgb(224, 234, 245); padding-top: 15px; display: flex; flex-direction: column; gap: 4px;}
+.theme-eiot #main .reviews-grid strong{font-size: 0.875rem;}
+.theme-eiot #main .reviews-grid figcaption span{font-size: 0.8125rem; color: rgb(112, 132, 162);}
+.theme-eiot #main .source-link{color: rgb(112, 132, 162); font-size: 0.75rem; position: absolute; right: 28px; bottom: 25px;}
+.theme-eiot #main .process-section{background: radial-gradient(at 90% 0px, rgba(21, 67, 105, 0.5), transparent 60%), linear-gradient(125deg, rgb(11, 20, 49), rgb(17, 41, 65)); color: rgb(255, 255, 255); padding: 57px 0px;}
+.theme-eiot #main .process-section h2{color: rgb(255, 255, 255);}
+.theme-eiot #main .process-section .eyebrow{color: rgb(89, 212, 223);}
+.theme-eiot #main .process-intro{margin-top: 14px; color: rgb(166, 185, 211); font-size: 1rem;}
+.theme-eiot #main .process-grid{list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin: 32px 0px 0px; padding: 0px; position: relative;}
+.theme-eiot #main .process-grid::before{content: ""; position: absolute; left: 15px; right: 15px; top: 37px; height: 4px; background: var(--gradient); border-radius: 4px;}
+.theme-eiot #main .process-grid li{position: relative; background: rgb(22, 46, 73); border: 1px solid rgb(53, 80, 107); padding: 20px; border-radius: 11px;}
+.theme-eiot #main .step{display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 10px; background: var(--gradient); font-size: 0.8125rem; margin-bottom: 20px;}
+.theme-eiot #main .process-grid h3{font-size: 1.125rem; margin-bottom: 10px;}
+.theme-eiot #main .process-grid p{font-size: 0.875rem; line-height: 1.55; color: rgb(174, 195, 219);}
+.theme-eiot #main .process-loop{border-width: 0px 1px 1px; border-style: none solid solid; border-color: currentcolor rgb(67, 133, 152) rgb(67, 133, 152); border-image: none; width: calc(40% - 20px); margin: 0px 0px 0px calc(40% + 10px); height: 29px; text-align: center; color: rgb(134, 190, 207); font-size: 0.75rem;}
+.theme-eiot #main .process-loop span{display: inline-block; background: rgb(17, 40, 64); padding: 0px 12px; transform: translateY(19px);}
+.theme-eiot #main .support{display: flex; align-items: center; gap: 13px; margin-top: 31px; color: rgb(90, 214, 220); font-size: 0.875rem;}
+.theme-eiot #main .support::before{content: ""; flex: 1 1 0%; height: 1px; background: linear-gradient(90deg, rgb(41, 67, 94), rgb(75, 191, 191));}
+.theme-eiot #main .support svg{width: 18px; height: 18px;}
+.theme-eiot #main .process-note{color: rgb(159, 180, 208); font-size: 0.875rem; margin-top: 13px;}
+.theme-eiot #main .domain-grid{display: grid; grid-template-columns: 1fr 1fr; gap: 24px;}
+.theme-eiot #main .domain-grid article{padding: 30px; border: 1px solid var(--line); border-radius: 12px; background: linear-gradient(135deg, rgb(244, 250, 255), rgb(255, 255, 255)); display: flex; flex-direction: column;}
+.theme-eiot #main .domain-grid article:last-child{background: linear-gradient(135deg, rgb(239, 245, 251), rgb(234, 246, 250));}
+.theme-eiot #main .domain-top{display: flex; align-items: center; justify-content: space-between; gap: 20px; color: rgb(20, 118, 206); margin-bottom: 27px;}
+.theme-eiot #main .domain-top svg{width: 34px; height: 34px;}
+.theme-eiot #main .domain-top span{font-size: 0.75rem; letter-spacing: 1.1px; color: rgb(110, 132, 161);}
+.theme-eiot #main .domain-grid h3{font-size: 1.9rem; line-height: 1.15; letter-spacing: -0.8px; margin-bottom: 17px;}
+.theme-eiot #main .domain-grid p{color: var(--copy); max-width: 440px;}
+.theme-eiot #main .domain-tags{font-size: 0.8125rem; color: rgb(113, 135, 166); line-height: 1.7; margin: 19px 0px 24px;}
+.theme-eiot #main .domain-grid .text-link{margin-top: auto;}
+.theme-eiot #main .ecosystem-section{padding: 0px 0px 65px;}
+.theme-eiot #main .ecosystem-section h2{font-size: 2rem;}
+.theme-eiot #main .ecosystem-grid{display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid rgb(224, 233, 243); border-bottom: 1px solid rgb(224, 233, 243); gap: 0px;}
+.theme-eiot #main .partner{min-width: 0px; min-height: 92px; display: flex; align-items: center; justify-content: center; padding: 22px; transition: background 0.2s;}
+.theme-eiot #main .partner:hover{background: rgb(242, 248, 255);}
+.theme-eiot #main .partner img{max-width: 140px; width: 100%; height: 42px; object-fit: contain;}
+.theme-eiot #main .partner-name{font-size: 1.2rem; letter-spacing: -0.3px; font-weight: 600; color: rgb(52, 84, 120);}
+.theme-eiot #main .stories-section{padding-top: 0px;}
+.theme-eiot #main .stories-layout{display: grid; grid-template-columns: 2fr 1fr; gap: 36px;}
+.theme-eiot #main .case-pair{display: grid; grid-template-columns: 1fr 1fr; gap: 22px;}
+.theme-eiot #main .case{border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;}
+.theme-eiot #main .case-image{display: block; overflow: hidden;}
+.theme-eiot #main .case-image img{width: 100%; height: 200px; object-fit: cover; transition: transform 0.3s;}
+.theme-eiot #main .case-image:hover img{transform: scale(1.04);}
+.theme-eiot #main .case-body{padding: 24px; display: flex; flex-direction: column; flex: 1 1 0%;}
+.theme-eiot #main .case .eyebrow,.theme-eiot #main .insight .eyebrow{font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.1px;}
+.theme-eiot #main .case h3{font-size: 1.4rem; line-height: 1.2; margin-bottom: 15px;}
+.theme-eiot #main .case p:not(.eyebrow){font-size: 0.9375rem; color: var(--copy); margin-bottom: 24px;}
+.theme-eiot #main .case .text-link{margin-top: auto;}
+.theme-eiot #main .insight{padding-left: 31px; border-left: 2px solid transparent; border-image: var(--gradient) 1; display: flex; flex-direction: column;}
+.theme-eiot #main .insight > img{height: 150px; object-fit: cover; width: 100%; border-radius: 7px; margin: 0px 0px 21px;}
+.theme-eiot #main .insight h3{font-size: 1.6rem; line-height: 1.2; margin-bottom: 15px;}
+.theme-eiot #main .insight > p:not(.eyebrow){font-size: 0.9375rem; color: var(--copy); margin-bottom: 25px;}
+.theme-eiot #main .insight .text-link{margin-top: auto;}
+.theme-eiot #main .industries-section{padding: 43px 0px; background: rgb(245, 249, 254);}
+.theme-eiot #main .industries-section h2{font-size: 1.75rem; margin-bottom: 30px;}
+.theme-eiot #main .industry-grid{display: grid; grid-template-columns: repeat(4, 1fr); gap: 29px 36px;}
+.theme-eiot #main .industry-grid > div{display: flex; align-items: center; gap: 14px; font-size: 0.9375rem; color: rgb(53, 76, 106);}
+.theme-eiot #main .industry-grid svg{color: rgb(23, 123, 211);}
+.theme-eiot #main .final-cta{position: relative; overflow: hidden; background: radial-gradient(at 100% 20%, rgba(23, 97, 123, 0.5), transparent 65%), rgb(12, 24, 52); color: rgb(255, 255, 255); padding: 63px 0px;}
+.theme-eiot #main .final-cta::after{content: ""; position: absolute; right: -110px; top: -80px; width: 400px; height: 400px; border: 45px solid rgba(39, 199, 207, 0.125); border-radius: 58px; transform: rotate(45deg); pointer-events: none;}
+.theme-eiot #main .final-cta .container{display: flex; align-items: center; justify-content: space-between; gap: 45px; position: relative; z-index: 1;}
+.theme-eiot #main .final-cta h2{color: rgb(255, 255, 255);}
+.theme-eiot #main .final-cta .eyebrow{color: rgb(85, 211, 219);}
+.theme-eiot #main .final-cta p:not(.eyebrow){color: rgb(172, 192, 215); max-width: 620px; margin-top: 19px;}
+.theme-eiot #main .final-cta .button{flex-shrink: 0;}
+
+
+
+
+
+
+@media (min-width: 1450px) {.theme-eiot #main .hero-top{min-height: 415px;}
+.theme-eiot #main .hero h1{font-size: 4rem;}}
+@media (max-width: 1100px) {.theme-eiot #main .container{width: calc(100% - 48px);}
+
+
+
+.theme-eiot #main .hero h1{font-size: 3.4rem;}
+.theme-eiot #main .hero-copy{max-width: 650px;}
+.theme-eiot #main .hero-ribbon{width: 265px; height: 265px; right: -95px; opacity: 0.65;}
+.theme-eiot #main .cap-card{padding: 21px;}
+.theme-eiot #main .section-heading{gap: 30px;}
+.theme-eiot #main .section-heading > p{max-width: 330px;}
+.theme-eiot #main .process-grid{gap: 12px;}
+.theme-eiot #main .process-grid li{padding: 16px;}
+.theme-eiot #main .stories-layout{gap: 25px;}
+.theme-eiot #main .case-body{padding: 18px;}
+.theme-eiot #main .case-image img{height: 170px;}
+.theme-eiot #main .client-logos{gap: 22px;}
+.theme-eiot #main .client-logos img{max-width: 110px;}
+.theme-eiot #main .source-link{position: static; margin-top: 13px;}}
+@media (max-width: 800px) {
+
+
+
+
+
+
+.theme-eiot #main .hero{padding-top: 37px;}
+.theme-eiot #main .hero-top{min-height: 0px;}
+.theme-eiot #main .hero h1{font-size: 2.8rem; letter-spacing: -1.5px;}
+.theme-eiot #main .hero .lede{font-size: 1.05rem; max-width: 560px;}
+.theme-eiot #main .hero-ribbon{width: 180px; height: 180px; border-width: 30px; right: -90px; top: 50px; opacity: 0.22;}
+.theme-eiot #main .hero-copy{max-width: 100%;}
+.theme-eiot #main .system-visual{margin-top: 15px;}
+.theme-eiot #main .system-caption{font-size: 0.875rem;}
+.theme-eiot #main .proof-grid > div{padding: 0px 17px; gap: 10px;}
+.theme-eiot #main .proof-grid svg{width: 27px; height: 27px;}
+.theme-eiot #main .proof strong{font-size: 1.6rem;}
+.theme-eiot #main .proof .iso{font-size: 1rem;}
+.theme-eiot #main .proof p > span{font-size: 0.75rem;}
+.theme-eiot #main .section{padding: 55px 0px;}
+.theme-eiot #main .section-heading{display: block; margin-bottom: 28px;}
+.theme-eiot #main .section-heading > p{max-width: 570px; margin-top: 18px;}
+.theme-eiot #main .cap-grid{grid-template-columns: repeat(2, 1fr); gap: 16px;}
+.theme-eiot #main .cap-card > p{min-height: 74px;}
+.theme-eiot #main .fit-grid{gap: 0px 25px;}
+.theme-eiot #main .fit-card{gap: 13px;}
+.theme-eiot #main .fit-card h3{font-size: 1.125rem;}
+.theme-eiot #main .ai-heading{display: block;}
+.theme-eiot #main .ai-heading .text-link{margin-top: 22px;}
+.theme-eiot #main .ai-grid article{padding: 0px 16px;}
+.theme-eiot #main .ai-grid h3{min-height: 43px;}
+.theme-eiot #main .client-logos{grid-template-columns: repeat(3, 1fr); gap: 12px 30px;}
+.theme-eiot #main .trust-section h2{font-size: 1.45rem;}
+.theme-eiot #main .reviews-grid blockquote{font-size: 1.25rem;}
+.theme-eiot #main .process-grid{grid-template-columns: repeat(5, 1fr); gap: 9px;}
+.theme-eiot #main .process-grid li{padding: 13px 10px;}
+.theme-eiot #main .process-grid h3{font-size: 0.9375rem;}
+.theme-eiot #main .process-grid p{font-size: 0.8125rem;}
+.theme-eiot #main .process-grid .step{width: 30px; height: 30px;}
+.theme-eiot #main .process-grid::before{top: 28px;}
+.theme-eiot #main .domain-grid article{padding: 23px;}
+.theme-eiot #main .domain-grid h3{font-size: 1.5rem;}
+.theme-eiot #main .domain-top span{font-size: 0.625rem; letter-spacing: 0.6px;}
+.theme-eiot #main .ecosystem-grid{grid-template-columns: repeat(3, 1fr);}
+.theme-eiot #main .partner{padding: 19px;}
+.theme-eiot #main .stories-layout{grid-template-columns: 1fr;}
+.theme-eiot #main .insight{display: grid; grid-template-columns: 210px 1fr; gap: 0px 24px; border-left: 0px; border-top: 2px solid rgb(57, 191, 215); padding: 25px 0px 0px;}
+.theme-eiot #main .insight .eyebrow{grid-column: 2;}
+.theme-eiot #main .insight > img{grid-area: 1 / 1 / 5; height: 190px; margin: 0px;}
+.theme-eiot #main .insight h3{font-size: 1.4rem;}
+.theme-eiot #main .insight .text-link{grid-column: 2;}
+.theme-eiot #main .industry-grid{gap: 24px; grid-template-columns: repeat(2, 1fr);}
+.theme-eiot #main .final-cta .container{display: block;}
+.theme-eiot #main .final-cta .button{margin-top: 28px;}
+
+}
+@media (max-width: 560px) {.theme-eiot #main .container{width: calc(100% - 40px);}
+.theme-eiot #main .section{padding: 43px 0px;}
+.theme-eiot #main h2{font-size: 1.9rem; letter-spacing: -0.8px;}
+.theme-eiot #main .hero h1{font-size: 2.55rem; letter-spacing: -1.55px;}
+.theme-eiot #main .hero h1 br:first-child{display: none;}
+.theme-eiot #main .hero .eyebrow{font-size: 0.875rem;}
+.theme-eiot #main .hero .lede{font-size: 1rem;}
+.theme-eiot #main .actions{gap: 22px; flex-wrap: wrap;}
+.theme-eiot #main .button{font-size: 0.875rem; padding: 15px 18px;}
+.theme-eiot #main .system-visual{display: none;}
+.theme-eiot #main .mobile-system{display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 29px 0px 16px;}
+.theme-eiot #main .mobile-system span{display: flex; align-items: center; gap: 9px; padding: 12px 9px; background: rgba(255, 255, 255, 0.65); border: 1px solid rgb(207, 228, 248); border-radius: 8px; font-size: 0.75rem; line-height: 1.45;}
+.theme-eiot #main .mobile-system svg{width: 20px; height: 20px; color: rgb(8, 121, 215);}
+.theme-eiot #main .system-caption{font-size: 0.8125rem;}
+.theme-eiot #main .proof-grid{grid-template-columns: 1fr; padding: 7px 0px;}
+.theme-eiot #main .proof-grid > div{padding: 14px 0px; border-width: 1px 0px 0px; border-style: solid none none; border-color: rgb(228, 237, 247) currentcolor currentcolor; border-image: none; gap: 17px;}
+.theme-eiot #main .proof-grid > div:first-child{padding: 14px 0px;}
+.theme-eiot #main .proof p{display: flex; align-items: center; gap: 20px; width: 100%;}
+.theme-eiot #main .proof p strong{font-size: 1.4rem; flex: 0 0 145px;}
+.theme-eiot #main .proof p .iso{font-size: 1rem;}
+.theme-eiot #main .proof p > span{margin: 0px;}
+.theme-eiot #main .rail-ribbon .container{gap: 15px; font-size: 0.75rem;}
+.theme-eiot #main .rail-ribbon span{max-width: 180px;}
+.theme-eiot #main .rail-ribbon a{gap: 7px; flex-shrink: 0;}
+.theme-eiot #main .rail-ribbon svg{width: 18px; height: 18px;}
+.theme-eiot #main .cap-grid{grid-template-columns: 1fr;}
+.theme-eiot #main .cap-card{padding: 24px;}
+.theme-eiot #main .cap-card h3,.theme-eiot #main .cap-card > p{min-height: 0px; max-width: none;}
+.theme-eiot #main .card-top{margin-bottom: 15px;}
+.theme-eiot #main .cap-card ul{display: grid; grid-template-columns: 1fr 1fr; gap: 3px 14px;}
+.theme-eiot #main .cap-card li{font-size: 0.8125rem;}
+.theme-eiot #main .fit-grid{grid-template-columns: 1fr;}
+.theme-eiot #main .fit-card{padding: 21px 0px; gap: 16px;}
+.theme-eiot #main .fit-card h3{font-size: 1.2rem;}
+.theme-eiot #main .ai-section{padding: 36px 0px;}
+.theme-eiot #main .ai-heading h2{font-size: 1.6rem; line-height: 1.3;}
+.theme-eiot #main .ai-heading h2 span{box-decoration-break: clone; -webkit-box-decoration-break: clone;}
+.theme-eiot #main .ai-grid{grid-template-columns: 1fr 1fr; gap: 25px 0px;}
+.theme-eiot #main .ai-grid article:nth-child(2n+1){padding-left: 0px; border: 0px;}
+.theme-eiot #main .ai-grid article:nth-child(2n){padding-right: 0px;}
+.theme-eiot #main .ai-grid h3{min-height: 0px;}
+.theme-eiot #main .client-logos img{max-width: 90px; max-height: 32px;}
+.theme-eiot #main .client-logos{gap: 10px 15px;}
+.theme-eiot #main .trust-section{padding-top: 39px;}
+.theme-eiot #main .reviews-section{padding-bottom: 42px;}
+.theme-eiot #main .reviews-grid{grid-template-columns: 1fr; gap: 15px;}
+.theme-eiot #main .reviews-grid figure{padding: 25px;}
+.theme-eiot #main .reviews-grid blockquote{min-height: 0px; font-size: 1.4rem;}
+.theme-eiot #main .reviews-section h2{font-size: 1.3rem;}
+.theme-eiot #main .process-grid{grid-template-columns: 1fr; gap: 14px; margin-top: 28px;}
+.theme-eiot #main .process-grid::before{inset: 20px auto 20px 30px; height: auto; width: 3px;}
+.theme-eiot #main .process-grid li{display: grid; grid-template-columns: 35px 1fr; gap: 4px 16px; padding: 15px;}
+.theme-eiot #main .process-grid .step{grid-row: 1 / 3; width: 33px; height: 33px; margin: 0px;}
+.theme-eiot #main .process-grid h3{font-size: 1rem; margin: 0px;}
+.theme-eiot #main .process-grid p{font-size: 0.875rem; grid-column: 2;}
+.theme-eiot #main .process-loop{width: auto; margin: 13px 0px 0px 64px; border: 0px; height: auto; text-align: left;}
+.theme-eiot #main .process-loop span{transform: none; background: none; padding: 0px;}
+.theme-eiot #main .support{margin-top: 22px;}
+.theme-eiot #main .domain-grid{grid-template-columns: 1fr; gap: 16px;}
+.theme-eiot #main .domain-top span{font-size: 0.75rem;}
+.theme-eiot #main .domain-grid h3{font-size: 1.75rem;}
+.theme-eiot #main .ecosystem-section{padding-bottom: 43px;}
+.theme-eiot #main .ecosystem-section h2{font-size: 1.8rem;}
+.theme-eiot #main .partner{min-height: 75px; padding: 15px;}
+.theme-eiot #main .partner img{height: 33px;}
+.theme-eiot #main .partner-name{font-size: 1rem;}
+.theme-eiot #main .case-pair{grid-template-columns: 1fr; gap: 20px;}
+.theme-eiot #main .case-image img{height: 210px;}
+.theme-eiot #main .case-body{padding: 24px;}
+.theme-eiot #main .case h3{font-size: 1.5rem;}
+.theme-eiot #main .insight{display: flex;}
+.theme-eiot #main .insight > img{height: 150px; margin-bottom: 20px;}
+.theme-eiot #main .insight h3{font-size: 1.5rem;}
+.theme-eiot #main .industry-grid{gap: 22px 18px;}
+.theme-eiot #main .industry-grid > div{font-size: 0.8125rem; gap: 10px; align-items: flex-start;}
+.theme-eiot #main .industries-section{padding: 35px 0px;}
+.theme-eiot #main .industries-section h2{font-size: 1.6rem;}
+.theme-eiot #main .final-cta{padding: 42px 0px;}
+.theme-eiot #main .final-cta h2{font-size: 2rem;}
+.theme-eiot #main .final-cta h2 br{display: none;}
+
+}
+@media (prefers-reduced-motion: reduce) {.theme-eiot #main{scroll-behavior: auto;}
+.theme-eiot #main *{transition: none !important;}}
+.theme-eiot #main .ecosystem-grid{display: flex; flex-wrap: wrap; justify-content: center;}
+.theme-eiot #main .partner{width: 20%;}
+@media (max-width: 800px) {.theme-eiot #main .partner{width: 33.3333%;}}
+.theme-eiot #main .cap-card h3,.theme-eiot #main .fit-card h3,.theme-eiot #main .domain-grid h3,.theme-eiot #main .case h3,.theme-eiot #main .insight h3{overflow-wrap: break-word;}
+.theme-eiot #main{--ink: #091729; --navy: #142840; --copy: #435a73; --muted: #677d93; --blue: #075ebb; --cyan: #159baf; --line: #cedbe7; --pale: #f3f6f9; --gradient: linear-gradient(110deg,#0865c2,#169eaf); font-family: Inter, "Helvetica Neue", Arial, sans-serif;}
+.theme-eiot #main h1,.theme-eiot #main h2,.theme-eiot #main h3{font-weight: 600;}
+.theme-eiot #main h2{letter-spacing: -1px;}
+.theme-eiot #main .eyebrow{font-family: SFMono-Regular, Consolas, "Liberation Mono", monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: rgb(18, 105, 166);}
+
+
+
+.theme-eiot #main .button{background: rgb(8, 101, 194); border: 1px solid rgb(8, 101, 194); border-radius: 4px; box-shadow: none; font-weight: 500;}
+.theme-eiot #main .button:hover{background: rgb(7, 85, 163); transform: none; filter: none;}
+.theme-eiot #main .text-link{font-weight: 500;}
+.theme-eiot #main .hero{padding-top: 46px; background-color: rgb(245, 249, 252); background-image: linear-gradient(rgba(207, 223, 237, 0.333) 1px, transparent 1px), linear-gradient(90deg, rgba(207, 223, 237, 0.333) 1px, transparent 1px); background-size: 64px 64px;}
+.theme-eiot #main .hero-top{min-height: 390px;}
+.theme-eiot #main .hero h1{font-weight: 600; letter-spacing: -2px; font-size: clamp(2.6rem, 4.05vw, 3.7rem); line-height: 1.07;}
+.theme-eiot #main .hero .eyebrow{font-size: 0.8125rem; color: rgb(8, 119, 148);}
+.theme-eiot #main .hero .lede{color: rgb(77, 101, 126); font-size: 1.0625rem; max-width: 610px; line-height: 1.65;}
+.theme-eiot #main .hero-ribbon{border-radius: 28px; opacity: 0.12; width: 285px; height: 285px; border-width: 30px; right: -40px; top: 34px;}
+.theme-eiot #main .hero-scope{display: flex; flex-wrap: wrap; gap: 8px 19px; margin: 23px 0px 0px; color: rgb(73, 103, 129); font-family: SFMono-Regular, Consolas, monospace; font-size: 0.75rem; line-height: 1.6;}
+.theme-eiot #main .hero-scope span{display: flex; align-items: center; gap: 8px;}
+.theme-eiot #main .hero-scope span::before{content: ""; width: 5px; height: 5px; background: rgb(24, 139, 175);}
+.theme-eiot #main .system-visual{margin-top: 21px;}
+.theme-eiot #main .system-caption{font-family: SFMono-Regular, Consolas, monospace; font-size: 0.8125rem; color: rgb(83, 111, 134); border-top: 1px solid rgb(213, 226, 237); margin-top: 9px; padding-top: 16px; padding-bottom: 20px;}
+.theme-eiot #main .proof-grid{padding: 22px 0px;}
+.theme-eiot #main .proof-grid svg{width: 28px; height: 28px; stroke-width: 1.3;}
+.theme-eiot #main .proof strong{font-weight: 600;}
+.theme-eiot #main .proof p > span{color: rgb(100, 121, 145);}
+.theme-eiot #main .rail-ribbon{background: rgb(17, 34, 55);}
+.theme-eiot #main .rail-ribbon a{color: rgb(119, 212, 223);}
+.theme-eiot #main .rail-ribbon svg{color: rgb(119, 212, 223);}
+.theme-eiot #main .section{padding: 66px 0px;}
+.theme-eiot #main .cap-grid{gap: 0px; border-top: 1px solid rgb(207, 222, 234); border-left: 1px solid rgb(207, 222, 234);}
+.theme-eiot #main .cap-card{border-width: 0px 1px 1px 0px; border-style: none solid solid none; border-color: currentcolor rgb(207, 222, 234) rgb(207, 222, 234) currentcolor; border-image: none; border-radius: 0px; background: rgb(255, 255, 255); padding: 27px;}
+.theme-eiot #main .cap-card::before{display: none;}
+.theme-eiot #main .cap-card:hover{background: rgb(247, 250, 252);}
+.theme-eiot #main .card-top{margin-bottom: 20px;}
+.theme-eiot #main .card-top span,.theme-eiot #main .fit-number{font-family: SFMono-Regular, Consolas, monospace; color: rgb(106, 131, 153);}
+.theme-eiot #main .card-top svg{width: 25px; height: 25px; color: rgb(19, 123, 157);}
+.theme-eiot #main .cap-card h3{font-weight: 600;}
+.theme-eiot #main .cap-card > p{font-size: 0.9375rem; line-height: 1.7;}
+.theme-eiot #main .cap-card ul::before{background: rgb(23, 150, 176); width: 30px;}
+.theme-eiot #main .cap-card li{color: rgb(59, 82, 108);}
+.theme-eiot #main .fit-section{background: rgb(242, 246, 249);}
+.theme-eiot #main .fit-card h3{font-weight: 600;}
+.theme-eiot #main .fit-card{border-color: rgb(205, 220, 231);}
+.theme-eiot #main .fit-scope{color: rgb(81, 109, 134); font-family: SFMono-Regular, Consolas, monospace; font-size: 0.75rem;}
+.theme-eiot #main .ai-section{background: rgb(255, 255, 255); border-top: 1px solid rgb(216, 229, 238); border-bottom: 1px solid rgb(216, 229, 238); padding: 39px 0px;}
+.theme-eiot #main .ai-heading h2{font-size: 1.75rem;}
+.theme-eiot #main .ai-heading h2 span::after{height: 4px; bottom: -9px; left: 0px; right: 0px; transform: none; border-radius: 0px; opacity: 1; background: linear-gradient(90deg, rgb(8, 114, 201), rgb(53, 187, 185));}
+.theme-eiot #main .ai-heading p{margin-top: 22px; color: rgb(77, 101, 127);}
+.theme-eiot #main .ai-grid svg{color: rgb(20, 125, 156);}
+.theme-eiot #main .ai-grid h3{font-weight: 600;}
+.theme-eiot #main .ai-grid p{color: rgb(72, 97, 124);}
+.theme-eiot #main .trust-section .eyebrow{color: rgb(100, 123, 145);}
+.theme-eiot #main .client-logos img{opacity: 0.85;}
+.theme-eiot #main .reviews-grid figure{border-radius: 4px; background: rgb(247, 250, 252); border: 1px solid rgb(211, 225, 235); box-shadow: none; padding: 28px;}
+.theme-eiot #main .reviews-grid blockquote{font-size: 1.35rem; line-height: 1.55; font-weight: 400;}
+.theme-eiot #main .quote{font-size: 2.8rem; color: rgb(20, 125, 156);}
+.theme-eiot #main .reviews-grid figcaption span,.theme-eiot #main .source-link{color: rgb(86, 111, 137);}
+.theme-eiot #main .process-section{background: rgb(16, 34, 56); padding: 53px 0px;}
+.theme-eiot #main .process-section .eyebrow{color: rgb(116, 197, 210);}
+.theme-eiot #main .process-intro{color: rgb(189, 205, 221);}
+.theme-eiot #main .process-grid{gap: 14px;}
+.theme-eiot #main .process-grid li{border-radius: 4px; background: rgb(21, 46, 70); border-color: rgb(53, 81, 106); box-shadow: none;}
+.theme-eiot #main .step{border-radius: 3px; background: rgb(27, 103, 135); font-family: SFMono-Regular, Consolas, monospace; font-size: 0.75rem;}
+.theme-eiot #main .process-grid::before{height: 2px; background: rgb(39, 155, 177);}
+.theme-eiot #main .process-grid p{color: rgb(192, 210, 227);}
+.theme-eiot #main .process-grid h3{font-weight: 500;}
+.theme-eiot #main .process-loop span{background: rgb(16, 34, 56); color: rgb(151, 203, 214); font-family: SFMono-Regular, Consolas, monospace;}
+.theme-eiot #main .support span{font-family: SFMono-Regular, Consolas, monospace; font-size: 0.75rem; letter-spacing: 0.5px;}
+.theme-eiot #main .process-note{color: rgb(180, 198, 217);}
+.theme-eiot #main .domain-grid{gap: 0px; border: 1px solid rgb(207, 222, 234); border-radius: 4px; overflow: hidden;}
+.theme-eiot #main .domain-grid article,.theme-eiot #main .domain-grid article:last-child{border: 0px; border-radius: 0px; background: rgb(255, 255, 255); padding: 32px;}
+.theme-eiot #main .domain-grid article:last-child{border-left: 1px solid rgb(207, 222, 234); background: rgb(243, 247, 250);}
+.theme-eiot #main .domain-grid h3{font-size: 1.85rem; font-weight: 600;}
+.theme-eiot #main .domain-top span{font-family: SFMono-Regular, Consolas, monospace; color: rgb(89, 112, 135); letter-spacing: 0.5px;}
+.theme-eiot #main .domain-top svg{color: rgb(22, 128, 157);}
+.theme-eiot #main .domain-tags{color: rgb(82, 110, 133); font-size: 0.8125rem;}
+.theme-eiot #main .ecosystem-section{padding-bottom: 55px;}
+.theme-eiot #main .partner:hover{background: rgb(241, 246, 250);}
+.theme-eiot #main .stories-section{padding-top: 0px;}
+.theme-eiot #main .case{border-radius: 4px; border-color: rgb(207, 222, 234); box-shadow: none;}
+.theme-eiot #main .case-body{padding: 23px;}
+.theme-eiot #main .case-image img{filter: saturate(0.78);}
+.theme-eiot #main .case h3,.theme-eiot #main .insight h3{font-weight: 600;}
+.theme-eiot #main .insight > img{border-radius: 2px; filter: saturate(0.8);}
+.theme-eiot #main .insight{border-image: none; border-color: rgb(22, 157, 177);}
+.theme-eiot #main .industry-grid svg{color: rgb(22, 125, 156);}
+.theme-eiot #main .industries-section{background: rgb(241, 245, 248);}
+.theme-eiot #main .final-cta{background: rgb(16, 34, 56); padding: 55px 0px;}
+.theme-eiot #main .final-cta::after{opacity: 0.4; border-radius: 25px;}
+.theme-eiot #main .final-cta h2{font-weight: 600;}
+.theme-eiot #main .final-cta .eyebrow{color: rgb(114, 203, 213);}
+.theme-eiot #main .final-cta .button{background: rgb(19, 141, 159); border-color: rgb(19, 141, 159);}
+.theme-eiot #main .final-cta .button:hover{background: rgb(17, 122, 138);}
+
+@media (max-width: 1100px) {.theme-eiot #main .hero h1{font-size: 3.3rem;}
+.theme-eiot #main .hero-ribbon{right: -80px; opacity: 0.09;}
+.theme-eiot #main .cap-card{padding: 24px;}}
+@media (max-width: 800px) {
+.theme-eiot #main .hero h1{font-size: 2.8rem;}
+.theme-eiot #main .hero-top{min-height: 0px;}
+.theme-eiot #main .section{padding: 48px 0px;}
+.theme-eiot #main .cap-card{padding: 22px;}
+.theme-eiot #main .domain-grid article,.theme-eiot #main .domain-grid article:last-child{padding: 24px;}
+.theme-eiot #main .domain-grid h3{font-size: 1.5rem;}
+.theme-eiot #main .process-grid{gap: 9px;}}
+@media (max-width: 560px) {.theme-eiot #main .hero h1{font-size: 2.45rem; line-height: 1.1; letter-spacing: -1.5px;}
+.theme-eiot #main .hero .eyebrow{font-size: 0.75rem;}
+.theme-eiot #main .hero .lede{font-size: 1rem;}
+.theme-eiot #main .hero-scope{font-size: 0.6875rem; gap: 7px 13px;}
+.theme-eiot #main .mobile-system span{border-radius: 3px; background: rgb(255, 255, 255);}
+.theme-eiot #main .system-caption{font-size: 0.75rem;}
+.theme-eiot #main .section{padding: 40px 0px;}
+.theme-eiot #main .cap-card{padding: 24px;}
+.theme-eiot #main .cap-card ul{grid-template-columns: 1fr;}
+.theme-eiot #main .fit-scope{font-size: 0.75rem;}
+.theme-eiot #main .ai-heading h2{font-size: 1.55rem;}
+.theme-eiot #main .reviews-grid blockquote{font-size: 1.3rem;}
+.theme-eiot #main .process-grid{gap: 12px;}
+.theme-eiot #main .process-loop span{font-size: 0.6875rem;}
+.theme-eiot #main .domain-grid article:last-child{border-left: 0px; border-top: 1px solid rgb(207, 222, 234);}
+.theme-eiot #main .domain-grid h3{font-size: 1.65rem;}
+.theme-eiot #main .final-cta{padding: 42px 0px;}
+.theme-eiot #main .final-cta h2{font-size: 1.9rem;}}
