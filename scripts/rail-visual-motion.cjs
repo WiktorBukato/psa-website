@@ -69,7 +69,7 @@ async function difference(a,b){
   await scan.evaluate(e=>e.getAnimations().forEach(a=>a.currentTime=225));const scanB=await hero.screenshot();
   const scanDelta=await difference(scanA,scanB);check(scanDelta.pixels>1000,'Scan lines visibly move between video frames',scanDelta);
   for(const [name,input]of [['scan-a',scanA],['scan-b',scanB]])await sharp(input).extract({left:1270,top:30,width:320,height:160}).resize(960,480).png().toFile(path.join(out,`${name}.png`));
-  await page.locator('.scene-inspect-toggle').click();await page.selectOption('#scene-asset','RS-01');
+  await page.locator('[data-asset="RS-01"]').focus();
   // The inspector card can cover this train on wide screens. Hide only the QA
   // controls while retaining the real selected state and its SVG animations.
   const hideCard=await page.addStyleTag({content:'.scene-inspector,.scene-card{visibility:hidden!important}'});
@@ -84,7 +84,7 @@ async function difference(a,b){
   await tracer.evaluate(e=>e.getAnimations().forEach(a=>a.currentTime=1800));const traceB=await hero.screenshot();
   const traceDelta=await difference(traceA,traceB);check(traceDelta.pixels>5,'The highlight travels independently of contour breathing',traceDelta);
   await hideCard.evaluate(e=>e.remove());
-  await page.locator('.scene-motion-toggle').click();
+  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(100);
   check(await hero.evaluate(e=>e.getAnimations({subtree:true}).filter(a=>!a.transitionProperty).every(a=>a.playState!=='running')),'Pause also suspends the contour highlight and rolling band');
   await page.keyboard.press('Escape');
   await page.emulateMedia({reducedMotion:'reduce'});

@@ -62,16 +62,11 @@
 .scene-light-core{fill:#fff0c7;filter:drop-shadow(0 0 2px #ffd79d)}
 .scene-light-halo{fill:#ffd28d;opacity:calc(.32 * var(--light-energy,1));filter:blur(1.7px)}
 .scene-signal{visibility:hidden;pointer-events:none}
-.ambient-running .scene-signal,.light-debug .scene-signal{visibility:visible}
+.ambient-running .scene-signal{visibility:visible}
 .signal-lamp-red,.signal-lamp-green{opacity:0}
 .signal-lamp-red{fill:#ff4b31;filter:drop-shadow(0 0 1.5px #ff4627)}
 .signal-lamp-green{fill:#62ff9a;filter:drop-shadow(0 0 1.5px #46ff81)}
 .signal-halo{opacity:.32;filter:blur(1.6px)}
-.rail-hero.light-debug{--debug-light:#b6ff00}
-.rail-hero.light-debug .scene-light{display:inline;opacity:1}
-.light-debug .scene-light-core{fill:var(--debug-light);filter:drop-shadow(0 0 2px var(--debug-light))}
-.light-debug .scene-light-halo{fill:var(--debug-light)}
-.light-debug :is(.signal-lamp-red,.signal-lamp-green){opacity:1;fill:var(--debug-light);filter:drop-shadow(0 0 1.5px var(--debug-light))}
 .scene-aircraft{opacity:0;pointer-events:none}
 .aircraft-light{fill:#fff1d9;filter:drop-shadow(0 0 2px #fff0bd);animation:aircraft-blink 1.6s ease-in-out infinite;animation-play-state:paused}
 .scene-scanlines{position:absolute;inset:-8px 0;pointer-events:none;background:repeating-linear-gradient(0deg,#0000 0 2px,#03131666 2px 3px,#bfd8ce12 3px 4px);opacity:.48;animation:interlace-drift 1.2s linear infinite;animation-play-state:paused}
@@ -83,29 +78,17 @@
 @keyframes contour-breathe{0%,100%{stroke-width:1.25;opacity:.78}50%{stroke-width:1.8;opacity:1}}
 @keyframes contour-travel{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
 .rail-hero-content{pointer-events:none;z-index:2}.rail-hero .hero-copy{pointer-events:auto}
-.scene-controls{position:absolute;z-index:4;right:4.2%;bottom:14px;display:flex;gap:8px}
-.scene-controls[hidden],.rail-scene[hidden],.scene-inspector[hidden],.scene-card[hidden],.scene-card-content[hidden]{display:none}
-.scene-controls button{font:10px/1.2 var(--mono);letter-spacing:.25px;color:#bfd4d4;background:#032324b8;border:1px solid #81b6b332;border-radius:3px;min-height:38px;padding:8px 12px;display:flex;align-items:center;gap:9px;cursor:pointer;backdrop-filter:blur(8px);transition:border-color .2s,background .2s}
-.scene-controls button:hover{border-color:#ffab7688;background:#0d3434ed}.scene-controls button:disabled{cursor:default;opacity:.7}
-.scene-controls .scene-debug-toggle[aria-pressed=true]{color:var(--debug-light);border-color:var(--debug-light);background:#102d1ded}
-.scene-controls button:focus-visible,.scene-inspector select:focus-visible{outline:2px solid #ffc393;outline-offset:3px}
-.scene-inspector,.scene-card{position:absolute;z-index:5;color:#dcebec;background:#062b2de8;border:1px solid #cb98665e;border-radius:4px;box-shadow:0 10px 34px #00141477;backdrop-filter:blur(12px);padding:16px;max-width:calc(100% - 32px)}
-.scene-inspector{right:4.2%;bottom:62px;width:300px;font-size:12px}
-.scene-inspector label{font:10px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:9px;color:#9bd3d1}
-.scene-inspector select{width:100%;font:12px/1.5 Arial,sans-serif;color:#dcebec;background:#0d3637;border:1px solid #567e7c;border-radius:3px;min-height:40px;padding:7px}
-.theme-rail #main .scene-inspector p{font-size:10px;color:#9cbdbf;margin-top:9px}
-.scene-card{width:264px;padding:14px;background:#062b2d99;border-color:#cb986650;box-shadow:0 8px 26px #00141438;backdrop-filter:blur(4px);pointer-events:none}
+.scene-card{position:absolute;z-index:5;width:264px;max-width:calc(100% - 32px);padding:14px;color:#dcebec;background:#062b2d99;border:1px solid #cb986650;border-radius:4px;box-shadow:0 8px 26px #00141438;backdrop-filter:blur(4px);pointer-events:none}
 .scene-asset-id{display:block;color:#ffae77;letter-spacing:1.3px;font:11px/1.3 var(--mono);margin-bottom:6px}
 .theme-rail #main .scene-card h3{font:500 16px/1.3 Arial,sans-serif;margin:0 0 12px;color:#e1eded}
 .scene-card dl{margin:0;font-size:11px;line-height:1.45}.scene-card dl>div{display:grid;grid-template-columns:58px 1fr;gap:10px;margin-top:5px}.scene-card dt{color:#7faeb1}.scene-card dd{margin:0;color:#c9dcdd}
 .rail-motion-paused .motion-icon *,.rail-motion-paused .icon-gear{animation:none!important}
 .rail-motion-paused .scene-outline,.rail-motion-paused .scene-tracer{animation-play-state:paused}
 @media(max-width:760px){
+ .scene-card{width:280px}.scene-scanlines{opacity:.32}
  .ecosystem-track{display:none}.environment-nodes>a{border-top:0}
  .environment-nodes>a>.ecosystem-mini-track{display:block;position:absolute;left:0;top:50px;width:100%;height:19px;margin:0;pointer-events:none;overflow:visible}
  .environment-nodes>a>svg:not(.ecosystem-mini-track){margin-bottom:22px}.route-dot{display:block;top:50px;width:9px;height:9px}
- .scene-controls{right:20px;left:20px;bottom:13px;justify-content:flex-end;gap:7px}.scene-controls button{min-height:44px;font-size:9px;padding:8px 6px;gap:5px;white-space:nowrap}
- .scene-inspector{right:20px;bottom:65px;width:300px}.scene-card{width:280px}.scene-scanlines{opacity:.32}
 }
 @media(prefers-reduced-motion:reduce){
  .theme-rail #main *, .theme-rail #main *:before,.theme-rail #main *:after{animation:none!important;transition:none!important}
@@ -113,11 +96,8 @@
  .rail-cap:is(:hover,:focus-visible) .code-cursor{opacity:1}
 }
 
-/* Two overlapping passes keep clouds moving in one direction without a reset seam. */
-.scene-clouds{opacity:0;pointer-events:none}
-.sky-ready .scene-clouds{opacity:var(--cloud-opacity)}
-.cloud-drift{animation:cloud-pass var(--cloud-duration) linear infinite;animation-play-state:paused}
-.cloud-drift-1{animation-delay:var(--cloud-half-duration)}
-.ambient-running .cloud-drift{animation-play-state:running}
-@keyframes cloud-pass{0%{opacity:0;transform:translateX(0)}15%,50%{opacity:1}65%,100%{opacity:0}100%{transform:translateX(var(--cloud-travel))}}
-@media(prefers-reduced-motion:reduce){.sky-ready .scene-clouds{display:none}}
+
+.rail-scene[hidden],.scene-card[hidden],.scene-card-content[hidden]{display:none}
+
+.scene-object:focus{outline:none}
+.scene-object:focus-visible .scene-outline{opacity:1;stroke:#ffc393;stroke-width:2}

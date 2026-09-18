@@ -16,7 +16,7 @@ function check(value,name){report.checks.push({name,passed:!!value});if(!value)t
    await page.goto(base+'rail/index.html',{waitUntil:'networkidle'});
    check(await page.locator('.rail-telemetry').count()===0,`${width}: static telemetry removed`);
    check(await page.locator('.scene-object').count()===require('../src/rail-scene.json').objects.length,`${width}: complete image object inventory`);
-   check(await page.locator('.scene-motion-toggle').isDisabled(),`${width}: reduced motion respected`);
+   check(await page.locator('.scene-controls,.scene-clouds').count()===0,`${width}: removed controls and cloud layer`);
    const registration=await page.evaluate(()=>{
     const hero=document.querySelector('.rail-hero').getBoundingClientRect(),plane=document.querySelector('.scene-image-plane').getBoundingClientRect(),img=document.querySelector('.rail-hero-picture img');
     const [px,py]=getComputedStyle(img).objectPosition.split(' ').map(parseFloat);
@@ -24,20 +24,17 @@ function check(value,name){report.checks.push({name,passed:!!value});if(!value)t
     return Math.max(Math.abs(plane.width-1983*scale),Math.abs(plane.height-793*scale),Math.abs(plane.left-hero.left-(hero.width-plane.width)*px/100),Math.abs(plane.top-hero.top-(hero.height-plane.height)*py/100));
    });
    check(registration<.1,`${width}: overlay follows exact image crop`);
-   if(width<800)await page.locator('.scene-inspect-toggle').tap();
-   else {await page.locator('.scene-inspect-toggle').focus();await page.keyboard.press('Enter');}
-   check(await page.locator('#scene-asset').evaluate(e=>document.activeElement===e),`${width}: keyboard opens inspector`);
-   for(const id of ['TRK-01','TRK-02','RS-01','RS-02','OLE-01','OLE-02','SIG-01','SIG-02','CAB-01','CAB-02']){
-    await page.selectOption('#scene-asset',id);
-    check(await page.locator(`.scene-object[data-asset="${id}"]`).evaluate(e=>e.classList.contains('is-selected')),`${width}: select ${id}`);
-    check(await page.locator(`[data-asset-card="${id}"]`).isVisible(),`${width}: correct card ${id}`);
+   for(const object of require('../src/rail-scene.json').objects){
+    await page.locator(`[data-asset="${object.id}"]`).focus();
+    check(await page.locator(`[data-asset="${object.id}"]`).evaluate(o=>o.classList.contains('is-selected')),`${width}: focus ${object.id}`);
+    check(await page.locator(`[data-asset-card="${object.id}"]`).isVisible(),`${width}: correct card ${object.id}`);
    }
    const inside=await page.evaluate(()=>{const h=document.querySelector('.rail-hero').getBoundingClientRect(),c=document.querySelector('.scene-card').getBoundingClientRect();return c.left>=h.left&&c.right<=h.right&&c.top>=h.top&&c.bottom<=h.bottom;});
    check(inside,`${width}: details fit hero`);
    await page.screenshot({path:path.join(out,`inspector-${width}.png`)});
    await page.keyboard.press('Escape');
-   check(await page.locator('.scene-card').isHidden()&&await page.locator('.scene-inspector').isHidden(),`${width}: Escape closes details`);
-   check(await page.locator('.scene-inspect-toggle').evaluate(e=>document.activeElement===e),`${width}: Escape returns focus`);
+   check(await page.locator('.scene-card').isHidden(),`${width}: Escape closes details`);
+   check(await page.locator('.scene-object[tabindex="0"]').evaluate(e=>document.activeElement===e),`${width}: Escape preserves keyboard focus`);
    const dot=page.locator('.route-dot').first();await dot.scrollIntoViewIfNeeded();
    check(await dot.evaluate(e=>getComputedStyle(e).backgroundColor)==='rgb(52, 124, 128)',`${width}: node starts teal`);
    await page.locator('.environment-nodes>a').first().focus();
@@ -59,11 +56,6 @@ function check(value,name){report.checks.push({name,passed:!!value});if(!value)t
   check(calls.some(c=>c.class==='scene-aircraft'),'Aircraft has a scheduled pass');
   check(calls.filter(c=>c.class==='scene-light').length>=5,'Independent lights start');
   check(new Set(calls.filter(c=>c.class==='scene-light').map(c=>c.time)).size>=5,'Lights do not share one clock');
-  await page.locator('.scene-motion-toggle').click();
-  check(await page.locator('.rail-hero').getAttribute('data-ambient-state')==='paused','Pause stops ambient');
-  check(await page.locator('.rail-hero').evaluate(e=>e.getAnimations({subtree:true}).filter(a=>a.effect.target.matches('.scene-light,.scene-aircraft,.aircraft-light,.scene-scanlines')).every(a=>a.playState!=='running')),'Pause cancels or suspends every ambient animation');
-  await page.locator('.scene-motion-toggle').click();
-  check(await page.locator('.rail-hero').getAttribute('data-ambient-state')==='running','Resume restarts ambient');
   // Use a real path hit inside the foreground signal, not a bounding-box hover.
   const point=await page.locator('[data-asset="SIG-01"]').evaluate(e=>{const s=e.ownerSVGElement,p=s.createSVGPoint();p.x=1618;p.y=448;const c=p.matrixTransform(s.getScreenCTM());return {x:c.x,y:c.y};});
   await page.mouse.move(point.x,point.y);await page.clock.runFor(300);
@@ -90,6 +82,10 @@ function check(value,name){report.checks.push({name,passed:!!value});if(!value)t
   await lifecycle.emulateMedia({reducedMotion:'reduce'});
   await lifecycle.waitForFunction(()=>document.querySelector('.rail-hero').dataset.ambientState==='paused');
   check(true,'Changing OS motion preference stops ambient immediately');
+  check(await lifecycle.locator('.rail-hero').evaluate(e=>e.getAnimations({subtree:true}).filter(a=>a.effect.target.matches('.scene-light,.scene-aircraft,.aircraft-light,.scene-scanlines')).every(a=>a.playState!=='running')),'Reduced motion suspends all ambient animations');
+  await lifecycle.emulateMedia({reducedMotion:'no-preference'});
+  await lifecycle.waitForFunction(()=>document.querySelector('.rail-hero').dataset.ambientState==='running');
+  check(true,'Restoring OS motion preference resumes ambient');
   await lifecycle.close();
   check(report.errors.length===0,'No JavaScript errors');report.passed=true;
  }catch(error){report.passed=false;report.errors.push(error.stack);process.exitCode=1;}
