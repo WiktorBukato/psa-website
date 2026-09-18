@@ -3,7 +3,7 @@ const path=require('node:path');
 const crypto=require('node:crypto');
 const site=require('../src/site.json');
 const {verifyRelease}=require('./releases.cjs');
-const version=process.argv[2]||'v0.1';
+const version=process.argv[2]||require('../src/site.json').releaseVersion;
 const release=JSON.parse(fs.readFileSync('docs/releases.json','utf8')).find(r=>r.version===version);
 if(!release)throw Error('Unknown release');
 const manifest=verifyRelease(path.join('docs',version),release.manifestSha256);

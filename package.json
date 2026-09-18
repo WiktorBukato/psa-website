@@ -1,7 +1,7 @@
 {
   "name": "psa-website",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Portable static PSA website with immutable versioned releases",
   "scripts": {
     "build": "node scripts/build.cjs",
@@ -9,5 +9,7 @@
     "test": "node scripts/browser-test.cjs",
     "release": "node scripts/release.cjs"
   },
-  "engines": { "node": ">=22" }
+  "engines": {
+    "node": ">=22"
+  }
 }

@@ -7,14 +7,40 @@
   "repository": "https://github.com/WiktorBukato/psa-website",
   "baseUrl": "https://wiktorbukato.github.io/psa-website",
   "navigation": [
-    { "label": "Expertise", "id": "expertise" },
-    { "label": "Our work", "id": "work" },
-    { "label": "How we work", "id": "process" },
-    { "label": "Industries", "id": "industries" },
-    { "label": "Contact", "id": "contact" }
+    {
+      "label": "Expertise",
+      "id": "expertise"
+    },
+    {
+      "label": "Our work",
+      "id": "work"
+    },
+    {
+      "label": "How we work",
+      "id": "process"
+    },
+    {
+      "label": "Industries",
+      "id": "industries"
+    },
+    {
+      "label": "Contact",
+      "id": "contact"
+    }
   ],
   "verticals": [
-    { "id": "eiot", "label": "Enterprise IoT", "title": "Engineering Partner for Connected Products", "description": "Hardware, firmware, cloud and enterprise integration. PSA engineers connected products from concept to deployment." },
-    { "id": "rail", "label": "Rail", "title": "Railway Systems Engineering", "description": "Railway signaling, embedded software, hardware, integration and verification. Engineering support across the rail system lifecycle." }
-  ]
+    {
+      "id": "eiot",
+      "label": "Enterprise IoT",
+      "title": "Engineering Partner for Connected Products",
+      "description": "Hardware, firmware, cloud and enterprise integration. PSA engineers connected products from concept to deployment."
+    },
+    {
+      "id": "rail",
+      "label": "Rail",
+      "title": "Railway Systems Engineering",
+      "description": "Railway signaling, embedded software, hardware, integration and verification. Engineering support across the rail system lifecycle."
+    }
+  ],
+  "releaseVersion": "v0.2"
 }

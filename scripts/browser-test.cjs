@@ -5,7 +5,7 @@ const {pathToFileURL}=require('node:url');
 const {dependency,chromeExecutable}=require('./tooling.cjs');
 const {chromium}=dependency('playwright');
 const site=require('../src/site.json');
-const version=process.argv[2]||'v0.1';
+const version=process.argv[2]||site.releaseVersion;
 const base=process.argv[3]||pathToFileURL(path.resolve('.staging',version)).href+'/';
 const live=base.startsWith('http');
 const evidence=path.resolve('evidence',version,live?'live':'local');
@@ -38,20 +38,31 @@ function assert(value,name){report.checks.push({name,passed:!!value});if(!value)
       assert(await menu.getAttribute('aria-expanded')==='false',`${label}: section link closes menu`);
       assert(new URL(page.url()).hash==='#work',`${label}: work anchor navigates`);
     }
+    for(const entry of site.navigation){
+      if(viewport.width<=900)await page.getByRole('button',{name:'Open menu',exact:true}).click();
+      await page.locator(`#navigation a[href="#${entry.id}"]`).click();
+      await page.waitForFunction(id=>document.querySelector(`#navigation a[href="#${id}"]`).getAttribute('aria-current')==='location',entry.id);
+      assert(true,`${label}: active menu follows ${entry.id}`);
+    }
     await page.locator('#contact').scrollIntoViewIfNeeded();
-    assert(await page.locator('.contact-banner .button').getAttribute('href').then(v=>v.startsWith(`mailto:${site.email}?subject=`)),`${label}: actionable contact CTA`);
-    await page.locator('.copy-email').click();
-    await page.waitForFunction(()=>document.querySelector('.copy-status').textContent.length>0);
-    assert((await page.locator('.copy-status').innerText()).length>0,`${label}: copy email success or explicit fallback`);
-    const details=page.locator('details').first();await details.locator('summary').click();assert(await details.getAttribute('open')!==null,`${label}: disclosure opens`);await details.locator('summary').click();
+    const contact=await page.locator('#contact .button').getAttribute('href');
+    assert(route.startsWith('rail')?contact.startsWith(`mailto:${site.email}?subject=`):contact===site.contactUrl,`${label}: actionable contact CTA`);
+    assert(await page.locator(`.site-footer a[href="mailto:${site.email}"]`).count()===1,`${label}: shared contact email`);
     if(route.startsWith('rail')){
-      for(const id of ['station','control','onboard','wayside']){
-        await page.locator(`[data-area="${id}"]`).click();
-        assert(await page.locator(`[data-panel="${id}"]`).isVisible(),`${label}: ${id} selector works`);
-        assert(await page.locator('[data-panel]:visible').count()===1,`${label}: one environment panel visible`);
+      assert(await page.locator('.rail-cap').count()===6,`${label}: six original capabilities`);
+      assert(await page.locator('.rail-case').count()===3,`${label}: three original case studies`);
+      for(const id of ['signaling','integration','software','hardware']){
+        const link=page.locator(`.environment-nodes a[href="#cap-${id}"]`);
+        await link.click();
+        assert(new URL(page.url()).hash===`#cap-${id}`,`${label}: ${id} ecosystem link`);
+        assert(await page.locator(`#cap-${id}`).getAttribute('href').then(v=>v.startsWith(`mailto:${site.email}?subject=`)),`${label}: ${id} inquiry destination`);
       }
-      await page.locator('[data-area="wayside"]').focus();await page.keyboard.press('ArrowRight');
-      assert(await page.locator('[data-area="station"]').getAttribute('aria-pressed')==='true',`${label}: keyboard environment navigation`);
+      await page.locator('.environment-nodes a').first().focus();await page.keyboard.press('Enter');
+      assert(new URL(page.url()).hash==='#cap-signaling',`${label}: keyboard ecosystem navigation`);
+    }else{
+      assert(await page.locator('.cap-card').count()===6,`${label}: six original capabilities`);
+      assert(await page.locator('.system-visual img').getAttribute('src')==='../assets/hero-reference.png',`${label}: original hero illustration`);
+      assert(await page.locator('.domain-grid a[href="../rail/index.html"]').count()===1,`${label}: rail domain links to this version`);
     }
     const other=route.startsWith('rail')?'eiot':'rail';
     await page.locator(`.vertical-switch a[href="../${other}/index.html"]`).click();
@@ -64,7 +75,7 @@ function assert(value,name){report.checks.push({name,passed:!!value});if(!value)
    const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});
    const page=await context.newPage();await page.goto(base+`${route}/index.html`);
    assert(await page.locator('#navigation').isVisible(),`${route}: navigation without JavaScript`);
-   if(route==='rail')assert(await page.locator('[data-panel]:visible').count()===4,'rail: all environment content without JavaScript');
+   if(route==='rail')assert(await page.locator('.environment-nodes a:visible').count()===4,'rail: all environment content without JavaScript');
    await context.close();
   }
   // Enlarged text without shrinking the viewport.

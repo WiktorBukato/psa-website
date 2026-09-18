@@ -6,11 +6,12 @@
 - eIoT authority: the supplied `psa-landing-source.zip` (preserved locally in `reference/eiot`). Rail visual authority: root `image 1.png`. The other two images are alternatives, not the baseline.
 - Preserve the light/blue eIoT and dark/petrol/orange Rail contrast. Navigation composition, logo, contact data and interaction conventions are shared.
 - Never silently redesign an unaffected section. First record intended changes and affected shared components in `reports/<version>-changes.md`.
+- Owner correction 2026-09-18: aim for near-exact visual AND textual fidelity, not an interpretation. eIoT must reproduce the supplied HTML/CSS/assets; Rail must reproduce image 1, including photos, icons, decorations, backgrounds, composition and copy. Preserve only the explicitly approved v0.1 departures: generated Rail hero photo, common header/footer changing palette only, and the restrained blue/orange gradient lines. Do not replace images with approximate SVG illustrations or rewrite case titles/copy. Missing destinations and source-only claims belong in the marketing report.
 
 ## Architecture
 - Deliver plain HTML/CSS/JS/resources. Every version must work by opening its `index.html` directly using file://; no backend, dev server, port, package installation or build is required to VIEW it.
 - Node is development tooling only. The build uses the standard library. Use the existing centralized Playwright/Sharp installations via ignored `tools.local.json` for QA/asset processing. Read the shared ENVIRONMENT.md before installing tools.
-- Edit `src/` and `scripts/`, never published output. Shared site identity/contact/navigation lives in `src/site.json`; the shared header/footer/contact templates in `scripts/build.cjs`; tokens and shared components in `src/site.css`.
+- Edit `src/` and `scripts/`, never published output. Shared site identity/contact/navigation lives in `src/site.json`; shared header/footer templates in `scripts/build.cjs`; shared tokens/components in `src/site.css`. Vertical content is `src/pages/<vertical>.html`, vertical styles `src/styles/<vertical>.css`. eIoT styles are scoped to its main to protect the approved shell.
 - Icons are pre-rendered from a local Lucide subset (`src/icons.json`). No runtime CDN, external fonts, analytics, cookie storage or remote JS.
 - All vertical-to-vertical links are version-relative and use explicit index.html for file:// compatibility.
 - Prefer HTML/SVG for interface graphics; maintain accessible native details, headings, labels, keyboard controls, focus indicators and reduced-motion support. Do not hide content permanently when JS is unavailable.
@@ -28,16 +29,16 @@
 ## Required regression gate for EVERY version
 1. Write scope and expected visual/behavior changes. Enumerate all affected verticals for changes to shared code.
 2. Build and run static validation: `node scripts/check.cjs vX.Y`.
-3. Run `node scripts/browser-test.cjs vX.Y`. It opens actual files, checks 320/390/768/844-landscape/1440/1920/2560, links, images, mobile menu/Escape, disclosures, rail selectors and keyboard, contact/copy fallback, no-JS and enlarged text; saves full-page screenshots under `evidence/vX.Y/local/`.
+3. Run `node scripts/browser-test.cjs vX.Y`. It opens actual files, checks 320/390/768/844-landscape/1440/1920/2560, links, images, mobile menu/Escape, all menu anchors and active states, rail ecosystem links/keyboard, real contact destinations, no-JS and enlarged text; saves full-page screenshots under `evidence/vX.Y/local/`.
 4. Inspect desktop/mobile screenshots for BOTH verticals and the gateway, including below-fold sections. Automated checks alone do not establish visual quality.
 5. For the second and later releases run `node scripts/compare.cjs OLD NEW`; inspect the side-by-side/diff evidence. Document why every changed region is intended, and explicitly record unchanged-section results. Never auto-approve a pixel mismatch.
-6. Save `evidence/vX.Y/visual-review.json` with matching manifestSha256, reviewed: true, reviewer, scope, findings and (when applicable) comparison report path. Do this only after actual visual inspection.
+6. Save `evidence/vX.Y/visual-review.json` with matching manifestSha256, reviewed: true, reviewer, scope, findings and (when applicable) comparison report path. Do this only after actual visual inspection. For fidelity restoration, also run `scripts/eiot-fidelity.cjs` and `scripts/shell-regression.cjs`; list their QA files in `additionalChecks`, which the release gate verifies against the same manifest. Only normalize explicitly documented differences, such as the original mobile headline's missing whitespace; never waive an unexplained pixel difference.
 7. Freeze, commit and push. Wait for successful Pages deployment. Re-run browser QA with the public version URL, and `node scripts/verify-live.cjs vX.Y` for HTTP and SHA-256 verification of every file.
 8. Report exact evidence and limits. Browser emulation is not a physical phone test; installed Chrome is not Safari/Firefox. External mail clients and third-party forms are outside local E2E proof.
 
 ## Content and marketing
 - Do not invent customer results, names, certifications, event participation, booth numbers or booked meetings. Reference imagery is not factual evidence.
-- Approved factual source for this iteration: supplied eIoT copy/assets plus currently verified public PSA pages. Source/claim log and unresolved ownership are in local `reports/`.
+- v0.2 copy authority: supplied eIoT copy/assets and Rail image 1, per the owner's explicit fidelity correction. Reproducing source copy is not independent verification of Rail case claims/certifications. Preserve that copy and record required business substantiation in `reports/`; do not silently replace titles with unrelated verified projects.
 - CTA currently uses general sales@psa.inc and the existing PSA contacts page; the owner said the exhibition CTA is not yet defined. Never implement a pretend form or pretend success.
 - APTA TRANSform & EXPO 2026 is October 4–7, Chicago; EXPO floor October 5–7, McCormick Place. These dates were verified 2026-09-17. Owner has not confirmed exact event participation/booth. Keep event promotion off the site until confirmed.
 - Maintain `reports/MARKETING-BACKLOG.md` with gaps, exact destination or interim behavior, owner, priority and acceptance criteria. Keep review deployment noindex until a production indexing decision.

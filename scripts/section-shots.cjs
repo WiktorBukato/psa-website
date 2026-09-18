@@ -3,7 +3,7 @@ const {chromium}=dependency('playwright');
 const {pathToFileURL}=require('node:url');
 const path=require('node:path');
 const fs=require('node:fs');
-const version=process.argv[2]||'v0.1';
+const version=process.argv[2]||require('../src/site.json').releaseVersion;
 (async()=>{const browser=await chromium.launch({executablePath:chromeExecutable});const out=path.join('evidence',version,'sections');fs.mkdirSync(out,{recursive:true});
 for(const [route,id,width,height] of [['eiot','main',390,844],['eiot','ecosystem',390,844],['eiot','work',390,844],['rail','environment',390,844],['rail','contact',390,844],['rail','work',1440,900],['rail','environment',1440,900],['eiot','expertise',1440,900]]){
 const page=await browser.newPage({viewport:{width,height},reducedMotion:'reduce'});await page.goto(pathToFileURL(path.resolve('.staging',version,route,'index.html')).href);

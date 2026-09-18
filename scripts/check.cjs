@@ -1,7 +1,7 @@
 const fs=require('node:fs');
 const path=require('node:path');
 const crypto=require('node:crypto');
-const version=process.argv[2]||'v0.1';
+const version=process.argv[2]||require('../src/site.json').releaseVersion;
 const root=path.resolve(process.argv[3]||path.join('.staging',version));
 let checks=0;
 function assert(value,message){checks++;if(!value)throw Error(message);}
@@ -32,8 +32,10 @@ for(const file of htmlFiles){
 }
 const nav=htmlFiles.slice(1).map(file=>fs.readFileSync(path.join(root,file),'utf8').match(/<nav class="nav"[^>]*>([\s\S]*?)<\/nav>/)[1]);
 assert(nav[0]===nav[1],'Main navigation differs between verticals');
-const css=fs.readFileSync(path.join(root,'assets/site.css'),'utf8');
-for(const match of css.matchAll(/url\(['"]?([^)'"\s]+)['"]?\)/g))assert(fs.existsSync(path.resolve(root,'assets',match[1])),`Broken CSS asset ${match[1]}`);
+for(const name of fs.readdirSync(path.join(root,'assets')).filter(n=>n.endsWith('.css'))){
+ const css=fs.readFileSync(path.join(root,'assets',name),'utf8');
+ for(const match of css.matchAll(/url\(['"]?([^)'"\s]+)['"]?\)/g))if(!match[1].startsWith('#'))assert(fs.existsSync(path.resolve(root,'assets',match[1])),`Broken CSS asset ${match[1]}`);
+}
 verifyManifest(root);
 if(fs.existsSync('docs/releases.json'))for(const release of JSON.parse(fs.readFileSync('docs/releases.json','utf8')))require('./releases.cjs').verifyRelease(path.resolve('docs',release.version),release.manifestSha256);
 console.log(`PASS: ${checks} static, navigation and release-integrity checks`);

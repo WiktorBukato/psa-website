@@ -6,16 +6,18 @@ Two connected engineering verticals: Enterprise IoT and Rail. Built as a portabl
 
 ## No server required
 
-Open `docs/v0.1/index.html` in a browser, or copy the complete `docs/v0.1` directory to any static host. The deployed files use no server-side code, remote runtime dependencies, installation step or special port. Contact actions open an email client or the existing PSA contact page; no leads are stored by this site.
+Open `docs/v0.2/index.html` in a browser, or copy the complete `docs/v0.2` directory to any static host. The deployed files use no server-side code, remote runtime dependencies, installation step or special port. Contact actions open an email client or the existing PSA contact page; no leads are stored by this site.
 
 ## Development
 
-Node.js 22+ is used only to build and verify releases. `src/site.json` owns shared navigation and contact data. `src/pages` owns page content. `scripts/build.cjs` owns shared templates; it renders the local Lucide subset as inline SVG. The original eIoT reference was imported once; rebuilding does not require it.
+Node.js 22+ is used only to build and verify releases. `src/site.json` owns shared navigation, contact data and the current development version. `src/pages` owns page content; `src/styles` owns the vertical styles. `scripts/build.cjs` owns shared templates; it renders local Lucide and reference-matched line icons as inline SVG. The original eIoT reference was imported once; rebuilding does not require it. `scripts/import-reference-design.cjs` is an explicit one-time restoration tool, not part of the build.
 
 ```
 node scripts/build.cjs v0.2
 node scripts/check.cjs v0.2
 node scripts/browser-test.cjs v0.2
+node scripts/eiot-fidelity.cjs
+node scripts/shell-regression.cjs
 node scripts/compare.cjs v0.1 v0.2
 # Inspect evidence; write the matching visual-review.json only after review.
 node scripts/release.cjs v0.2
@@ -29,6 +31,8 @@ Each `docs/vX.Y` directory is a complete immutable website with its own assets. 
 
 ## Content status
 
-This is an English review release for exhibition preparation, with search indexing disabled. Rail design follows the supplied dark/orange concept. Public PSA content is used for the case-study destinations. The exhibition-specific CTA is still a marketing decision; the current contact is the general sales address. The rail hero is a generated illustration, not a customer-project photograph.
+This is an English review release for exhibition preparation, with search indexing disabled. v0.2 restores the owner's eIoT source and Rail image 1, retaining the approved shared header/footer, generated Rail hero and restrained gradient lines. Rail case photography is displayed directly from the unchanged reference bitmap through CSS windows; higher-resolution source photographs are still needed for a later asset upgrade. Rail case titles and claims reproduce the supplied design; missing case pages open an email inquiry instead of an unrelated case. The exhibition-specific CTA is still a marketing decision. The rail hero is a generated illustration, not a customer-project photograph.
+
+The fidelity check requires the owner's local reference and compares eIoT main content at 390, 1440 and 1920 pixels. The shell check compares desktop/mobile header, footer and gateway against v0.1. These checks supplement the full responsive/functional matrix and manually reviewed comparisons. The original references and screenshots are not required to view or build a release.
 
 Reference files and private marketing/QA reports remain local. Icons are derived from Lucide under ISC; see `THIRD-PARTY-NOTICES.md`.

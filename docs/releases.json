@@ -3,5 +3,10 @@
     "version": "v0.1",
     "date": "2026-09-17",
     "manifestSha256": "50b8dd271eec7c6ea9d64afe67ae0bf36d26ad072275591bbcff37e074f33805"
+  },
+  {
+    "version": "v0.2",
+    "date": "2026-09-18",
+    "manifestSha256": "031c011d4aa5a43911fd52c614e4ae8a11209f83b74c390ac087b5f697698a9a"
   }
 ]

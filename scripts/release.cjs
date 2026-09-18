@@ -15,6 +15,10 @@ const qa=JSON.parse(fs.readFileSync(path.join('evidence',version,'local','qa.jso
 const review=JSON.parse(fs.readFileSync(path.join('evidence',version,'visual-review.json'),'utf8'));
 if(!qa.passed||qa.manifestSha256!==hash)throw Error('Current build has not passed browser QA.');
 if(!review.reviewed||!review.reviewer||!review.scope||review.manifestSha256!==hash)throw Error('Current build has not passed visual review.');
+for(const file of review.additionalChecks||[]){
+ const check=JSON.parse(fs.readFileSync(file,'utf8'));
+ if(!check.passed||check.manifestSha256!==hash)throw Error(`Missing or stale scoped QA: ${file}`);
+}
 if(registry.length){
   if(!review.comparison)throw Error('A previous-release visual comparison is required.');
   const compare=JSON.parse(fs.readFileSync(review.comparison,'utf8'));
