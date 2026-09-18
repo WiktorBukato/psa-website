@@ -1,0 +1,19 @@
+{
+  "width": 1983,
+  "height": 793,
+  "disclaimer": "Illustrative asset map · not live telemetry",
+  "objects": [
+    {"id":"TRK-01","name":"Approach track","group":"Track infrastructure","detail":"Curved approach into the station throat","point":[1475,600],"path":"M1329 793C1400 703 1499 582 1463 456C1447 424 1547 385 1576 346C1590 327 1596 317 1598 307M1417 793C1489 665 1517 580 1525 520C1534 457 1594 395 1607 347C1610 331 1605 317 1602 307","strokeOnly":true},
+    {"id":"TRK-02","name":"Converging track","group":"Track infrastructure","detail":"Converging alignment through the junction","point":[1260,597],"path":"M807 793C1109 650 1334 554 1453 444S1549 342 1578 309M958 793C1212 649 1380 538 1480 433S1565 338 1582 309","strokeOnly":true},
+    {"id":"RS-01","name":"Passenger train","group":"Rolling stock","detail":"Passenger consist · three-quarter rear view","point":[1833,369],"path":"M1759 334L1776 333 1869 359 1886 374 1885 407 1865 418 1834 408 1759 359Z"},
+    {"id":"RS-02","name":"Station-side train","group":"Rolling stock","detail":"Passenger consist beside the station approach","point":[1302,336],"path":"M1226 331L1429 306 1452 308 1454 323 1241 356 1226 350Z"},
+    {"id":"OLE-01","name":"Overhead-line mast","group":"Electrification","detail":"Mast supporting the overhead-line system","point":[1890,233],"path":"M1879 79L1897 75 1902 791 1871 791Z"},
+    {"id":"OLE-02","name":"Overhead-line mast","group":"Electrification","detail":"Lattice support beside the approach tracks","point":[1761,270],"path":"M1755 185L1765 184 1766 459 1753 454Z"},
+    {"id":"SIG-01","name":"Colour-light signal","group":"Wayside signaling","detail":"Lineside indication for approaching trains","point":[1618,448],"path":"M1605 416L1619 413 1628 423 1631 465 1622 472 1626 788 1614 788 1614 472 1605 468Z"},
+    {"id":"SIG-02","name":"Colour-light signal","group":"Wayside signaling","detail":"Signal head and supporting post","point":[1652,372],"path":"M1643 350L1655 350 1661 364 1663 393 1657 400 1661 487 1652 491 1650 400 1643 395Z"},
+    {"id":"CAB-01","name":"Lineside cabinet","group":"Wayside equipment","detail":"Outdoor enclosure for field equipment","point":[1664,649],"path":"M1637 583L1683 585 1693 599 1695 714 1638 709Z"},
+    {"id":"CAB-02","name":"Lineside cabinet","group":"Wayside equipment","detail":"Trackside equipment enclosure","point":[1743,657],"path":"M1719 613L1753 611 1767 624 1769 710 1722 707Z"}
+  ],
+  "lights": [[987,306,1.3],[1001,304,1],[1054,314,1.1],[1126,303,1.2],[1245,301,1.4],[1306,294,1],[1383,301,1],[1428,299,1.4],[1492,297,1.1],[1554,294,1.2],[1650,300,1],[1714,298,1.1],[1785,298,1.4],[1841,298,1],[1943,297,1.2],[1802,466,1.5],[1668,657,1.2],[1704,207,0.9],[1256,239,0.8],[1374,246,0.9]],
+  "sources": ["https://www.networkrail.co.uk/stories/signals-explained/", "https://www.networkrail.co.uk/rail-travel/delays-explained/overhead-line-equipment-failures/"]
+}

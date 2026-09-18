@@ -6,21 +6,22 @@ Two connected engineering verticals: Enterprise IoT and Rail. Built as a portabl
 
 ## No server required
 
-Open `docs/v0.2/index.html` in a browser, or copy the complete `docs/v0.2` directory to any static host. The deployed files use no server-side code, remote runtime dependencies, installation step or special port. Contact actions open an email client or the existing PSA contact page; no leads are stored by this site.
+Open `docs/v0.3/index.html` in a browser, or copy the complete `docs/v0.3` directory to any static host. The deployed files use no server-side code, remote runtime dependencies, installation step or special port. Contact actions open an email client or the existing PSA contact page; no leads are stored by this site.
 
 ## Development
 
 Node.js 22+ is used only to build and verify releases. `src/site.json` owns shared navigation, contact data and the current development version. `src/pages` owns page content; `src/styles` owns the vertical styles. `scripts/build.cjs` owns shared templates; it renders local Lucide and reference-matched line icons as inline SVG. The original eIoT reference was imported once; rebuilding does not require it. `scripts/import-reference-design.cjs` is an explicit one-time restoration tool, not part of the build.
 
 ```
-node scripts/build.cjs v0.2
-node scripts/check.cjs v0.2
-node scripts/browser-test.cjs v0.2
-node scripts/eiot-fidelity.cjs
+node scripts/build.cjs v0.3
+node scripts/check.cjs v0.3
+node scripts/browser-test.cjs v0.3
+node scripts/rail-motion-test.cjs v0.3
+node scripts/rail-preservation.cjs v0.3
 node scripts/shell-regression.cjs
-node scripts/compare.cjs v0.1 v0.2
+node scripts/compare.cjs v0.2 v0.3
 # Inspect evidence; write the matching visual-review.json only after review.
-node scripts/release.cjs v0.2
+node scripts/release.cjs v0.3
 ```
 
 Browser QA and image conversion use Playwright and Sharp as **development-only** tools. Reuse a centralized installation through an ignored `tools.local.json` with `moduleDirectory` and `chromeExecutable`, or make those modules resolvable by Node. The current machine uses installed Chrome; no browser download is needed. Main build and integrity scripts use only Node's standard library.
@@ -36,3 +37,9 @@ This is an English review release for exhibition preparation, with search indexi
 The fidelity check requires the owner's local reference and compares eIoT main content at 390, 1440 and 1920 pixels. The shell check compares desktop/mobile header, footer and gateway against v0.1. These checks supplement the full responsive/functional matrix and manually reviewed comparisons. The original references and screenshots are not required to view or build a release.
 
 Reference files and private marketing/QA reports remain local. Icons are derived from Lucide under ISC; see `THIRD-PARTY-NOTICES.md`.
+
+## Rail interaction layer (v0.3)
+
+Rail adds interaction-triggered capability icons, perspective ecosystem rails, and a subtle animated hero. `src/rail-scene.json` owns the source-image coordinates, illustrative object identifiers, descriptions and light positions. `scripts/rail-components.cjs` emits the inline SVG; `src/scripts/rail.js` registers it against the responsive image crop. No image processing or request is needed at runtime. Existing copy and destinations are unchanged.
+
+Hover an outlined object or use **Explore scene** with touch/keyboard to inspect it. Labels are an illustrative asset map, not live telemetry or actual equipment identification. **Pause motion** stops ambient effects; OS reduced-motion preferences are honored. Ambient timers/animations stop when the hero is offscreen or the document is hidden. With JavaScript disabled the page retains its photograph and content. The Rail interaction script and styles are not loaded by eIoT or the gateway.
