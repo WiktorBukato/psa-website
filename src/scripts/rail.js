@@ -18,6 +18,7 @@
   const objects = [...svg.querySelectorAll('.scene-object')];
   const lights = [...svg.querySelectorAll('.scene-light')];
   const aircraft = svg.querySelector('.scene-aircraft');
+  const signals = [...svg.querySelectorAll('.scene-signal')];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const timers = new Set(), lightTimers = new Set(), animations = new Set();
   const source = svg.viewBox.baseVal;
@@ -36,13 +37,23 @@
   function shimmer(light,first=false) {
     later(()=>{
       if(!running||lightDebug)return;
-      animate(light,[{opacity:0},{opacity:random(.72,1),offset:.4},{opacity:.32,offset:.72},{opacity:0}],{duration:random(timing.lightDurationMin,timing.lightDurationMax),easing:'ease-in-out'});
+      const peak=Math.min(1,random(.72,1)*Number(light.dataset.energy));
+      animate(light,[{opacity:0},{opacity:peak,offset:.4},{opacity:peak*.4,offset:.72},{opacity:0}],{duration:random(timing.lightDurationMin,timing.lightDurationMax),easing:'ease-in-out'});
       shimmer(light);
     },first?random(timing.firstLightMin,timing.firstLightMax):random(timing.lightMin,timing.lightMax),lightTimers);
   }
   function stopLights() {
     for(const timer of lightTimers)clearTimeout(timer);lightTimers.clear();
-    for(const animation of animations)if(animation.effect.target.matches('.scene-light')){animation.cancel();animations.delete(animation);}
+    for(const animation of animations)if(animation.effect.target.matches('.scene-light,.signal-lamp-red,.signal-lamp-green')){animation.cancel();animations.delete(animation);}
+  }
+  function startLights() {
+    lights.forEach(light=>shimmer(light,true));
+    for(const signal of signals){
+      const options={duration:timing.signalDuration,iterations:Infinity,easing:'linear',delay:-Number(signal.dataset.phase)};
+      // Illustrative cycle, with a dark interval between aspects; never simultaneous.
+      animate(signal.querySelector('.signal-lamp-red'),[{opacity:1,offset:0},{opacity:1,offset:.36},{opacity:0,offset:.4},{opacity:0,offset:.96},{opacity:1,offset:1}],options);
+      animate(signal.querySelector('.signal-lamp-green'),[{opacity:0,offset:0},{opacity:0,offset:.44},{opacity:1,offset:.48},{opacity:1,offset:.87},{opacity:0,offset:.91},{opacity:0,offset:1}],options);
+    }
   }
   function fly(first=false) {
     later(()=>{
@@ -72,7 +83,7 @@
     stopLights();
     for(const timer of timers)clearTimeout(timer);timers.clear();
     for(const animation of animations)animation.cancel();animations.clear();
-    if(running){if(!lightDebug)lights.forEach(light=>shimmer(light,true));fly(true);}
+    if(running){if(!lightDebug)startLights();fly(true);}
   }
   function registerImage() {
     const rect=hero.getBoundingClientRect();
@@ -133,7 +144,7 @@
     lightDebug=!lightDebug;stopLights();
     hero.classList.toggle('light-debug',lightDebug);
     debugButton.setAttribute('aria-pressed',String(lightDebug));
-    if(!lightDebug&&running)lights.forEach(light=>shimmer(light,true));
+    if(!lightDebug&&running)startLights();
   });
   reduced.addEventListener('change',()=>updateMotion());
   document.addEventListener('visibilitychange',()=>updateMotion());

@@ -4,12 +4,12 @@ const path=require('node:path');
 const {dependency}=require('./tooling.cjs');
 const {sha}=require('./releases.cjs');
 const sharp=dependency('sharp');
-const [oldVersion,newVersion]=process.argv.slice(2);
+const [oldVersion,newVersion,oldEvidence]=process.argv.slice(2);
 if(!oldVersion||!newVersion)throw Error('Usage: node scripts/compare.cjs v0.1 v0.2');
-const oldDir=path.join('evidence',oldVersion,'local'),newDir=path.join('evidence',newVersion,'local');
+const oldDir=oldEvidence||path.join('evidence',oldVersion,'local'),newDir=path.join('evidence',newVersion,'local');
 const output=path.join('evidence',newVersion,`compare-${oldVersion}`);fs.mkdirSync(output,{recursive:true});
 (async()=>{
- const report={oldVersion,newVersion,newManifestSha256:sha(path.join('.staging',newVersion,'manifest.json')),comparisons:[],note:'Pixel differences require human review. Different screenshot heights are structural changes, never an automatic pass.'};
+ const report={oldVersion,newVersion,oldEvidenceDirectory:oldDir,newManifestSha256:sha(path.join('.staging',newVersion,'manifest.json')),comparisons:[],note:'Pixel differences require human review. Different screenshot heights are structural changes, never an automatic pass.'};
  const names=fs.readdirSync(oldDir).filter(n=>n.endsWith('.png'));
  for(const file of names){
   const old=path.join(oldDir,file),next=path.join(newDir,file);

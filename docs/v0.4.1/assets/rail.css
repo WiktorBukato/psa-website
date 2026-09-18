@@ -85,11 +85,18 @@
 .scene-object.is-selected .scene-tracer{opacity:.9;animation:contour-travel 4s linear infinite}
 .scene-light{opacity:0;pointer-events:none}
 .scene-light-core{fill:#fff0c7;filter:drop-shadow(0 0 2px #ffd79d)}
-.scene-light-halo{fill:#ffd28d;opacity:.32;filter:blur(1.7px)}
+.scene-light-halo{fill:#ffd28d;opacity:calc(.32 * var(--light-energy,1));filter:blur(1.7px)}
+.scene-signal{visibility:hidden;pointer-events:none}
+.ambient-running .scene-signal,.light-debug .scene-signal{visibility:visible}
+.signal-lamp-red,.signal-lamp-green{opacity:0}
+.signal-lamp-red{fill:#ff4b31;filter:drop-shadow(0 0 1.5px #ff4627)}
+.signal-lamp-green{fill:#62ff9a;filter:drop-shadow(0 0 1.5px #46ff81)}
+.signal-halo{opacity:.32;filter:blur(1.6px)}
 .rail-hero.light-debug{--debug-light:#b6ff00}
 .rail-hero.light-debug .scene-light{display:inline;opacity:1}
 .light-debug .scene-light-core{fill:var(--debug-light);filter:drop-shadow(0 0 2px var(--debug-light))}
 .light-debug .scene-light-halo{fill:var(--debug-light)}
+.light-debug :is(.signal-lamp-red,.signal-lamp-green){opacity:1;fill:var(--debug-light);filter:drop-shadow(0 0 1.5px var(--debug-light))}
 .scene-aircraft{opacity:0;pointer-events:none}
 .aircraft-light{fill:#fff1d9;filter:drop-shadow(0 0 2px #fff0bd);animation:aircraft-blink 1.6s ease-in-out infinite;animation-play-state:paused}
 .scene-scanlines{position:absolute;inset:-8px 0;pointer-events:none;background:repeating-linear-gradient(0deg,#0000 0 2px,#03131666 2px 3px,#bfd8ce12 3px 4px);opacity:.48;animation:interlace-drift 1.2s linear infinite;animation-play-state:paused}

@@ -16,5 +16,27 @@
         "after": "648d4cc777465794f8f7a8ee7ec19516928cc53d35e5285416dd2dff363961aa"
       }
     }
+  },
+  {
+    "id": "v0.4.1-rail-lights-signals-2026-09-18",
+    "version": "v0.4.1",
+    "authorization": "Owner explicitly requested cathedral placement/brightness corrections, 5–6× more ambient lights and decorative red-to-green signal switching in the same v0.4.1.",
+    "baseCommit": "d2990cfc36be329062b88ef8a64aa9ef5eca5264",
+    "beforeManifestSha256": "e3d02560eecfe306fc26a967381531748601aab06b1878e6d3b661d6e429e2ec",
+    "afterManifestSha256": "8313185bb531f758484283e8fb200bb6d0172bf529ecf598302c703584edba1c",
+    "files": {
+      "assets/rail.css": {
+        "before": "f48ce9b4b87e4d767f3861b74d1b09b9471dfb8b702667ef3fb0baff42b1f7c9",
+        "after": "bfeab032af864fa899c47a83ee1e1b775355245ef213c6fe463cba8d0e046132"
+      },
+      "assets/rail.js": {
+        "before": "154cde7bd0c7b77713bd260dacafdb5a134390c69572ef1bef1014ff0624b408",
+        "after": "9192ad4117ca23da288b8777fb7d82ee869b6f18eb8d7e3df8912eb94feebbab"
+      },
+      "rail/index.html": {
+        "before": "c64d390ebef82a624182f6305cc36235f72c7d904cd35effb7890014d51b9344",
+        "after": "eee1bc1223d09fddeabd78fd97c95ece43c9fe279175634d4a3cb80a018d5880"
+      }
+    }
   }
 ]
