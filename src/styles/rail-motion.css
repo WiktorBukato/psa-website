@@ -34,31 +34,43 @@
 @keyframes database-sync{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
 @keyframes check-write{0%,12%,100%{stroke-dashoffset:1}38%,72%{stroke-dashoffset:0}94%{stroke-dashoffset:1}}
 
-/* Oblique track: sleepers widen towards the near end; the rail heads catch the light. */
+/* Constant gauge and equal rail ends; sleeper angles converge toward the centre. */
 .environment-nodes:before,.environment-nodes:after{content:none}
-.ecosystem-track{position:absolute;left:0;top:calc(var(--flow-axis) - 5 * var(--u));width:100%;height:calc(24 * var(--u));overflow:visible;pointer-events:none}
+.ecosystem-track{position:absolute;left:0;top:calc(var(--flow-axis) - 5 * var(--u));width:100%;height:calc(16 * var(--u));overflow:visible;pointer-events:none}
+.environment-nodes>a>.ecosystem-mini-track{display:none}
 .track-bed{fill:#244c4820}.track-sleepers{stroke:#386461;stroke-width:6;opacity:.65}.track-steel{stroke:#2c6568;stroke-width:4;fill:none}.track-glint{stroke:#85b8b5;stroke-width:1;fill:none;opacity:.65}
 .route-dot{background:#347c80;border-color:#92bdb8;transition:background-color .3s,box-shadow .3s,border-color .3s,scale .3s;z-index:1}
 .environment-nodes>a:is(:hover,:focus-visible){background:#39605a22;transform:none}
 .environment-nodes>a:is(:hover,:focus-visible) .route-dot{background:var(--rail-orange);border-color:#ffd4ab;box-shadow:0 0 13px #ff844568;scale:1.12}
-.environment-nodes>a>svg{transition:transform .3s,filter .3s,color .3s}
-.environment-nodes>a:is(:hover,:focus-visible)>svg{transform:translateY(-3px);filter:drop-shadow(0 0 5px #70c7be33);color:#fff}
+.environment-nodes>a>svg:not(.ecosystem-mini-track){transition:transform .3s,filter .3s,color .3s}
+.environment-nodes>a:is(:hover,:focus-visible)>svg:not(.ecosystem-mini-track){transform:translateY(-3px);filter:drop-shadow(0 0 5px #70c7be33);color:#fff}
 
 /* All coordinates are registered against the same object-fit crop as the photograph. */
 .rail-scene{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .scene-image-plane{position:absolute;pointer-events:none}
 .scene-svg{display:block;width:100%;height:100%;overflow:visible;pointer-events:none}
-.scene-outline{fill:none;stroke:#ff944e;stroke-width:1.3;vector-effect:non-scaling-stroke;opacity:0;transition:opacity .22s;filter:drop-shadow(0 0 3px #ff844570);pointer-events:none}
+.scene-outline,.scene-detail,.scene-tracer{fill:none;stroke:#ff944e;stroke-width:1.3;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke;opacity:0;transition:opacity .22s;pointer-events:none}
+.scene-outline{filter:drop-shadow(0 0 3px #ff844570)}
+.scene-detail{stroke-width:.7}
+.scene-tracer{stroke:#ffe3b1;stroke-width:2.1;stroke-dasharray:6 94;filter:drop-shadow(0 0 3px #ffc586)}
 .scene-hit{fill:transparent;stroke:transparent;stroke-width:9;vector-effect:non-scaling-stroke;pointer-events:all;cursor:crosshair}
 .scene-hit-line{fill:none;stroke-width:16;pointer-events:stroke}
-.scene-object.is-selected .scene-outline{opacity:.94}
-.scene-light{fill:#ffda9d;opacity:0;filter:drop-shadow(0 0 2px #ffc682)}
+.scene-object.is-selected .scene-outline{opacity:.94;animation:contour-breathe 2.8s ease-in-out infinite}
+.scene-object.is-selected .scene-detail{opacity:.6}
+.scene-object.is-selected .scene-tracer{opacity:.9;animation:contour-travel 4s linear infinite}
+.scene-light{opacity:0;pointer-events:none}
+.scene-light-core{fill:#fff0c7;filter:drop-shadow(0 0 2px #ffd79d)}
+.scene-light-halo{fill:#ffd28d;opacity:.32;filter:blur(1.7px)}
 .scene-aircraft{opacity:0;pointer-events:none}
-.aircraft-light{fill:#ffe5cc;animation:aircraft-blink 2s ease-in-out infinite;animation-play-state:paused}
-.scene-scanlines{position:absolute;inset:-4px 0;pointer-events:none;background:repeating-linear-gradient(0deg,#0000 0 2px,#090e104a 2px 3px,#a6cbc708 3px 4px);opacity:.32;animation:interlace-drift 3.6s linear infinite;animation-play-state:paused}
-.ambient-running .scene-scanlines,.ambient-running .aircraft-light{animation-play-state:running}
-@keyframes interlace-drift{to{transform:translateY(4px)}}
-@keyframes aircraft-blink{0%,14%,100%{opacity:0}5%,9%{opacity:.85}}
+.aircraft-light{fill:#fff1d9;filter:drop-shadow(0 0 2px #fff0bd);animation:aircraft-blink 1.6s ease-in-out infinite;animation-play-state:paused}
+.scene-scanlines{position:absolute;inset:-8px 0;pointer-events:none;background:repeating-linear-gradient(0deg,#0000 0 2px,#03131666 2px 3px,#bfd8ce12 3px 4px);opacity:.48;animation:interlace-drift 1.2s linear infinite;animation-play-state:paused}
+.scene-scanband{position:absolute;left:0;right:0;top:-30%;height:28%;pointer-events:none;background:linear-gradient(0deg,transparent,#91c9bf09 28%,#91c9bf16 66%,transparent);animation:interlace-roll 7s linear infinite;animation-play-state:paused}
+.ambient-running .scene-scanlines,.ambient-running .scene-scanband,.ambient-running .aircraft-light{animation-play-state:running}
+@keyframes interlace-drift{to{transform:translateY(8px)}}
+@keyframes interlace-roll{to{top:105%}}
+@keyframes aircraft-blink{0%,48%,100%{opacity:.05}10%,32%{opacity:1}}
+@keyframes contour-breathe{0%,100%{stroke-width:1.25;opacity:.78}50%{stroke-width:1.8;opacity:1}}
+@keyframes contour-travel{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
 .rail-hero-content{pointer-events:none;z-index:2}.rail-hero .hero-copy{pointer-events:auto}
 .scene-controls{position:absolute;z-index:4;right:4.2%;bottom:14px;display:flex;gap:8px}
 .scene-controls[hidden],.rail-scene[hidden],.scene-inspector[hidden],.scene-card[hidden],.scene-card-content[hidden]{display:none}
@@ -77,15 +89,16 @@
 .theme-rail #main .scene-disclaimer{border-top:1px solid #50727166;margin:12px 0 0;padding-top:8px;font:9px/1.5 var(--mono);color:#8cb1b3;letter-spacing:.1px}
 .scene-card-close{position:absolute;right:3px;top:3px;width:30px;height:30px;background:transparent;border:0;color:#a2c1c1;font-size:20px;cursor:pointer}
 .rail-motion-paused .motion-icon *,.rail-motion-paused .icon-gear{animation:none!important}
+.rail-motion-paused .scene-outline,.rail-motion-paused .scene-tracer{animation-play-state:paused}
 @media(max-width:760px){
  .ecosystem-track{display:none}.environment-nodes>a{border-top:0}
- .environment-nodes>a:before{content:'';position:absolute;left:0;right:0;top:54px;height:13px;border-block:2px solid #58908f;background:repeating-linear-gradient(65deg,transparent 0 12px,#426d6966 12px 16px,transparent 16px 24px);transform:skewX(-15deg);pointer-events:none}
- .environment-nodes>a>svg{margin-bottom:22px}.route-dot{display:block;top:50px;width:9px;height:9px}
+ .environment-nodes>a>.ecosystem-mini-track{display:block;position:absolute;left:0;top:50px;width:100%;height:19px;margin:0;pointer-events:none;overflow:visible}
+ .environment-nodes>a>svg:not(.ecosystem-mini-track){margin-bottom:22px}.route-dot{display:block;top:50px;width:9px;height:9px}
  .scene-controls{right:20px;left:20px;bottom:13px;justify-content:flex-end;gap:7px}.scene-controls button{min-height:44px;font-size:9px;padding:8px 10px;gap:7px}
- .scene-inspector{right:20px;bottom:65px;width:300px}.scene-card{width:280px}.scene-scanlines{opacity:.2}
+ .scene-inspector{right:20px;bottom:65px;width:300px}.scene-card{width:280px}.scene-scanlines{opacity:.32}
 }
 @media(prefers-reduced-motion:reduce){
  .theme-rail #main *, .theme-rail #main *:before,.theme-rail #main *:after{animation:none!important;transition:none!important}
- .scene-light,.scene-aircraft,.scene-scanlines{display:none}
+ .scene-light,.scene-aircraft,.scene-scanlines,.scene-scanband{display:none}
  .rail-cap:is(:hover,:focus-visible) .code-cursor{opacity:1}
 }

@@ -20,7 +20,7 @@ const sharp=dependency('sharp');
     await page.evaluate(selected=>{for(const node of document.querySelector('#main').children)node.style.display=node.matches(selected)?'':'none';},section);
     const file=path.join(output,`${section.slice(1)}-${width}-${label}.png`);
     await page.locator(section).screenshot({path:file});(images[section]??=[]).push(file);
-    if(section==='.rail-capabilities'&&label==='new'){
+    if(previous==='v0.2'&&section==='.rail-capabilities'&&label==='new'){
       const box=await page.locator(section).boundingBox(),icon=await page.locator('.icon-checks').boundingBox();
       iconBounds[section]={left:icon.x-box.x,top:icon.y-box.y,right:icon.x-box.x+icon.width,bottom:icon.y-box.y+icon.height};
     }
