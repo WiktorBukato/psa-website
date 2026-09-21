@@ -53,3 +53,7 @@
 - Prefer architectural fixes, shared components and single sources of truth over local workarounds, duplicated strings and magic values. Check analogous behavior across pages.
 - User prefers C#/.NET where technically sound; plain HTML/CSS/JS with a small Node build is the native choice for this explicitly static site.
 - Do not delegate to subagents unless the user explicitly requests delegation.
+
+## Owner correction v0.7
+- Shared navigation order: Expertise, How we work, Industries, Our work, Contact; use the same source for header/mobile/footer.
+- Ecosystem geometry now follows scroll position, superseding the fixed equal-length v0.4 rails: wider gauge/upright sleepers at viewport bottom, narrow gauge/converging sleepers at top. Both horizontal rails extend beyond their outer sleeper intersections; the upper rail shortens with perspective. Preserve a static reduced-motion pose and require `rail-track-scroll-test.cjs` for desktop/mobile geometry and menu order. Hero behavior stays as approved in v0.6.

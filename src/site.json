@@ -12,16 +12,16 @@
       "id": "expertise"
     },
     {
-      "label": "Our work",
-      "id": "work"
-    },
-    {
       "label": "How we work",
       "id": "process"
     },
     {
       "label": "Industries",
       "id": "industries"
+    },
+    {
+      "label": "Our work",
+      "id": "work"
     },
     {
       "label": "Contact",
@@ -42,5 +42,5 @@
       "description": "Railway signaling, embedded software, hardware, integration and verification. Engineering support across the rail system lifecycle."
     }
   ],
-  "releaseVersion": "v0.6"
+  "releaseVersion": "v0.7"
 }

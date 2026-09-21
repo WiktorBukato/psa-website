@@ -23,16 +23,24 @@ function animatedIcon(type) {
   return svgNode([tag,{...attrs,'stroke-width':1.25,class:`motion-icon icon-${type}`,'aria-hidden':'true',focusable:'false'},children]);
 }
 function railwayTrack(compact=false){
-  // Parallel rail heads. Only the sleepers converge toward a centred vanishing
-  // point above the track; endpoint inset keeps every sleeper within the rails.
-  const width=compact?200:1000,height=32,center=width/2,inset=14;
-  const count=compact?11:43,vanishingDistance=compact?100:540;
-  const ties=Array.from({length:count},(_,i)=>{
-    const x=inset+i*(width-inset*2)/(count-1);
-    const lean=(x-center)*(height/2-2)/vanishingDistance;
-    return `<path d="M${(x-lean).toFixed(2)} 2L${(x+lean).toFixed(2)} 30"/>`;
-  }).join('');
-  return `<svg class="${compact?'ecosystem-mini-track':'ecosystem-track'}" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" aria-hidden="true"><path class="track-bed" d="M0 8H${width}V22H0Z"/><g class="track-sleepers">${ties}</g><path class="track-steel" d="M0 10H${width}M0 22H${width}"/><path class="track-glint" d="M0 9H${width}M0 21H${width}"/></svg>`;
+  // Two matching geometry keyframes; the browser only interpolates their numbers.
+  // Rail ends follow the outer sleeper intersections, plus a constant overhang.
+  const width=compact?200:1000,height=64,center=width/2,count=compact?11:43;
+  const inset=compact?12:36,overhang=compact?6:12,maxLean=compact?5:12;
+  const pose=(gauge,halfSleeper,lean)=>{
+    const top=height/2-gauge/2,bottom=height/2+gauge/2;
+    const shift=lean*gauge/(2*halfSleeper),upper=inset+shift-overhang,lower=inset-shift-overhang;
+    const sleepers=Array.from({length:count},(_,i)=>{
+      const x=inset+i*(width-2*inset)/(count-1),dx=(center-x)/(center-inset)*lean;
+      return `M${x+dx} ${height/2-halfSleeper}L${x-dx} ${height/2+halfSleeper}`;
+    }).join('');
+    return {bed:`M${upper} ${top}H${width-upper}L${width-lower} ${bottom}H${lower}Z`,sleepers,
+      steel:`M${upper} ${top}H${width-upper}M${lower} ${bottom}H${width-lower}`,
+      glint:`M${upper} ${top-1}H${width-upper}M${lower} ${bottom-1}H${width-lower}`};
+  };
+  const near=pose(24,24,0),far=pose(6,8,maxLean);
+  const part=(key,cls)=>`<path class="${cls}" d="${near[key]}" data-track-near="${near[key]}" data-track-far="${far[key]}"/>`;
+  return `<svg class="${compact?'ecosystem-mini-track':'ecosystem-track'}" data-scroll-track viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" aria-hidden="true">${part('bed','track-bed')}${part('sleepers','track-sleepers')}${part('steel','track-steel')}${part('glint','track-glint')}</svg>`;
 }
 function heroScene(){
   const objects=scene.objects.map(o=>`<g class="scene-object" data-asset="${o.id}" data-point="${o.point.join(',')}" tabindex="-1" role="button" aria-label="${escape(o.id+' · '+o.name)}"><path class="scene-outline" d="${o.path}"/>${o.details?`<path class="scene-detail" d="${o.details}"/>`:''}<path class="scene-tracer" pathLength="100" d="${o.path}"/><path class="scene-hit ${o.strokeOnly?'scene-hit-line':''}" d="${o.path}"/></g>`).join('');

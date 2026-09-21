@@ -89,14 +89,15 @@ async function difference(a,b){
   await page.keyboard.press('Escape');
   await page.emulateMedia({reducedMotion:'reduce'});
   for(const width of [390,1440]){
-   await page.setViewportSize({width,height:900});
+   await page.setViewportSize({width,height:900});await page.waitForTimeout(100);
    const geometry=await page.locator(width<760?'.ecosystem-mini-track':'.ecosystem-track').first().evaluate(svg=>{
     const rails=svg.querySelector('.track-steel').getAttribute('d').match(/[\d.]+/g).map(Number);
-    const sleepers=[...svg.querySelectorAll('.track-sleepers path')].map(p=>p.getAttribute('d').match(/-?[\d.]+/g).map(Number));
+    const values=svg.querySelector('.track-sleepers').getAttribute('d').match(/-?[\d.]+/g).map(Number);
+    const sleepers=Array.from({length:values.length/4},(_,i)=>values.slice(i*4,i*4+4));
     return {rails,sleepers};
    });
    const {rails:r,sleepers:t}=geometry,m=t[Math.floor(t.length/2)];
-   check(r[0]===r[3]&&r[2]===r[5]&&r[4]>r[1],`${width}: parallel rails share identical endpoints`,r);
+   check(r[0]>r[3]&&r[2]<r[5]&&r[4]>r[1],`${width}: parallel rails have a shorter upper rail in perspective`,r);
    check(t[0][0]>t[0][2]&&m[0]===m[2]&&t.at(-1)[0]<t.at(-1)[2],`${width}: sleepers lean toward the centre with a vertical middle`);
    await page.locator('.rail-environment').screenshot({path:path.join(out,`rails-${width}.png`)});
   }

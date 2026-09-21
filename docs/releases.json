@@ -38,5 +38,10 @@
     "version": "v0.6",
     "date": "2026-09-18",
     "manifestSha256": "1896f75fecf9e48cfafb7ad53c950e50fd6623e0c9f7410491738edd2352bfa6"
+  },
+  {
+    "version": "v0.7",
+    "date": "2026-09-21",
+    "manifestSha256": "ffff8316b7b74800ff9caad69e5d66bcdedee4d5b41382657540a2a724a14523"
   }
 ]

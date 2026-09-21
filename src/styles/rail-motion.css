@@ -34,9 +34,9 @@
 @keyframes database-sync{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
 @keyframes check-write{0%,12%,100%{stroke-dashoffset:1}38%,72%{stroke-dashoffset:0}94%{stroke-dashoffset:1}}
 
-/* Constant gauge and equal rail ends; sleeper angles converge toward the centre. */
+/* Scroll-linked perspective; geometry is generated once for desktop and mobile. */
 .environment-nodes:before,.environment-nodes:after{content:none}
-.ecosystem-track{position:absolute;left:0;top:calc(var(--flow-axis) - 5 * var(--u));width:100%;height:calc(16 * var(--u));overflow:visible;pointer-events:none}
+.ecosystem-track{position:absolute;left:0;top:calc(var(--flow-axis) - 13 * var(--u));width:100%;height:calc(32 * var(--u));overflow:visible;pointer-events:none}
 .environment-nodes>a>.ecosystem-mini-track{display:none}
 .track-bed{fill:#244c4820}.track-sleepers{stroke:#386461;stroke-width:6;opacity:.65}.track-steel{stroke:#2c6568;stroke-width:4;fill:none}.track-glint{stroke:#85b8b5;stroke-width:1;fill:none;opacity:.65}
 .route-dot{background:#347c80;border-color:#92bdb8;transition:background-color .3s,box-shadow .3s,border-color .3s,scale .3s;z-index:1}
@@ -87,7 +87,7 @@
 @media(max-width:760px){
  .scene-card{width:280px}.scene-scanlines{opacity:.32}
  .ecosystem-track{display:none}.environment-nodes>a{border-top:0}
- .environment-nodes>a>.ecosystem-mini-track{display:block;position:absolute;left:0;top:50px;width:100%;height:19px;margin:0;pointer-events:none;overflow:visible}
+ .environment-nodes>a>.ecosystem-mini-track{display:block;position:absolute;left:0;top:38px;width:100%;height:32px;margin:0;pointer-events:none;overflow:visible}
  .environment-nodes>a>svg:not(.ecosystem-mini-track){margin-bottom:22px}.route-dot{display:block;top:50px;width:9px;height:9px}
 }
 @media(prefers-reduced-motion:reduce){

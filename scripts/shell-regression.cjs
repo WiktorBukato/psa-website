@@ -17,6 +17,8 @@ const version=require('../src/site.json').releaseVersion;
    const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});
    await page.goto(pathToFileURL(path.resolve(base,route==='index.html'?route:route+'/index.html')).href);
    await page.evaluate(()=>{for(const a of document.querySelectorAll('.footer-bottom a,.gateway-footer span'))a.textContent=a.textContent.replace(/v\d+\.\d+(?:\.\d+)?/g,'vX.Y');});
+   // Owner-approved navigation reorder: compare all other shell pixels unchanged.
+   await page.evaluate(order=>{for(const parent of [document.querySelector('.nav'),...document.querySelectorAll('.footer-grid>div')].filter(e=>e&&(e.matches('.nav')||e.querySelector('h3')?.textContent==='Engineering'))){for(const id of order){const a=parent.querySelector('a[href="#'+id+'"]');if(a)parent.append(a);}}},require('../src/site.json').navigation.map(n=>n.id));
    const selectors=route==='index.html'?['body']:['.header','.site-footer'];
    for(const selector of selectors){
     // Align the shell on the same pixel grid; changed main heights must not
