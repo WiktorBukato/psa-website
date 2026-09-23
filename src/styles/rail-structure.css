@@ -1,0 +1,61 @@
+/* Rail-only structure and palette for the v0.8 marketing layout. */
+.theme-rail #main{
+ --rail-light-bg:#f3f8f7;
+ --rail-light-ink:#103036;
+ --rail-light-copy:#46636b;
+ --rail-light-border:#cbdcdd;
+}
+.rail-hero .hero-soften{position:absolute;inset:0;z-index:0;pointer-events:none;backdrop-filter:blur(1.7px) saturate(.88);mask-image:radial-gradient(ellipse at 76% 58%,transparent 10%,#000 88%)}
+.rail-hero .hero-shade{z-index:1}
+.rail-hero .rail-scene{z-index:2}
+.rail-hero .rail-hero-content{z-index:3}
+.rail-proof .proof-grid{grid-template-columns:repeat(5,minmax(0,1fr));align-items:stretch}
+.rail-iso-proof{display:flex;align-items:flex-start;gap:calc(11 * var(--u));padding-left:calc(16 * var(--u));border-left:1px solid var(--rail-line);color:var(--rail-white)}
+.rail-iso-proof:hover{color:#ffa66c;transform:translateY(-2px)}
+.rail-iso-proof>svg{width:calc(28 * var(--u));height:calc(28 * var(--u));flex:none;stroke-width:1.25}
+.rail-iso-proof strong{display:block;font-size:calc(11 * var(--u));white-space:nowrap}
+.rail-iso-proof small{display:block;color:var(--rail-copy);font-size:calc(8 * var(--u));margin-top:calc(8 * var(--u));line-height:1.45}
+/* One light treatment for the four approved light Rail sections. */
+.theme-rail #main :is(.rail-experience,.rail-capabilities,.rail-standards,.rail-trust,.rail-work){background:var(--rail-light-bg);color:var(--rail-light-ink);border-color:var(--rail-light-border)}
+.theme-rail #main :is(.rail-experience,.rail-capabilities,.rail-standards,.rail-trust,.rail-work) .rail-heading>p,
+.theme-rail #main :is(.rail-experience,.rail-capabilities,.rail-standards,.rail-trust,.rail-work) :is(.network-grid p,.cap-content p,.case-body>p:not(.case-eyebrow),.rail-team-place p){color:var(--rail-light-copy)}
+.theme-rail #main :is(.rail-experience,.rail-capabilities,.rail-standards,.rail-trust,.rail-work) .eyebrow{color:#a84b22}
+.theme-rail #main :is(.rail-experience,.rail-capabilities,.rail-standards,.rail-trust,.rail-work) .technical-note{color:#47666c}
+.theme-rail #main :is(.rail-experience,.rail-capabilities,.rail-standards,.rail-trust,.rail-work) .text-link{color:#0e5968;border-color:#8bb1b5}
+.theme-rail #main :is(.rail-experience,.rail-capabilities,.rail-standards,.rail-trust,.rail-work) .text-link:hover{color:#aa4d23;border-color:#aa4d23}
+.theme-rail #main :is(.rail-experience,.rail-solution,.rail-trust,.rail-work) .container{width:94%;max-width:1440px}
+.network-grid{border-color:var(--rail-light-border)}.network-grid>div{border-color:var(--rail-light-border)}
+.theme-rail #main .rail-cap{background:#fff;border-color:var(--rail-light-border);box-shadow:0 2px 8px #123b4012;color:var(--rail-light-ink)}
+.theme-rail #main .rail-cap:hover,.theme-rail #main .rail-cap:focus-visible{background:#fcffff;border-color:#7babb0;box-shadow:0 11px 25px #17393f22}
+.theme-rail #main .rail-cap :is(.card-top small,.cap-content>svg){color:#326f7b}
+.rail-standards{padding-block:calc(30 * var(--u));border-bottom:1px solid var(--rail-light-border)}
+.standards-list{flex-wrap:wrap}.standards-list b{color:#a85c32}
+.rail-team-place{margin-top:calc(24 * var(--u));padding:calc(19 * var(--u)) calc(23 * var(--u));border:1px solid var(--rail-light-border);background:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.theme-rail #main .rail-team-place h3{font-size:calc(17 * var(--u))}.theme-rail #main .rail-team-place p{font-size:calc(8.4 * var(--u));margin-top:calc(4 * var(--u))}
+.rail-trust{padding-block:calc(27 * var(--u))}.rail-trust-context{color:var(--rail-light-copy);font-size:calc(8 * var(--u));margin-bottom:calc(12 * var(--u))}
+.rail-client-logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:calc(14 * var(--u));align-items:center}
+.rail-client-logos a{min-height:calc(76 * var(--u));padding:calc(12 * var(--u));display:grid;place-items:center;border:1px solid var(--rail-light-border);background:#fff;transition:transform .2s,box-shadow .2s,border-color .2s}
+.rail-client-logos a:hover{transform:translateY(-3px);box-shadow:0 8px 22px #143d4218;border-color:#9cbfc3}
+.rail-client-logos img{max-width:100%;max-height:calc(49 * var(--u));width:auto;height:auto;object-fit:contain}
+.theme-rail #main .rail-case{background:#fff;color:var(--rail-light-ink);border-color:var(--rail-light-border)}
+.theme-rail #main .rail-case:hover{border-color:#7babb0;box-shadow:0 11px 25px #17393f22}
+.theme-rail #main .case-eyebrow{color:#236b79}.theme-rail #main .tags span{color:#416168;border-color:#bbd1d3}
+.rail-case-panel{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) auto;gap:calc(22 * var(--u));align-items:stretch;margin-top:calc(16 * var(--u));padding:calc(16 * var(--u));background:#fff;border:1px solid #bed4d6;box-shadow:0 10px 26px #12383e14}
+.rail-case-panel[hidden]{display:none}.rail-case-panel-image{align-self:center}.rail-case-panel-image .reference-photo{width:100%;height:auto;aspect-ratio:var(--photo-w)/var(--photo-h)}
+.rail-case-panel-copy{align-self:center}.rail-case-panel-copy .case-body{padding:0}
+.theme-rail #main .rail-case-panel-copy h3{font-size:calc(20 * var(--u));margin-bottom:calc(8 * var(--u))}
+.theme-rail #main .rail-case-panel-copy>p{color:var(--rail-light-copy)}
+.rail-case-contact{display:inline-flex;margin-top:calc(14 * var(--u))}.rail-case-close{align-self:start;background:transparent;border:1px solid var(--rail-light-border);padding:7px 9px;color:var(--rail-light-ink);cursor:pointer;white-space:nowrap}
+.rail-case-close:hover{background:#e6f0ef}.rail-case-close:focus-visible{outline:3px solid #ff8445;outline-offset:3px}
+.rail-contact{background:#001d1d;padding-top:calc(18 * var(--u))}
+@media(max-width:760px){
+ .rail-proof .proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .rail-iso-proof{grid-column:1/-1;align-items:center;padding:17px 14px;border-left:0;border-top:1px solid var(--rail-line)}
+ .rail-iso-proof>svg{width:28px;height:28px}.rail-iso-proof strong{font-size:1rem}.rail-iso-proof small{font-size:.78rem;margin-top:3px}
+ .theme-rail #main :is(.rail-experience,.rail-solution,.rail-trust,.rail-work) .container{width:calc(100% - 40px)}
+ .rail-team-place{display:block;padding:20px}.theme-rail #main .rail-team-place h3{font-size:1.3rem}.theme-rail #main .rail-team-place p{font-size:.83rem}.rail-team-place .text-link{margin-top:14px}
+ .rail-client-logos{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.rail-client-logos a{min-height:74px;padding:10px}.rail-client-logos img{max-height:46px}
+ .rail-trust-context{font-size:.8rem}
+ .rail-case-panel{grid-template-columns:1fr;gap:16px;padding:15px}.theme-rail #main .rail-case-panel-copy h3{font-size:1.35rem}.rail-case-close{justify-self:end;grid-row:1}
+ .rail-contact{padding-top:26px}
+}

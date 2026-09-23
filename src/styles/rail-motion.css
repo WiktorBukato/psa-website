@@ -69,11 +69,7 @@
 .signal-halo{opacity:.32;filter:blur(1.6px)}
 .scene-aircraft{opacity:0;pointer-events:none}
 .aircraft-light{fill:#fff1d9;filter:drop-shadow(0 0 2px #fff0bd);animation:aircraft-blink 1.6s ease-in-out infinite;animation-play-state:paused}
-.scene-scanlines{position:absolute;inset:-8px 0;pointer-events:none;background:repeating-linear-gradient(0deg,#0000 0 2px,#03131666 2px 3px,#bfd8ce12 3px 4px);opacity:.48;animation:interlace-drift 1.2s linear infinite;animation-play-state:paused}
-.scene-scanband{position:absolute;left:0;right:0;top:-30%;height:28%;pointer-events:none;background:linear-gradient(0deg,transparent,#91c9bf09 28%,#91c9bf16 66%,transparent);animation:interlace-roll 7s linear infinite;animation-play-state:paused}
-.ambient-running .scene-scanlines,.ambient-running .scene-scanband,.ambient-running .aircraft-light{animation-play-state:running}
-@keyframes interlace-drift{to{transform:translateY(8px)}}
-@keyframes interlace-roll{to{top:105%}}
+.ambient-running .aircraft-light{animation-play-state:running}
 @keyframes aircraft-blink{0%,48%,100%{opacity:.05}10%,32%{opacity:var(--aircraft-brightness)}}
 @keyframes contour-breathe{0%,100%{stroke-width:1.25;opacity:.78}50%{stroke-width:1.8;opacity:1}}
 @keyframes contour-travel{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
@@ -85,14 +81,14 @@
 .rail-motion-paused .motion-icon *,.rail-motion-paused .icon-gear{animation:none!important}
 .rail-motion-paused .scene-outline,.rail-motion-paused .scene-tracer{animation-play-state:paused}
 @media(max-width:760px){
- .scene-card{width:280px}.scene-scanlines{opacity:.32}
+ .scene-card{width:280px}
  .ecosystem-track{display:none}.environment-nodes>a{border-top:0}
  .environment-nodes>a>.ecosystem-mini-track{display:block;position:absolute;left:0;top:38px;width:100%;height:32px;margin:0;pointer-events:none;overflow:visible}
  .environment-nodes>a>svg:not(.ecosystem-mini-track){margin-bottom:22px}.route-dot{display:block;top:50px;width:9px;height:9px}
 }
 @media(prefers-reduced-motion:reduce){
  .theme-rail #main *, .theme-rail #main *:before,.theme-rail #main *:after{animation:none!important;transition:none!important}
- .scene-light,.scene-aircraft,.scene-scanlines,.scene-scanband{display:none}
+ .scene-light,.scene-aircraft{display:none}
  .rail-cap:is(:hover,:focus-visible) .code-cursor{opacity:1}
 }
 

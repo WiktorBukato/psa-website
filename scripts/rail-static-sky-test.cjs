@@ -40,7 +40,7 @@ const check=(value,name)=>{report.checks.push({name,passed:!!value});if(!value)t
   const original=await browser.newPage({viewport:{width:1920,height:1080},reducedMotion:'reduce'});
   await original.goto(pathToFileURL(path.resolve('docs/v0.4.2/rail/index.html')).href);
   // Isolate the underlying hero image for byte-level rendered comparison.
-  const hide='.rail-scene,.scene-card,.scene-controls,.scene-inspector{display:none!important}';
+  const hide='.rail-scene,.scene-card,.scene-controls,.scene-inspector,.hero-soften{display:none!important}';
   await page.addStyleTag({content:hide});await original.addStyleTag({content:hide});
   const [a,b]=await Promise.all([page,original].map(p=>p.locator('.rail-hero').screenshot()));
   const sharp=dependency('sharp');const [ra,rb]=await Promise.all([a,b].map(i=>sharp(i).raw().toBuffer()));

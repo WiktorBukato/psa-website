@@ -57,3 +57,9 @@
 ## Owner correction v0.7
 - Shared navigation order: Expertise, How we work, Industries, Our work, Contact; use the same source for header/mobile/footer.
 - Ecosystem geometry now follows scroll position, superseding the fixed equal-length v0.4 rails: wider gauge/upright sleepers at viewport bottom, narrow gauge/converging sleepers at top. Both horizontal rails extend beyond their outer sleeper intersections; the upper rail shortens with perspective. Preserve a static reduced-motion pose and require `rail-track-scroll-test.cjs` for desktop/mobile geometry and menu order. Hero behavior stays as approved in v0.6.
+
+## Owner direction v0.8
+- The seven-page `C:\Downloads\Notes.pdf` is the Rail structure authority for v0.8; eIoT content and the shared shell stay unchanged. Keep the hero photo, scene inventory, hover cards, rail geometry, cases and copy. Remove only the moving CRT overlay from the hero, with subtle photo softening behind the scene.
+- Rail order/palette: hero and proof dark; Experience and Capabilities light; Ecosystem dark; Foundation light with a team-link placeholder; TraxSentinel dark; Trust light with the existing PSA client logos from eIoT; Cases light with expandable previews from existing case media/copy; CTA dark. Use an official PSA ISO certificate destination for the proof badge.
+- No case drawings were supplied. The v0.8 case previews use existing images and descriptions. Do not fabricate schematics or claim the PSA logos specifically represent Rail customers. Do not connect hero objects to cases until mappings are substantiated. Track these dependencies in the marketing report.
+- Preserve the immutable v0.7 release. Require Rail structure/interaction checks, static-sky/motion checks, scroll-track checks, both verticals and gateway browser QA, and manual visual comparison before freezing v0.8.

@@ -19,6 +19,7 @@ async function difference(a,b){
    const page=await browser.newPage({viewport:{width,height:900}});page.on('pageerror',e=>report.errors.push(e.message));
    await page.goto(base+'rail/index.html',{waitUntil:'networkidle'});
    await page.waitForFunction(()=>document.querySelector('.scene-aircraft').getAnimations().length>0,{},{timeout:5000});
+   check(await page.locator('.aircraft-light').evaluate(e=>e.getAnimations().some(a=>a.playState==='running')),`${width}: aircraft blinks while ambient motion is active`);
    const flight=await page.evaluate(()=>{
     const h=document.querySelector('.rail-hero').getBoundingClientRect(),air=document.querySelector('.scene-aircraft'),animation=air.getAnimations()[0];
     animation.pause();animation.currentTime=animation.effect.getTiming().duration*.25;
@@ -64,11 +65,7 @@ async function difference(a,b){
   check(lightDelta.pixels>30&&lightDelta.maxDelta>35,'Light cores and halos visibly brighten the photograph',lightDelta);
   for(const [name,input]of [['lights-on',on],['lights-off',off]])await sharp(input).extract({left:1040,top:110,width:700,height:170}).resize(1400,340).png().toFile(path.join(out,`${name}.png`));
   await isolate.evaluate(e=>e.remove());
-  const scan=page.locator('.scene-scanlines');
-  await scan.evaluate(e=>e.getAnimations().forEach(a=>a.currentTime=0));const scanA=await hero.screenshot();
-  await scan.evaluate(e=>e.getAnimations().forEach(a=>a.currentTime=225));const scanB=await hero.screenshot();
-  const scanDelta=await difference(scanA,scanB);check(scanDelta.pixels>1000,'Scan lines visibly move between video frames',scanDelta);
-  for(const [name,input]of [['scan-a',scanA],['scan-b',scanB]])await sharp(input).extract({left:1270,top:30,width:320,height:160}).resize(960,480).png().toFile(path.join(out,`${name}.png`));
+  check(await page.locator('.scene-scanlines,.scene-scanband').count()===0,'CRT overlays are absent');
   await page.locator('[data-asset="RS-01"]').focus();
   // The inspector card can cover this train on wide screens. Hide only the QA
   // controls while retaining the real selected state and its SVG animations.

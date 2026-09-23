@@ -21,11 +21,14 @@ for(const width of [390,1440]){
   const middle=t.slice((t.length/4-1)/2*4,(t.length/4-1)/2*4+4);check(Math.abs(middle[0]-middle[2])<.001,`${width}/${index}/${name}: middle sleeper vertical`);
   if(index===0){await track.evaluate((e,r)=>scrollTo(0,scrollY+e.getBoundingClientRect().top+e.getBoundingClientRect().height/2-innerHeight*r),Math.max(.14,Math.min(.86,ratio)));await page.waitForTimeout(100);await page.screenshot({path:`${out}/${width}-${name}.png`});}
  }
- const gauge=s=>s.steel[4]-s.steel[1];check(gauge(states[0])>gauge(states[1])&&gauge(states[1])>gauge(states[2]),`${width}/${index}: gauge decreases smoothly toward top`);
- check(Math.abs(states[0].ties[0]-states[0].ties[2])<.01,`${width}/${index}: bottom sleepers upright`);
+ const gauge=s=>s.steel[4]-s.steel[1];check(gauge(states[0])>gauge(states[1])&&gauge(states[1])>gauge(states[2]),`${width}/${index}: gauge decreases smoothly toward top (${states.map(gauge).join(', ')})`);
+ check(Math.abs(states[0].ties[0]-states[0].ties[2])<.01,`${width}/${index}: bottom sleepers upright (${states[0].ties.slice(0,4).join(', ')})`);
  check(states[2].ties[0]>states[2].ties[2]&&states[2].steel[0]>states[2].steel[3],`${width}/${index}: top sleepers converge and upper rail is shorter`);
- await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(80);const fixed=await track.locator('.track-steel').getAttribute('d');await page.evaluate(()=>scrollBy(0,-240));await page.waitForTimeout(80);check(fixed===await track.locator('.track-steel').getAttribute('d'),`${width}/${index}: reduced motion static`);await page.emulateMedia({reducedMotion:'no-preference'});
  }
+ await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(80);
+ const fixed=await Promise.all((await tracks.all()).map(track=>track.locator('.track-steel').getAttribute('d')));
+ await page.evaluate(()=>scrollBy(0,-240));await page.waitForTimeout(80);
+ for(let index=0;index<fixed.length;index++)check(fixed[index]===await tracks.nth(index).locator('.track-steel').getAttribute('d'),`${width}/${index}: reduced motion static`);
  await page.close();
 }
 check(!report.errors.length,'No browser errors');report.passed=true;
