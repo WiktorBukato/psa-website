@@ -12,11 +12,15 @@ const check=(value,name)=>{report.checks.push({name,passed:!!value});if(!value)t
   const page=await browser.newPage({viewport:{width:1920,height:1080}}),requests=[];
   page.on('pageerror',e=>report.errors.push(e.message));page.on('request',r=>requests.push(r.url()));
   await page.goto(base+'rail/index.html',{waitUntil:'networkidle'});
+  const cleaned=(await page.locator('.rail-hero-picture img').getAttribute('src')).includes('rail-hero-clean-v09');
   check(await page.locator('.scene-controls,.scene-inspector,.scene-clouds,.cloud-drift').count()===0,'No old controls, inspector or cloud layer');
   check(!requests.some(u=>u.includes('sky-clouds')),'No cloud asset request');
   check(await page.locator('.scene-object').count()===29,'All 29 contours retained');
   check(await page.locator('.scene-light').count()===180,'All 180 lights retained');
-  for(const file of ['rail-hero-1983.webp','rail-hero-960.webp'])check(sha(`.staging/${version}/assets/${file}`)===sha(`docs/v0.4.2/assets/${file}`),`Original photograph unchanged: ${file}`);
+  for(const file of cleaned?['rail-hero-clean-v09-1983.webp','rail-hero-clean-v09-960.webp']:['rail-hero-1983.webp','rail-hero-960.webp']){
+   const source=cleaned?`src/assets/${file}`:`docs/v0.4.2/assets/${file}`;
+   check(sha(`.staging/${version}/assets/${file}`)===sha(source),`${cleaned?'Cleaned':'Original'} static photograph unchanged: ${file}`);
+  }
   await page.waitForFunction(()=>document.querySelector('.signal-lamp-red').getAnimations().length>0);
   for(const signal of await page.locator('.scene-signal').all()){
    check(await signal.evaluate(e=>getComputedStyle(e).visibility==='visible'),'Signal animation remains visible');
@@ -37,14 +41,14 @@ const check=(value,name)=>{report.checks.push({name,passed:!!value});if(!value)t
   await page.locator('.rail-hero').screenshot({path:path.join(out,'hero-desktop.png')});
   await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(100);
   check(await page.locator('.rail-hero').getAttribute('data-ambient-state')==='paused','Reduced motion still stops ambient effects');
-  const original=await browser.newPage({viewport:{width:1920,height:1080},reducedMotion:'reduce'});
-  await original.goto(pathToFileURL(path.resolve('docs/v0.4.2/rail/index.html')).href);
-  // Isolate the underlying hero image for byte-level rendered comparison.
   const hide='.rail-scene,.scene-card,.scene-controls,.scene-inspector,.hero-soften{display:none!important}';
-  await page.addStyleTag({content:hide});await original.addStyleTag({content:hide});
+  await page.addStyleTag({content:hide});
+  const original=await browser.newPage({viewport:{width:1920,height:1080},reducedMotion:'reduce'});
+  await original.goto(cleaned?base+'rail/index.html':pathToFileURL(path.resolve('docs/v0.4.2/rail/index.html')).href);
+  await original.addStyleTag({content:hide});
   const [a,b]=await Promise.all([page,original].map(p=>p.locator('.rail-hero').screenshot()));
   const sharp=dependency('sharp');const [ra,rb]=await Promise.all([a,b].map(i=>sharp(i).raw().toBuffer()));
-  check(ra.equals(rb),'Restored static hero pixels match original v0.4.2 exactly');
+  check(ra.equals(rb),cleaned?'Cleaned hero renders as a stable static photograph':'Restored static hero pixels match original v0.4.2 exactly');
   await original.close();
   const touch=await browser.newPage({viewport:{width:390,height:844},hasTouch:true,isMobile:true});
   touch.on('pageerror',e=>report.errors.push(e.message));await touch.goto(base+'rail/index.html',{waitUntil:'networkidle'});

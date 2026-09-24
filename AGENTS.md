@@ -63,3 +63,9 @@
 - Rail order/palette: hero and proof dark; Experience and Capabilities light; Ecosystem dark; Foundation light with a team-link placeholder; TraxSentinel dark; Trust light with the existing PSA client logos from eIoT; Cases light with expandable previews from existing case media/copy; CTA dark. Use an official PSA ISO certificate destination for the proof badge.
 - No case drawings were supplied. The v0.8 case previews use existing images and descriptions. Do not fabricate schematics or claim the PSA logos specifically represent Rail customers. Do not connect hero objects to cases until mappings are substantiated. Track these dependencies in the marketing report.
 - Preserve the immutable v0.7 release. Require Rail structure/interaction checks, static-sky/motion checks, scroll-track checks, both verticals and gateway browser QA, and manual visual comparison before freezing v0.8.
+
+## Owner direction v0.9
+- Clean only the nonfunctional clutter and ballast detail in the Rail hero. Keep the same 1983×793 frame and validate contours, signals, ambient lights and mobile crop against the edited image. The source edit is recorded in `reports/v0.9-changes.md`; publish new image filenames, never replace a prior release asset.
+- Repair all five Rail proof columns so text stays within separators at desktop and mobile sizes; use a distinct award icon for the ISO certificate.
+- Expand the Rail trust section with the existing PSA technology-ecosystem logos while clearly separating them from clients. Reuse the eIoT logo markup at build time. Give each logo subtle independent drift, bright/full-color enlargement on hover/focus, and stop motion for reduced-motion preferences. Verify actual rendered movement and non-overlap.
+- Changes are Rail-only. Preserve eIoT and the common shell, and publish as a new immutable version with the standard regression gate.
