@@ -62,9 +62,11 @@ function check(value,name){report.checks.push({name,passed:!!value});if(!value)t
   check(await page.locator('[data-asset-card="SIG-01"]').isVisible(),'Mouse reveals the object under its contour');
   await page.screenshot({path:path.join(out,'hero-hover-1440.png')});
   await page.keyboard.press('Escape');
-  for(const [id,selector,animation]of [['signaling','.signal-lamp','signal-warmth'],['software','.code-cursor','code-blink'],['hardware','.cpu-pin','cpu-data'],['integration','.icon-gear','gear-turn'],['modernization','.database-ring','database-sync'],['verification','.check-one','check-write']]){
-   await page.locator(`#cap-${id}`).hover();await page.clock.runFor(450);
-   check(await page.locator(`#cap-${id} ${selector}`).first().evaluate(e=>getComputedStyle(e).animationName)===animation,`${id}: icon animates on hover`);
+  const modern=await page.locator('.capability-detail').count()>0;
+  for(const [id,next,selector,animation]of [['signaling','signaling','.signal-lamp','signal-warmth'],['software','dispatching','.code-cursor','code-blink'],['hardware','interlocking','.cpu-pin','cpu-data'],['integration','cad','.icon-gear','gear-turn'],['modernization','monitoring','.database-ring','database-sync'],['verification','testing','.check-one','check-write']]){
+   const card=page.locator(modern?`[data-capability="expertise-${next}"]`:`#cap-${id}`);
+   await card.hover();await page.clock.runFor(450);
+   check(await card.locator(selector).first().evaluate(e=>getComputedStyle(e).animationName)===animation,`${modern?next:id}: icon animates on hover`);
   }
   await page.locator('.rail-capabilities').screenshot({path:path.join(out,'capabilities-hover-1440.png')});
   await page.close();

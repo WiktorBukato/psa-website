@@ -69,3 +69,16 @@
 - Repair all five Rail proof columns so text stays within separators at desktop and mobile sizes; use a distinct award icon for the ISO certificate.
 - Expand the Rail trust section with the existing PSA technology-ecosystem logos while clearly separating them from clients. Reuse the eIoT logo markup at build time. Give each logo subtle independent drift, bright/full-color enlargement on hover/focus, and stop motion for reduced-motion preferences. Verify actual rendered movement and non-overlap.
 - Changes are Rail-only. Preserve eIoT and the common shell, and publish as a new immutable version with the standard regression gate.
+
+## Owner direction v0.10 (2026-10-02)
+- The implementation pack R1–R6 is the current Rail editorial and structure authority. It explicitly supersedes older Rail copy/order/proof/logo-wall preservation and logo-drift requirements. Preserve eIoT/gateway, cleaned v0.9 hero bytes, scene geometry and ambient/scroll-track behavior.
+- Rail has independent navigation in its vertical configuration; header/mobile/footer use the same list. Capability details, public case cards and region map are generated from `src/content/` at build time, with no runtime JSON fetch.
+- Use only allowlisted public case fields at the existing disclosure level. Private research and named customer/location registries stay outside the repository and all output. Never join them into public case records.
+- Scope and historical-test exceptions are documented before implementation in `reports/v0.10-changes.md`. Retain geometry, lifecycle, accessibility, eIoT/gateway and immutable-release checks. Historical v0.9 logo/copy tests remain historical; use the new v0.10 acceptance and preservation gates.
+- This request authorizes a LOCAL REVIEW BUILD only. Do not run release.cjs, commit/push or deploy this version without a separate owner instruction. No local visual-review record may assert an image was reviewed without actually opening it.
+
+## Owner direction v0.11 (2026-10-02)
+- The owner authorizes publication of v0.11 based on the local v0.10 content revision. v0.10 remains a local review artifact. Preserve all previously published directories and eIoT/gateway.
+- Add relevant case images, count-neutral permanent expansion, region zoom, and intent-driven delivery/Trax graphic animations. Visible illustration/map-credit captions are removed; attribution and thematic-image provenance remain in licenses and source media metadata.
+- Exact city/rail-section locations are not publicly established by the selected case publications. Do not join the private registry into the public map. Keep published geographic precision; record the missing location approval.
+- Add rail-v11-test.cjs to the existing content-family, hero, track, static-sky, visual motion, preservation, browser and manual visual release gates.

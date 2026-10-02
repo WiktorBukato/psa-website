@@ -46,6 +46,11 @@ const check=(value,name)=>{report.checks.push({name,passed:!!value});if(!value)t
   const original=await browser.newPage({viewport:{width:1920,height:1080},reducedMotion:'reduce'});
   await original.goto(cleaned?base+'rail/index.html':pathToFileURL(path.resolve('docs/v0.4.2/rail/index.html')).href);
   await original.addStyleTag({content:hide});
+  for(const sample of [page,original]){
+   await sample.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.querySelectorAll(".rail-hero img")].map(i=>i.decode().catch(()=>{})));});
+   await sample.mouse.move(0,0);await sample.waitForTimeout(300);
+   await sample.evaluate(()=>scrollTo(0,0));
+  }
   const [a,b]=await Promise.all([page,original].map(p=>p.locator('.rail-hero').screenshot()));
   const sharp=dependency('sharp');const [ra,rb]=await Promise.all([a,b].map(i=>sharp(i).raw().toBuffer()));
   check(ra.equals(rb),cleaned?'Cleaned hero renders as a stable static photograph':'Restored static hero pixels match original v0.4.2 exactly');

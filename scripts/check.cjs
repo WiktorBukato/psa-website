@@ -20,8 +20,7 @@ for(const file of htmlFiles){
   assert(ids.length===new Set(ids).size,`Duplicate IDs in ${file}`);
   assert((html.match(/<h1[ >]/g)||[]).length===1,`Expected one h1 in ${file}`);
   assert(!/data-lucide|href="#"|javascript:|lorem ipsum|TODO/i.test(html),`Unresolved output in ${file}`);
-  for(const match of html.matchAll(/\b(?:href|src|srcset)="([^"]+)"/g)){
-    const ref=match[1];
+  for(const match of html.matchAll(/\b(href|src|srcset)="([^"]+)"/g))for(const ref of match[1]==='srcset'?match[2].split(',').map(candidate=>candidate.trim().split(/\s+/)[0]):[match[2]]){
     if(/^(?:https?:|mailto:|tel:|data:)/.test(ref))continue;
     const [target,fragment]=ref.split('#');
     const resolved=target?path.resolve(root,path.dirname(file),decodeURIComponent(target)):path.join(root,file);
@@ -31,7 +30,10 @@ for(const file of htmlFiles){
   }
 }
 const nav=htmlFiles.slice(1).map(file=>fs.readFileSync(path.join(root,file),'utf8').match(/<nav class="nav"[^>]*>([\s\S]*?)<\/nav>/)[1]);
-assert(nav[0]===nav[1],'Main navigation differs between verticals');
+for(const [index,id] of ['eiot','rail'].entries()){
+ const expected=require('./navigation.cjs').forVertical(id).map(n=>`<a href="#${n.id}">${n.label}</a>`).join('');
+ assert(nav[index]===expected,`Unexpected ${id} navigation`);
+}
 for(const name of fs.readdirSync(path.join(root,'assets')).filter(n=>n.endsWith('.css'))){
  const css=fs.readFileSync(path.join(root,'assets',name),'utf8');
  for(const match of css.matchAll(/url\(['"]?([^)'"\s]+)['"]?\)/g))if(!match[1].startsWith('#'))assert(fs.existsSync(path.resolve(root,'assets',match[1])),`Broken CSS asset ${match[1]}`);

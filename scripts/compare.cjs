@@ -16,8 +16,8 @@ const output=path.join('evidence',newVersion,`compare-${oldVersion}`);fs.mkdirSy
   if(!fs.existsSync(next))throw Error(`Missing new screenshot: ${next}`);
   const a=await sharp(old).ensureAlpha().raw().toBuffer({resolveWithObject:true}),b=await sharp(next).ensureAlpha().raw().toBuffer({resolveWithObject:true});
   const width=Math.max(a.info.width,b.info.width),height=Math.max(a.info.height,b.info.height);
-  const left=await sharp(old).extend({right:width-a.info.width,bottom:height-a.info.height,background:'#f1d7d7'}).png().toBuffer();
-  const right=await sharp(next).extend({right:width-b.info.width,bottom:height-b.info.height,background:'#f1d7d7'}).png().toBuffer();
+  const pad=file=>sharp({create:{width,height,channels:4,background:'#f1d7d7'}}).composite([{input:file,left:0,top:0}]).png().toBuffer();
+  const left=await pad(old),right=await pad(next);
   await sharp({create:{width:width*2,height,channels:4,background:'#fff'}}).composite([{input:left,left:0,top:0},{input:right,left:width,top:0}]).png().toFile(path.join(output,file));
   let changed=null;
   if(a.info.width===b.info.width&&a.info.height===b.info.height){

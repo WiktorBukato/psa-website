@@ -1,0 +1,218 @@
+[
+  {
+    "id": "expertise-signaling",
+    "title": "Signaling Design",
+    "icon": "signal",
+    "summary": "Develop signaling for new installations, station changes and legacy-system upgrades. Connect hardware design, application logic and testing around the operating requirements of your railway.",
+    "examples": [
+      "Application logic",
+      "Hardware design and test documentation"
+    ],
+    "action": "Explore signaling design",
+    "detailHeading": "From existing conditions to tested signaling designs",
+    "intro": "PSA supports wayside signaling design for new stations, replacement of legacy systems, and changes to existing rail layouts. The scope can combine hardware engineering, application logic, detailed documentation and support for factory and site testing.",
+    "sections": [
+      {
+        "label": "Scope and deliverables",
+        "items": [
+          "Hardware design and application logic for the agreed signaling scope.",
+          "CAD documentation and detailing to support equipment assembly and installation.",
+          "Test documentation and support for Factory Acceptance Testing (FAT) and Site Acceptance Testing (SAT).",
+          "Commissioning support and design updates for the agreed project stage."
+        ]
+      },
+      {
+        "label": "System experience",
+        "text": "CBTC, ETCS, PTC and ATC environments. Specific platforms and interfaces are agreed for each project."
+      }
+    ],
+    "relatedCaseIds": [
+      "commuter-signaling"
+    ],
+    "aliases": [
+      "cap-signaling",
+      "cap-modernization"
+    ],
+    "contact": "Discuss a signaling work package"
+  },
+  {
+    "id": "expertise-cad",
+    "title": "Rail CAD & Engineering Documentation",
+    "icon": "gear",
+    "summary": "Turn engineering requirements into coordinated electrical drawings and documentation. Our CAD specialists work with signaling engineers through design changes, detailing and commissioning-stage updates.",
+    "examples": [
+      "Circuit sheets and layouts",
+      "Wiring reports and bills of materials"
+    ],
+    "action": "Explore CAD services",
+    "detailHeading": "Documentation that supports the next engineering step",
+    "intro": "PSA develops 2D and 3D electrical documentation for rail projects and related equipment. CAD and signaling specialists work together so that drawing packages reflect both the design requirements and the practical needs of manufacturing, installation and testing.",
+    "sections": [
+      {
+        "label": "Scope and deliverables",
+        "items": [
+          "Circuit sheets, equipment layouts and power-loop designs.",
+          "Wiring and tag reports, and bills of materials.",
+          "Revision control and updates across the documentation lifecycle.",
+          "Coordination with the client’s engineering tools and working practices."
+        ]
+      },
+      {
+        "label": "Tool experience",
+        "text": "MicroStation, AutoCAD, EPLAN, Revit and SOLIDWORKS."
+      },
+      {
+        "label": "Application areas",
+        "text": "Rail signaling, telecom, cabling, construction documentation and power."
+      }
+    ],
+    "relatedCaseIds": [
+      "commuter-interlockings"
+    ],
+    "aliases": [],
+    "contact": "Discuss your drawing package"
+  },
+  {
+    "id": "expertise-interlocking",
+    "title": "Interlocking Product Development",
+    "icon": "cpu",
+    "summary": "Develop and maintain the hardware and software behind interlocking products. Add functions, address component changes and build the diagnostic or simulation tools your engineering team needs.",
+    "examples": [
+      "PCB, FPGA/CPLD and firmware",
+      "Diagnostics and engineering tools"
+    ],
+    "action": "Explore product development",
+    "detailHeading": "Engineering support for new and established interlocking products",
+    "intro": "PSA combines rail-domain knowledge with embedded engineering to support interlocking equipment through development and maintenance. Work can address a new function, a hardware redesign, controller-module testing or an auxiliary tool for engineering and support teams.",
+    "sections": [
+      {
+        "label": "Scope and deliverables",
+        "items": [
+          "PCB design, FPGA/CPLD development and firmware.",
+          "Hardware reengineering and implementation of new functions or connectivity.",
+          "Functional testing of controller modules and troubleshooting support.",
+          "Simulation, communication, diagnostics, monitoring and control tools."
+        ]
+      },
+      {
+        "label": "Scope distinction",
+        "text": "Product engineering is separate from application design for a particular rail site; PSA can discuss the work package appropriate to your project."
+      }
+    ],
+    "relatedCaseIds": [
+      "precision-stop-fpga",
+      "interlocking-simulation"
+    ],
+    "aliases": [
+      "cap-hardware"
+    ],
+    "contact": "Discuss an interlocking product"
+  },
+  {
+    "id": "expertise-dispatching",
+    "title": "Dispatching & Train Control Software",
+    "icon": "code",
+    "summary": "Extend and support the software used to supervise rail operations. Improve interfaces, visualization and system performance while integrating new features into an existing dispatching environment.",
+    "examples": [
+      "Supervision features and interfaces",
+      "Performance and testing support"
+    ],
+    "action": "Explore dispatching software",
+    "detailHeading": "Software engineering for centralized rail supervision",
+    "intro": "PSA develops and supports centralized dispatching systems for freight and passenger networks. Our work concerns the software, interfaces and data flows behind supervision and control, rather than providing operational train-dispatching staff.",
+    "sections": [
+      {
+        "label": "Scope and deliverables",
+        "items": [
+          "Development and integration of features and subsystems.",
+          "Troubleshooting and system-performance improvements.",
+          "Visualization, localization and internationalization.",
+          "Testing support and independent verification and validation."
+        ]
+      },
+      {
+        "label": "Application experience",
+        "text": "Network-state displays, bulletins, authorities and restrictions, train schedules, interlocking interfaces, simulation, signal maintenance and external APIs."
+      }
+    ],
+    "relatedCaseIds": [
+      "china-metro-supervision",
+      "freight-dispatching"
+    ],
+    "aliases": [
+      "cap-software",
+      "cap-integration"
+    ],
+    "contact": "Discuss your control software"
+  },
+  {
+    "id": "expertise-testing",
+    "title": "Verification, Validation & Testing",
+    "icon": "checks",
+    "summary": "Verify changes in rail software and hardware with structured testing and review. Support safety-critical products with test procedures, results and documentation for the agreed assurance scope.",
+    "examples": [
+      "Unit, integration and on-target testing",
+      "FAT/SAT and design review"
+    ],
+    "action": "Explore testing expertise",
+    "detailHeading": "Test evidence for rail products and systems",
+    "intro": "PSA provides verification and validation activities for interlocking controllers, wayside interface units, ATP/ATO equipment and dispatching software. The test scope is defined against the product, project requirements and relevant assurance activities.",
+    "sections": [
+      {
+        "label": "Scope and deliverables",
+        "items": [
+          "Software unit, regression and integration testing.",
+          "Hardware board-level and product on-target testing.",
+          "Design and documentation review.",
+          "FAT/SAT assistance, test procedures, test results and supporting documentation."
+        ]
+      },
+      {
+        "label": "Tool experience",
+        "text": "VectorCAST, LabVIEW, GoogleTest, Wireshark, proprietary test tools and rail simulation tools."
+      },
+      {
+        "label": "Engineering competencies",
+        "text": "C/C++, VHDL, Java, Python and .NET."
+      }
+    ],
+    "relatedCaseIds": [
+      "vectorcast-rams"
+    ],
+    "aliases": [
+      "cap-verification"
+    ],
+    "contact": "Discuss your verification scope"
+  },
+  {
+    "id": "expertise-monitoring",
+    "title": "Rail Asset Monitoring",
+    "icon": "database",
+    "summary": "Connect infrastructure data with the people responsible for maintenance. Build monitoring solutions for crossings, bridges, tunnels and track assets, from sensing and processing to alerts and visualization.",
+    "examples": [
+      "Asset data and monitoring interfaces",
+      "Alerts and maintenance information"
+    ],
+    "action": "Explore asset monitoring",
+    "detailHeading": "From field measurements to maintenance information",
+    "intro": "PSA develops custom solutions for continuous monitoring of rail infrastructure. Embedded and enterprise IoT expertise connects data collection, processing, analysis and presentation for engineering, dispatching and maintenance teams.",
+    "sections": [
+      {
+        "label": "Scope and application areas",
+        "items": [
+          "Monitoring for level crossings, bridges, tunnels and tracks.",
+          "Sensor integration and data collection appropriate to the asset.",
+          "Processing, visualization and alerting for relevant conditions.",
+          "Information to support condition-based and predictive-maintenance workflows."
+        ]
+      },
+      {
+        "label": "Sensor experience",
+        "text": "Vibration, inclination, deflection, humidity, temperature, proximity, acoustic and electrical measurements, among the types listed in the source material."
+      }
+    ],
+    "relatedCaseIds": [],
+    "aliases": [],
+    "contact": "Discuss an asset-monitoring application"
+  }
+]

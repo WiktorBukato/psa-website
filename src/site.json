@@ -38,9 +38,32 @@
     {
       "id": "rail",
       "label": "Rail",
-      "title": "Railway Systems Engineering",
-      "description": "Railway signaling, embedded software, hardware, integration and verification. Engineering support across the rail system lifecycle."
+      "title": "Rail Signaling & Systems Engineering",
+      "description": "Signaling design, rail CAD, interlocking products, dispatching software, verification and asset monitoring for railway operators, OEMs and project teams.",
+      "menuBreakpoint": 1120,
+      "navigation": [
+        {
+          "label": "Expertise",
+          "id": "expertise"
+        },
+        {
+          "label": "Experience",
+          "id": "work"
+        },
+        {
+          "label": "How we work",
+          "id": "process"
+        },
+        {
+          "label": "TraxSentinel",
+          "id": "solutions"
+        },
+        {
+          "label": "Contact",
+          "id": "contact"
+        }
+      ]
     }
   ],
-  "releaseVersion": "v0.9"
+  "releaseVersion": "v0.11"
 }

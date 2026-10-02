@@ -11,7 +11,8 @@ const version=require('../src/site.json').releaseVersion;
  const browser=await chromium.launch({executablePath:chromeExecutable});
  const out=path.join('evidence',version,'shell');fs.mkdirSync(out,{recursive:true});
  const results=[];
- for(const width of [1440,390])for(const route of ['eiot','rail','index.html']){
+ const railRedesign=require('../src/site.json').verticals.find(v=>v.id==='rail').navigation;
+ for(const width of [1440,390])for(const route of railRedesign?['eiot','index.html']:['eiot','rail','index.html']){
   const pairs={};
   for(const [label,base] of [['approved','docs/v0.1'],['restored',`.staging/${version}`]]){
    const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});

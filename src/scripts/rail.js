@@ -180,39 +180,3 @@
   const observer=new ResizeObserver(schedule);tracks.forEach(track=>observer.observe(track.element));
   render();
 })();
-
-// Progressive case previews reuse the visible card as their single content source.
-(() => {
-  'use strict';
-  const section=document.querySelector('.rail-work'),panel=section?.querySelector('.rail-case-panel');
-  if(!panel)return;
-  const cards=[...section.querySelectorAll('.rail-case')],image=panel.querySelector('.rail-case-panel-image'),content=panel.querySelector('.rail-case-panel-content'),request=panel.querySelector('.rail-case-contact'),closeButton=panel.querySelector('.rail-case-close');
-  let selected=null;
-  function close(restoreFocus=false){
-    if(panel.hidden)return;
-    panel.hidden=true;cards.forEach(card=>card.setAttribute('aria-expanded','false'));
-    if(restoreFocus)selected?.focus({preventScroll:true});
-    selected=null;
-  }
-  for(const card of cards){
-    const title=card.querySelector('h3').textContent;
-    card.setAttribute('role','button');
-    card.setAttribute('aria-label',`Preview ${title}`);
-    card.setAttribute('aria-controls','rail-case-panel');
-    card.setAttribute('aria-expanded','false');
-    card.addEventListener('click',event=>{
-      if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
-      event.preventDefault();
-      if(selected===card){close();return;}
-      cards.forEach(item=>item.setAttribute('aria-expanded',String(item===card)));
-      image.replaceChildren(card.querySelector('.reference-photo').cloneNode(true));
-      content.replaceChildren(card.querySelector('.case-body').cloneNode(true));
-      request.href=card.href;
-      selected=card;panel.hidden=false;
-      panel.scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
-    });
-    card.addEventListener('keydown',event=>{if(event.key===' '){event.preventDefault();card.click();}});
-  }
-  closeButton.addEventListener('click',()=>close(true));
-  document.addEventListener('keydown',event=>{if(event.key==='Escape')close(true);});
-})();

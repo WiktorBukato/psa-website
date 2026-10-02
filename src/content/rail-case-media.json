@@ -1,0 +1,38 @@
+{
+  "commuter-signaling": {
+    "asset": "rail-case-commuter-signaling-v11",
+    "alt": "Commuter train alongside a platform.",
+    "basis": "PSA publication header image",
+    "sourceURL": "https://www.psa.inc/upload/iblock/4a5/4a5234566df5fb52201e579f538f4d90.png"
+  },
+  "commuter-interlockings": {
+    "asset": "rail-case-commuter-interlockings-v11",
+    "alt": "Railway switches and wayside equipment.",
+    "basis": "PSA publication header image",
+    "sourceURL": "https://www.psa.inc/upload/iblock/468/468f1cbb6587b1ff0dd05638ca01f39c.jpg"
+  },
+  "china-metro-supervision": {
+    "asset": "rail-case-china-metro-supervision-v11",
+    "alt": "An elevated metro line in an urban setting.",
+    "basis": "PSA publication header image",
+    "sourceURL": "https://www.psa.inc/upload/iblock/0a1/0a1df421c98871b459ae3c2fd76fd887.png"
+  },
+  "precision-stop-fpga": {
+    "asset": "rail-case-precision-stop-fpga-v11",
+    "alt": "Concept image of an FPGA board on a rail electronics test bench.",
+    "basis": "AI-generated thematic concept image",
+    "sourceURL": null
+  },
+  "vectorcast-rams": {
+    "asset": "rail-case-vectorcast-rams-v11",
+    "alt": "Concept image of a railway software verification workstation.",
+    "basis": "AI-generated thematic concept image",
+    "sourceURL": null
+  },
+  "interlocking-simulation": {
+    "asset": "rail-case-interlocking-simulation-v11",
+    "alt": "Concept image of a rail interlocking simulation bench.",
+    "basis": "AI-generated thematic concept image",
+    "sourceURL": null
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "researchDate": "2026-10-02",
+  "description": "Allowlisted public case content. No city-level coordinates or private customer identification.",
+  "cases": [
+    {
+      "id": "commuter-signaling",
+      "title": "Commuter Rail Signaling Modernization",
+      "sourceTitle": "Signalization for Commuter Railroad",
+      "sourceId": "P01",
+      "url": "https://www.psa.inc/success-stories/signalization-for-commuter-railroad/",
+      "summary": "PSA developed signaling designs, application logic and test documentation for a commuter-rail upgrade while existing services had to be maintained.",
+      "scopeFact": "Published scope: 14 miles of double track, 3 miles of single track and 7 passenger stations.",
+      "tags": [
+        "Signaling",
+        "Application logic",
+        "FAT / SAT"
+      ],
+      "capabilityIds": [
+        "expertise-signaling",
+        "expertise-cad"
+      ],
+      "region": "north-america",
+      "geographyPrecision": "region",
+      "locationLabel": "North America",
+      "featured": true,
+      "latitude": null,
+      "longitude": null,
+      "customerName": null,
+      "operatorName": null,
+      "currentDeliveryStatus": null,
+      "imagePath": null,
+      "sourceBasis": "Published PSA case study; no private identity crosswalk included",
+      "geoRule": "Use only the stated precision; never infer a city from an illustration or internal project ID",
+      "copyStatus": "Editorial proposal based on published material",
+      "httpStatus": "Not measured by a direct browser GET in this audit; verify before release"
+    },
+    {
+      "id": "commuter-interlockings",
+      "title": "Interlocking Engineering for Commuter Rail",
+      "sourceTitle": "Interlocking Systems for Commuter Rail",
+      "sourceId": "P02",
+      "url": "https://www.psa.inc/success-stories/interlocking-systems-for-commuter-rail/",
+      "summary": "The engagement combined interlocking engineering, drawing packages, application software and factory/field testing, including interfaces with existing equipment.",
+      "scopeFact": "Published overall scope: 5 lines and 2 branches. No current completion status is asserted here.",
+      "tags": [
+        "Interlockings",
+        "Engineering documentation",
+        "Testing"
+      ],
+      "capabilityIds": [
+        "expertise-signaling",
+        "expertise-cad",
+        "expertise-testing"
+      ],
+      "region": null,
+      "geographyPrecision": "not-published",
+      "locationLabel": "Location not published in the selected case source",
+      "featured": true,
+      "latitude": null,
+      "longitude": null,
+      "customerName": null,
+      "operatorName": null,
+      "currentDeliveryStatus": null,
+      "imagePath": null,
+      "sourceBasis": "Published PSA case study; no private identity crosswalk included",
+      "geoRule": "Use only the stated precision; never infer a city from an illustration or internal project ID",
+      "copyStatus": "Editorial proposal based on published material",
+      "httpStatus": "Not measured by a direct browser GET in this audit; verify before release"
+    },
+    {
+      "id": "china-metro-supervision",
+      "title": "Metro Supervision Software in China",
+      "sourceTitle": "Train Supervision System for Chinese Metros",
+      "sourceId": "P03",
+      "url": "https://www.psa.inc/success-stories/train-supervision-system-for-chinese-metros/",
+      "summary": "PSA supported metro supervision software through feature development, integration, defect resolution and performance improvements.",
+      "scopeFact": null,
+      "tags": [
+        "Dispatching software",
+        "System integration",
+        "Performance"
+      ],
+      "capabilityIds": [
+        "expertise-dispatching",
+        "expertise-testing"
+      ],
+      "region": "china",
+      "geographyPrecision": "country",
+      "locationLabel": "China; individual cities are not identified",
+      "featured": true,
+      "latitude": null,
+      "longitude": null,
+      "customerName": null,
+      "operatorName": null,
+      "currentDeliveryStatus": null,
+      "imagePath": null,
+      "sourceBasis": "Published PSA case study; no private identity crosswalk included",
+      "geoRule": "Use only the stated precision; never infer a city from an illustration or internal project ID",
+      "copyStatus": "Editorial proposal based on published material",
+      "httpStatus": "Not measured by a direct browser GET in this audit; verify before release"
+    },
+    {
+      "id": "precision-stop-fpga",
+      "title": "FPGA Engineering for Precise Train Positioning",
+      "sourceTitle": "Vital Board for Precision Station Stop",
+      "sourceId": "P04",
+      "url": "https://www.psa.inc/success-stories/vital-board-for-precision-station-stop/",
+      "summary": "PSA engineered an FPGA-based transmitter and verification test benches for positioning functionality within a rail product.",
+      "scopeFact": null,
+      "tags": [
+        "FPGA",
+        "Product engineering",
+        "Simulation"
+      ],
+      "capabilityIds": [
+        "expertise-interlocking",
+        "expertise-testing"
+      ],
+      "region": null,
+      "geographyPrecision": "not-published",
+      "locationLabel": "Location not published",
+      "featured": false,
+      "latitude": null,
+      "longitude": null,
+      "customerName": null,
+      "operatorName": null,
+      "currentDeliveryStatus": null,
+      "imagePath": null,
+      "sourceBasis": "Published PSA case study; no private identity crosswalk included",
+      "geoRule": "Use only the stated precision; never infer a city from an illustration or internal project ID",
+      "copyStatus": "Editorial proposal based on published material",
+      "httpStatus": "Not measured by a direct browser GET in this audit; verify before release"
+    },
+    {
+      "id": "vectorcast-rams",
+      "title": "Software Verification with VectorCAST",
+      "sourceTitle": "VectorCAST Testing for RAMS",
+      "sourceId": "P05",
+      "url": "https://www.psa.inc/success-stories/vectorcast-testing-for-rams/",
+      "summary": "The published example covers testing activities, scripts, execution reports and documentation supporting evaluation of rail systems and components.",
+      "scopeFact": null,
+      "tags": [
+        "Verification",
+        "VectorCAST",
+        "Test evidence"
+      ],
+      "capabilityIds": [
+        "expertise-testing"
+      ],
+      "region": null,
+      "geographyPrecision": "not-published",
+      "locationLabel": "Location not published",
+      "featured": false,
+      "latitude": null,
+      "longitude": null,
+      "customerName": null,
+      "operatorName": null,
+      "currentDeliveryStatus": null,
+      "imagePath": null,
+      "sourceBasis": "Published PSA case study; no private identity crosswalk included",
+      "geoRule": "Use only the stated precision; never infer a city from an illustration or internal project ID",
+      "copyStatus": "Editorial proposal based on published material",
+      "httpStatus": "Not measured by a direct browser GET in this audit; verify before release"
+    },
+    {
+      "id": "interlocking-simulation",
+      "title": "Simulation Tools for Interlocking Engineering",
+      "sourceTitle": "Simulator of the Rail Interlocking Devices",
+      "sourceId": "P06",
+      "url": "https://www.psa.inc/success-stories/simulator-of-the-rail-interlocking-devices/",
+      "summary": "PSA developed simulation tools for a microprocessor-based interlocking controller to support offsite engineering and testing.",
+      "scopeFact": null,
+      "tags": [
+        "Simulation",
+        "Engineering tools",
+        "Interlockings"
+      ],
+      "capabilityIds": [
+        "expertise-interlocking",
+        "expertise-testing"
+      ],
+      "region": null,
+      "geographyPrecision": "not-published",
+      "locationLabel": "Location not published",
+      "featured": false,
+      "latitude": null,
+      "longitude": null,
+      "customerName": null,
+      "operatorName": null,
+      "currentDeliveryStatus": null,
+      "imagePath": null,
+      "sourceBasis": "Published PSA case study; no private identity crosswalk included",
+      "geoRule": "Use only the stated precision; never infer a city from an illustration or internal project ID",
+      "copyStatus": "Editorial proposal based on published material",
+      "httpStatus": "Not measured by a direct browser GET in this audit; verify before release"
+    }
+  ]
+}
