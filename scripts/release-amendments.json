@@ -110,5 +110,28 @@
         "after": "84db4be17f0ef51512e4e9324c54d8e1928a1ccee07af1c4ce9d71d8780a07e3"
       }
     }
+  },
+  {
+    "id": "v0.12-map-continuous-2026-10-05",
+    "version": "v0.12",
+    "authorization": "Owner requests another update of the same v0.12: slower stripes, one per visible railway corridor, fully continuous highlight extent according to exact zoom without losing performance.",
+    "baseCommit": "0bdc4ce4cba5b71232a5695bc3412b0d689887c0",
+    "backupDirectory": "evidence/v0.12/pre-map-continuous",
+    "beforeManifestSha256": "ede9ea479901cd1222fe1e1d96c0c6cff57a5909aba599dd38ac032c324aaa00",
+    "afterManifestSha256": "8806211ec5b902f318563f6e1f04fde2750e21c072eb5308c750a0907787c8e8",
+    "files": {
+      "assets/rail.css": {
+        "before": "c0420dc84b28eb6e34f5a78a435c4fccf68e470e9e01887e903ac22c056f1685",
+        "after": "b2ebd07ac8a9eb549e18e94265048583a3b0d187090b4548c11fd22c00ab5106"
+      },
+      "assets/rail.js": {
+        "before": "19f7a2e01e3d035e91983a61db6eba9752ea03b351e093007def1ece45529527",
+        "after": "62482b8634beb4cec787106f530bcb9d1fb32b8f61d9405a527cb874251e746f"
+      },
+      "rail/index.html": {
+        "before": "84db4be17f0ef51512e4e9324c54d8e1928a1ccee07af1c4ce9d71d8780a07e3",
+        "after": "d557412a0cde26e16eecedd3a021ef71922b6ae8bf2b314acdf1f379c53e0bd4"
+      }
+    }
   }
 ]

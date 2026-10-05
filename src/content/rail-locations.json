@@ -54,9 +54,10 @@
     "fps": 30,
     "maxRoutes": 12,
     "stripePixels": 22,
-    "minimumDuration": 650,
-    "maximumDuration": 1500,
-    "screenSpeed": 240,
-    "pixelRatio": 1.5
+    "minimumDuration": 1800,
+    "maximumDuration": 4800,
+    "screenSpeed": 85,
+    "pixelRatio": 1.5,
+    "corridorCellPixels": 6
   }
 }

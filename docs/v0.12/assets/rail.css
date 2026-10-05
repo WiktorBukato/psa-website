@@ -264,9 +264,6 @@ html:not(.js) .theme-rail .menu-toggle{display:none}
 
 .map-locations-ready .world-map{touch-action:none;cursor:grab;user-select:none}
 .map-locations-ready .world-map.is-panning{cursor:grabbing}
-.map-nearby-local,.map-nearby-overview{display:none}
-[data-map-level=local] .map-nearby-local{display:block}
-[data-map-level=regional] .map-nearby-overview,[data-map-level=world] .map-nearby-overview{display:block}
 
 .map-location-controls button{border:1px solid #84a8ae;border-radius:3px;background:#fff;color:#214c55;padding:10px 12px;min-height:44px;cursor:pointer;transition:background .2s,border-color .2s}
 .map-location-controls button:is(:hover,:focus-visible){background:#e6eedd;border-color:#a25122}
