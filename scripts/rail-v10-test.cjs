@@ -42,7 +42,7 @@ async function mapReady(page){await page.locator('.rail-map').scrollIntoViewIfNe
   }
   await page.locator('[data-map-region="china"]').focus();await page.keyboard.press('Enter');
   check(await page.locator('[data-map-filter="china"]').getAttribute('aria-pressed')==='true',`${width}: keyboard region selection`);
-  const wheelBefore=await page.evaluate(()=>scrollY);await page.mouse.move(width*.35,450);await page.mouse.wheel(0,180);await page.waitForTimeout(100);check(await page.evaluate(()=>scrollY)>wheelBefore,`${width}: map does not trap wheel`);
+  await page.waitForTimeout(500);const wheelBefore=await page.evaluate(()=>scrollY);await page.mouse.move(width*.35,450);await page.mouse.wheel(0,180);await page.waitForTimeout(300);check(await page.evaluate(()=>scrollY)>wheelBefore,`${width}: map does not trap wheel`);
   for(const c of cases)check(await page.locator(`#case-${c.id} a`).getAttribute('href')===c.url,`${width}: card publication ${c.id}`);
   const more=page.locator('.more-cases');await more.locator('summary').click();check(await more.evaluate(e=>e.open),`${width}: more cases opens`);if((await more.locator('summary').textContent()).includes('Explore more')){await page.waitForTimeout(80);check(await more.locator('summary').isHidden(),`${width}: expansion button disappears`);}else{await more.locator('summary').focus();await page.keyboard.press('Space');check(!await more.evaluate(e=>e.open),`${width}: more cases closes by keyboard`);}
   for(const faq of await page.locator('.rail-faq details').all()){await faq.locator('summary').click();check(await faq.evaluate(e=>e.open),`${width}: native FAQ opens`);await faq.locator('summary').click();}

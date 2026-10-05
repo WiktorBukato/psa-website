@@ -1,0 +1,12 @@
+{
+  "authority": "Owner supplied coordinates and authorized public map publication, 2026-10-05. No private registry join.",
+  "nearbyRadiusKm": 70,
+  "localViewportWidth": 10,
+  "locations": [
+    {"code":"MBTA","city":"Boston","lat":42.374759,"lon":-71.076388,"url":"https://www.psa.inc/upload/iblock/b42/b42c2f77dd1c4be6095c5768f788d6c4.pdf#page=25","linkLabel":"Worcester Line in Boston — PSA project slide","basis":"Public PSA presentation page 25"},
+    {"code":"BART","city":"San Francisco","lat":37.7749,"lon":-122.4194,"url":"https://www.psa.inc/success-stories/latest-gen-cbtc-for-major-city-rapid-transit/","linkLabel":"Related case: modern CBTC","basis":"Related anonymous PSA case; BART identity not established by publication"},
+    {"code":"WMATA","city":"Washington","lat":38.9072,"lon":-77.0369,"url":"https://www.psa.inc/upload/iblock/b42/b42c2f77dd1c4be6095c5768f788d6c4.pdf#page=27","linkLabel":"Dulles Corridor Metrorail Phase 2 — PSA project slide","basis":"Public PSA presentation page 27; WMATA public Dulles project source"},
+    {"code":"MNNH","city":"New York","lat":40.7496,"lon":-73.93,"url":"https://www.psa.inc/upload/iblock/b42/b42c2f77dd1c4be6095c5768f788d6c4.pdf#page=26","linkLabel":"Metro-North New Haven Line — PSA project slide","basis":"Public PSA presentation page 26; owner provided representative New York coordinate"},
+    {"code":"MTAB","city":"Baltimore","lat":39.30730857,"lon":-76.6151762,"url":"https://www.psa.inc/upload/iblock/b42/b42c2f77dd1c4be6095c5768f788d6c4.pdf#page=24","linkLabel":"MTA Baltimore — PSA project slide","basis":"Public PSA presentation page 24"}
+  ]
+}

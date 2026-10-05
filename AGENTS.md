@@ -82,3 +82,8 @@
 - Add relevant case images, count-neutral permanent expansion, region zoom, and intent-driven delivery/Trax graphic animations. Visible illustration/map-credit captions are removed; attribution and thematic-image provenance remain in licenses and source media metadata.
 - Exact city/rail-section locations are not publicly established by the selected case publications. Do not join the private registry into the public map. Keep published geographic precision; record the missing location approval.
 - Add rail-v11-test.cjs to the existing content-family, hero, track, static-sky, visual motion, preservation, browser and manual visual release gates.
+
+## Owner direction v0.12 (2026-10-05)
+- Publish a new immutable Rail version with the five explicitly owner-supplied public city coordinates (MBTA, BART, WMATA, MNNH, MTAB). This authorization is limited to these supplied fields; do not join the private registry.
+- Render real offline Natural Earth railway vectors with scale-adaptive detail and 70 km clipped neighbourhood highlights; city/code hover cards and accessible new-tab PSA project references. BART is only a related CBTC case, per owner clarification.
+- Preserve all other sections, eIoT/gateway, hero and track. Add rail-v12-test.cjs to existing release gates. Private-registry exclusion tests must distinguish these newly authorized public identifiers from unapproved disclosures.

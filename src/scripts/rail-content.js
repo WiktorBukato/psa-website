@@ -68,10 +68,11 @@
     cancelAnimationFrame(zoomFrame);
     const target=region?region.dataset.mapViewport.split(' ').map(Number):[0,0,1000,500];
     const start=mapSVG.getAttribute('viewBox').split(' ').map(Number),began=performance.now();
-    worldReset.hidden=!region;mapSVG.classList.toggle('is-zoomed',!!region);
-    function tick(now){const p=reduced.matches?1:Math.min(1,(now-began)/420),ease=1-Math.pow(1-p,3);mapSVG.setAttribute('viewBox',start.map((v,i)=>v+(target[i]-v)*ease).join(' '));if(p<1)zoomFrame=requestAnimationFrame(tick);}
+    worldReset.hidden=target[2]>=1000;mapSVG.classList.toggle('is-zoomed',target[2]<1000);
+    function tick(now){const p=reduced.matches?1:Math.min(1,(now-began)/420),ease=1-Math.pow(1-p,3);mapSVG.setAttribute('viewBox',start.map((v,i)=>v+(target[i]-v)*ease).join(' '));map.dispatchEvent(new Event('map-view-change'));if(p<1)zoomFrame=requestAnimationFrame(tick);}
     zoomFrame=requestAnimationFrame(tick);
   }
+  map.addEventListener('map-zoom-request',event=>zoomMap({dataset:{mapViewport:event.detail.join(' ')}}));
   worldReset.addEventListener('click',()=>{zoomMap(null);filters[0].focus({preventScroll:true});});
   const status=map.querySelector('.map-status');
   let ready=false,filter='all',selected=options[0].dataset.mapCase;
