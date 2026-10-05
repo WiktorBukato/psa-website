@@ -62,18 +62,17 @@
   const results=[...map.querySelectorAll('[data-map-result]')];
   const filters=[...map.querySelectorAll('[data-map-filter]')];
   const regions=[...map.querySelectorAll('[data-map-region]')];
-  const mapSVG=map.querySelector('.world-map'),worldReset=map.querySelector('[data-map-world]');
+  const mapSVG=map.querySelector('.world-map');
   let zoomFrame=0;
-  function zoomMap(region){
+  function zoomMap(region,immediate=false){
     cancelAnimationFrame(zoomFrame);
     const target=region?region.dataset.mapViewport.split(' ').map(Number):[0,0,1000,500];
     const start=mapSVG.getAttribute('viewBox').split(' ').map(Number),began=performance.now();
-    worldReset.hidden=target[2]>=1000;mapSVG.classList.toggle('is-zoomed',target[2]<1000);
-    function tick(now){const p=reduced.matches?1:Math.min(1,(now-began)/420),ease=1-Math.pow(1-p,3);mapSVG.setAttribute('viewBox',start.map((v,i)=>v+(target[i]-v)*ease).join(' '));map.dispatchEvent(new Event('map-view-change'));if(p<1)zoomFrame=requestAnimationFrame(tick);else map.dispatchEvent(new Event('map-zoom-end'));}
-    zoomFrame=requestAnimationFrame(tick);
+    mapSVG.classList.toggle('is-zoomed',target[2]<1000);
+    function tick(now){const p=immediate||reduced.matches?1:Math.min(1,(now-began)/420),ease=1-Math.pow(1-p,3);mapSVG.setAttribute('viewBox',start.map((v,i)=>v+(target[i]-v)*ease).join(' '));map.dispatchEvent(new Event('map-view-change'));if(p<1)zoomFrame=requestAnimationFrame(tick);else map.dispatchEvent(new Event('map-zoom-end'));}
+    if(immediate)tick(began);else zoomFrame=requestAnimationFrame(tick);
   }
-  map.addEventListener('map-zoom-request',event=>zoomMap({dataset:{mapViewport:event.detail.join(' ')}}));
-  worldReset.addEventListener('click',()=>{zoomMap(null);filters[0].focus({preventScroll:true});});
+  map.addEventListener('map-zoom-request',event=>zoomMap({dataset:{mapViewport:(event.detail.viewport||event.detail).join(' ')}},!!event.detail.immediate));
   const status=map.querySelector('.map-status');
   let ready=false,filter='all',selected=options[0].dataset.mapCase;
   function selectCase(id,announce=true){

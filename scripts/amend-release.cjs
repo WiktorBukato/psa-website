@@ -10,11 +10,11 @@ if(!current||current.manifestSha256!==record.beforeManifestSha256)throw Error('U
 if(execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim()!==record.baseCommit)throw Error('Unexpected amendment base commit.');
 for(const release of registry)verifyRelease(path.join('docs',release.version),release.manifestSha256);
 const old=verifyRelease(target,record.beforeManifestSha256),next=verifyRelease(stage,record.afterManifestSha256);
-verifyRelease(path.join('evidence',version,'pre-map-amendment','site'),record.beforeManifestSha256);
+verifyRelease(path.join(record.backupDirectory||path.join('evidence',version,'pre-map-amendment'),'site'),record.beforeManifestSha256);
 if(JSON.stringify(Object.keys(old.files).sort())!==JSON.stringify(Object.keys(next.files).sort()))throw Error('An amendment cannot change the public file set.');
 const changed=Object.keys(old.files).filter(f=>old.files[f]!==next.files[f]).sort();
 if(JSON.stringify(changed)!==JSON.stringify(Object.keys(record.files).sort()))throw Error('Unexpected amended files.');
-for(const file of changed)if(!['rail/index.html','assets/rail.css','assets/rail.js'].includes(file)||old.files[file]!==record.files[file].before||next.files[file]!==record.files[file].after)throw Error(`Unapproved transition: ${file}`);
+for(const file of changed)if(!['rail/index.html','assets/rail.css','assets/rail.js','assets/licenses.txt'].includes(file)||old.files[file]!==record.files[file].before||next.files[file]!==record.files[file].after)throw Error(`Unapproved transition: ${file}`);
 execFileSync(process.execPath,['scripts/check.cjs',version],{stdio:'inherit'});
 const read=f=>JSON.parse(fs.readFileSync(f,'utf8')),review=read(`evidence/${version}/visual-review.json`),qa=read(`evidence/${version}/local/qa.json`);
 if(!qa.passed||qa.manifestSha256!==record.afterManifestSha256||!review.reviewed||!review.reviewer||!review.scope||!review.expectedChanges||!review.unchangedSections||review.manifestSha256!==record.afterManifestSha256)throw Error('Current browser and actual visual review are required.');

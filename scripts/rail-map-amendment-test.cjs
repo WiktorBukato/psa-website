@@ -5,7 +5,7 @@ fs.mkdirSync(out,{recursive:true});const report={version,manifestSha256:sha(`${r
 function check(ok,name){report.checks.push({name,passed:!!ok});if(!ok)throw Error(name);}
 (async()=>{const browser=await dependency('playwright').chromium.launch({executablePath:chromeExecutable});try{
  for(const region of geography.regions)check(region.path.split('Z').filter(Boolean).every(p=>geography.landPath.includes(p+'Z')),`${region.id}: identical coastline vertices in base and region`);
- check(network.localPath.length>network.nearby.reduce((n,l)=>n+l.path.length,0),'Continuous local base extends beyond bounded neighbourhood overlays');
+ check(network.localPath.length>network.nearby.reduce((n,l)=>n+l.routes.join('').length,0),'Continuous local base extends beyond bounded neighbourhood overlays');
  for(const width of [390,1440]){
   const page=await browser.newPage({viewport:{width,height:900}});page.on('pageerror',e=>report.errors.push(e.message));await page.goto(process.argv[3]?new URL('rail/index.html',process.argv[3]).href:pathToFileURL(`${root}/rail/index.html`).href);
   const map=page.locator('.rail-map');await map.scrollIntoViewIfNeeded();await page.waitForTimeout(300);
@@ -19,7 +19,7 @@ function check(ok,name){report.checks.push({name,passed:!!ok});if(!ok)throw Erro
    check(await page.locator('.map-nearby-track.is-active').count()===1,`${width}: one bounded overlay active`);
   }
   check(await page.locator('.map-rail-network').evaluate(e=>getComputedStyle(e).opacity)===baseOpacity,`${width}: hover never brightens the entire railway base`);
-  await page.locator('[data-location-zoom="WMATA"]').click();await page.locator('[data-location-zoom="MBTA"]').click();await page.waitForTimeout(600);
+  await page.locator('[data-location-zoom="WMATA"]').click();await page.locator('[data-location-zoom="MBTA"]').click();await page.waitForFunction(()=>document.querySelector('.map-location-tooltip').dataset.tooltipLocation==='MBTA');
   check(await page.locator('.map-location-tooltip').getAttribute('data-tooltip-location')==='MBTA',`${width}: rapid zoom retains latest selected city`);
   const active=page.locator('.map-nearby-track.is-active');check(await active.getAttribute('mask')==='url(#map-radius-MBTA)',`${width}: travelling highlights and glow share distance fade`);
   const stops=await map.locator('#map-fade-MBTA stop').evaluateAll(es=>es.map(e=>[e.getAttribute('offset'),e.getAttribute('stop-opacity')]));

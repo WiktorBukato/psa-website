@@ -29,7 +29,7 @@ async function mapReady(page){await page.locator('.rail-map').scrollIntoViewIfNe
   }
   await mapReady(page);
   check(await page.locator('[data-map-result]:visible').count()===1&&await page.locator('[data-map-result="commuter-signaling"]').isVisible(),`${width}: first featured case selected`);
-  for(const [region,count] of [['north-america',1],['china',1],['unknown',4],['all',6]]){
+  for(const [region,count] of [['north-america',1],['china',1],['all',6]]){
    await page.locator(`[data-map-filter="${region}"]`).click();
    check(await page.locator('[data-map-case]:visible').count()===count,`${width}: ${region} filter count`);
    check(await page.locator(`[data-map-filter="${region}"]`).getAttribute('aria-pressed')==='true',`${width}: filter state`);

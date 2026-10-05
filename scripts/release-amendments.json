@@ -60,5 +60,32 @@
         "after": "57ed118165306978268c1a726410758d8b46d90799ce04c39319062b0a079a8b"
       }
     }
+  },
+  {
+    "id": "v0.12-map-gestures-2026-10-05",
+    "version": "v0.12",
+    "authorization": "Owner explicitly requests publication in the same v0.12: wheel/drag/pinch, simplified controls, detailed public geography, adaptive travelling highlights and production labels.",
+    "baseCommit": "513aaa34d3dc518a5563593b7b08b1069ed3f58e",
+    "backupDirectory": "evidence/v0.12/pre-map-gestures",
+    "beforeManifestSha256": "0b6378929fe22f5f23af78fc611c1f11366b72aea5e3082aa08e3ce2e7d38201",
+    "afterManifestSha256": "aafd845d8a59572153f3ab14081caaab2f38c38d26e75381947b339c841e474d",
+    "files": {
+      "assets/licenses.txt": {
+        "before": "74ac3461ae0e54e159fe239e9b7fc26cb937751315df8931057720a60c9c65be",
+        "after": "9d303d3fc1dc24fbc22688ae31889d0bfcf2535a205d8eac04ac0b9503266a46"
+      },
+      "assets/rail.css": {
+        "before": "d6cd66866169be19eb4f0786eaf2960ee93199ea273708dff41f20e40a65bd36",
+        "after": "5606198d4881eaef286ca79c07813c3d88833727a86850cb70b52065bbb45c2f"
+      },
+      "assets/rail.js": {
+        "before": "a92348f8126d5d79b3dbbece263e0086bca53fe155651b2c9a1552227e8e7041",
+        "after": "a6ae24338f0780ae227f170e672fc3cc5bd7e271117523623c61add06359523a"
+      },
+      "rail/index.html": {
+        "before": "57ed118165306978268c1a726410758d8b46d90799ce04c39319062b0a079a8b",
+        "after": "0b8c848f0fdf0ae227f3d05c2b730df46caa7f1bf4e9f7147fe7426847630502"
+      }
+    }
   }
 ]

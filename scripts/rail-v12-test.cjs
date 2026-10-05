@@ -11,7 +11,7 @@ function check(ok,name){report.checks.push({name,passed:!!ok});if(!ok)throw Erro
  await page.locator('[data-map-filter="north-america"]').click();await page.waitForTimeout(550);check(await map.getAttribute('data-map-level')==='regional',`${width}: regional detail`);
  await map.screenshot({path:`${out}/regional-${width}.png`});
  for(const l of locations.locations){const p=page.locator(`[data-location="${l.code}"]`);const t=await p.getAttribute('transform');check(t===`translate(${(l.lon+180)*1000/360} ${(90-l.lat)*500/180})`,`${width}: ${l.code} exact coordinate`);
- await page.locator(`[data-location-zoom="${l.code}"]`).click();await page.waitForTimeout(550);check(await map.getAttribute('data-map-level')==='local',`${width}: ${l.code} local detail`);
+ await page.locator(`[data-location-zoom="${l.code}"]`).click();await page.waitForFunction(code=>document.querySelector('.map-location-tooltip').dataset.tooltipLocation===code&&document.querySelector('.map-nearby-track.is-active')?.dataset.nearby===code,l.code);check(await map.getAttribute('data-map-level')==='local',`${width}: ${l.code} local detail`);
  check(await page.locator('.map-nearby-track.is-active').count()===1,`${width}: only selected neighbourhood highlighted`);
  check((await page.locator('.map-location-tooltip').innerText()).includes(l.city),`${width}: city tooltip`);
  check(await p.getAttribute('target')==='_blank'&&await p.getAttribute('href')===l.url,`${width}: ${l.code} correct new-tab destination`);
@@ -22,7 +22,7 @@ function check(ok,name){report.checks.push({name,passed:!!ok});if(!ok)throw Erro
  const popupPromise=page.waitForEvent('popup');if(width===390)await p.tap();else await p.press('Enter');const popup=await popupPromise;await popup.waitForLoadState();check(popup.url()===l.url,`${width}: ${l.code} native navigation opens new tab (stubbed response)`);await popup.close();
  }
  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(100);check(await page.locator('.map-rail-travel').first().evaluate(e=>getComputedStyle(e).animationName)==='none',`${width}: reduced motion respected`);
- await page.locator('[data-map-world]').click();await page.waitForTimeout(550);check(await map.getAttribute('data-map-level')==='world',`${width}: reset`);check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`${width}: no horizontal overflow`);await page.close();
+ await page.locator('[data-map-world]').click();await page.waitForFunction(()=>document.querySelector('.rail-map').dataset.mapLevel==='world',null,{timeout:10000});check(await map.getAttribute('data-map-level')==='world',`${width}: reset`);check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`${width}: no horizontal overflow`);await page.close();
  }
  for(const n of network.nearby){const l=locations.locations.find(l=>l.code===n.code);for(const route of n.routes){const coords=[...route.matchAll(/[ML]([\d.-]+),([\d.-]+)/g)].map(m=>[+m[1]*360/1000-180,90-+m[2]*180/500]);check(coords.every(([lon,lat])=>Math.hypot((lon-l.lon)*111.195*Math.cos(l.lat*Math.PI/180),(lat-l.lat)*111.195)<=locations.nearbyRadiusKm+.02),`${n.code}: route clipped to configured radius`);}}
  const nojs=await browser.newPage({javaScriptEnabled:false});await nojs.goto(pathToFileURL(`${root}/rail/index.html`).href);check(await nojs.locator('.map-location-links a').count()===5,'No-JS native destination links');
