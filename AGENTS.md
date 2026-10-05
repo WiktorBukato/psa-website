@@ -83,6 +83,11 @@
 - Exact city/rail-section locations are not publicly established by the selected case publications. Do not join the private registry into the public map. Keep published geographic precision; record the missing location approval.
 - Add rail-v11-test.cjs to the existing content-family, hero, track, static-sky, visual motion, preservation, browser and manual visual release gates.
 
+## Owner exception v0.12 map amendment (2026-10-05)
+- Owner explicitly requests this correction in the same published v0.12. Amend only its Rail map HTML/CSS/JS: continuous neutral railway base, bounded orange distance fade and outward travelling highlights, nearest-point hit resolution, translucent card without native title, no regional circles, aligned base/region coastlines. Preserve all other content, five supplied coordinates and links, hero/track, eIoT/gateway and older releases.
+- Archive the original site/evidence, register the exact before/after manifest and file hashes in release-amendments.json, and use amend-release.cjs only with that exact record. This is not standing permission to amend other releases. Include rail-map-amendment-test.cjs and all existing release gates, actual image review, before/after comparison and live verification.
+- Public research does not establish additional named cities from anonymous diagram pins. Do not guess locations or import private registries.
+
 ## Owner direction v0.12 (2026-10-05)
 - Publish a new immutable Rail version with the five explicitly owner-supplied public city coordinates (MBTA, BART, WMATA, MNNH, MTAB). This authorization is limited to these supplied fields; do not join the private registry.
 - Render real offline Natural Earth railway vectors with scale-adaptive detail and 70 km clipped neighbourhood highlights; city/code hover cards and accessible new-tab PSA project references. BART is only a related CBTC case, per owner clarification.

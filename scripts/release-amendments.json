@@ -38,5 +38,27 @@
         "after": "eee1bc1223d09fddeabd78fd97c95ece43c9fe279175634d4a3cb80a018d5880"
       }
     }
+  },
+  {
+    "id": "v0.12-rail-map-2026-10-05",
+    "version": "v0.12",
+    "authorization": "Owner explicitly requested these Rail map corrections and publication in the same v0.12 on 2026-10-05.",
+    "baseCommit": "04d1e411e62266f5ba9a9b6a6ff0c92491194da1",
+    "beforeManifestSha256": "b7cabb80f3563988ed0b56bbbafb17d805cd56e15343df7b2abf46e5a4657d65",
+    "afterManifestSha256": "0b6378929fe22f5f23af78fc611c1f11366b72aea5e3082aa08e3ce2e7d38201",
+    "files": {
+      "assets/rail.css": {
+        "before": "d24dfb74f50812444dfe13f3075fd34b651b8417da2ec00974208da41d64c56c",
+        "after": "d6cd66866169be19eb4f0786eaf2960ee93199ea273708dff41f20e40a65bd36"
+      },
+      "assets/rail.js": {
+        "before": "0ee0f3d97cfa7b34c1c9c8e6a4f2cd347f78f7c30b8617f35c8641067f61509b",
+        "after": "a92348f8126d5d79b3dbbece263e0086bca53fe155651b2c9a1552227e8e7041"
+      },
+      "rail/index.html": {
+        "before": "981f0e1bebc093cf98d5d19dfa1baab26c59a9d4f8172cb3fc7848848782bf89",
+        "after": "57ed118165306978268c1a726410758d8b46d90799ce04c39319062b0a079a8b"
+      }
+    }
   }
 ]
