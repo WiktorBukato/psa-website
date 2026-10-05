@@ -16,6 +16,8 @@ function check(ok,name){report.checks.push({name,passed:!!ok});if(!ok)throw Erro
  check((await page.locator('.map-location-tooltip').innerText()).includes(l.city),`${width}: city tooltip`);
  check(await p.getAttribute('target')==='_blank'&&await p.getAttribute('href')===l.url,`${width}: ${l.code} correct new-tab destination`);
  await map.screenshot({path:`${out}/${l.code}-${width}.png`});
+ // Full-section screenshot can center the tall mobile section away from its map.
+ await page.locator('.map-geography').scrollIntoViewIfNeeded();await page.waitForTimeout(150);
  const a=await page.locator('.map-motion-canvas').evaluate(e=>e.toDataURL());await page.waitForTimeout(300);const b=await page.locator('.map-motion-canvas').evaluate(e=>e.toDataURL());check(a!==b,`${width}: ${l.code} travelling highlight`);
  if(l.code==='MBTA'){await page.locator('.map-geography').screenshot({path:`${out}/motion-${width}-a.png`});await page.waitForTimeout(450);await page.locator('.map-geography').screenshot({path:`${out}/motion-${width}-b.png`});const sharp=dependency('sharp');const pa=await sharp(`${out}/motion-${width}-a.png`).raw().toBuffer(),pb=await sharp(`${out}/motion-${width}-b.png`).raw().toBuffer();check(!pa.equals(pb),`${width}: actual motion pixels`);}
  const popupPromise=page.waitForEvent('popup');if(width===390)await p.tap();else await p.press('Enter');const popup=await popupPromise;await popup.waitForLoadState();check(popup.url()===l.url,`${width}: ${l.code} native navigation opens new tab (stubbed response)`);await popup.close();

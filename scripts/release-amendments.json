@@ -133,5 +133,24 @@
         "after": "d557412a0cde26e16eecedd3a021ef71922b6ae8bf2b314acdf1f379c53e0bd4"
       }
     }
+  },
+  {
+    "id": "v0.12-map-coverage-2026-10-05",
+    "version": "v0.12",
+    "authorization": "Owner reports missing near-city glow and detached illumination on four zoom screenshots, continuing the same v0.12 map correction. Separate static glow from bounded animation and correct geometric proximity/fragment selection while preserving performance and unrelated sections.",
+    "baseCommit": "c6213247f5307bdc62972448f389a2670a69995d",
+    "backupDirectory": "evidence/v0.12/pre-map-coverage",
+    "beforeManifestSha256": "8806211ec5b902f318563f6e1f04fde2750e21c072eb5308c750a0907787c8e8",
+    "afterManifestSha256": "de1ee70cdb670176e85b1d8b24acb382cbf4fc56cf26930cb1981e3f21550fab",
+    "files": {
+      "assets/rail.js": {
+        "before": "62482b8634beb4cec787106f530bcb9d1fb32b8f61d9405a527cb874251e746f",
+        "after": "29b0f9e303c217389a993656c032ea84822d22136afd8ab569fe4b64b046f862"
+      },
+      "rail/index.html": {
+        "before": "d557412a0cde26e16eecedd3a021ef71922b6ae8bf2b314acdf1f379c53e0bd4",
+        "after": "09400e12f7bcce8bf49332956195891f795c091802bc2f910db6c844f35c2a42"
+      }
+    }
   }
 ]
