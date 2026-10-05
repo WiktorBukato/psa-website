@@ -87,5 +87,28 @@
         "after": "0b8c848f0fdf0ae227f3d05c2b730df46caa7f1bf4e9f7147fe7426847630502"
       }
     }
+  },
+  {
+    "id": "v0.12-map-performance-2026-10-05",
+    "version": "v0.12",
+    "authorization": "Owner explicitly authorizes another amendment and publication of v0.12: restore globe, correct San Francisco coastline rendering, optimize tooltip/animation performance, one short faster travelling stripe per road visible at deep zoom.",
+    "baseCommit": "a4b1f6770d08ff4618665daa19e2fabe1c5138d0",
+    "backupDirectory": "evidence/v0.12/pre-map-performance",
+    "beforeManifestSha256": "aafd845d8a59572153f3ab14081caaab2f38c38d26e75381947b339c841e474d",
+    "afterManifestSha256": "ede9ea479901cd1222fe1e1d96c0c6cff57a5909aba599dd38ac032c324aaa00",
+    "files": {
+      "assets/rail.css": {
+        "before": "5606198d4881eaef286ca79c07813c3d88833727a86850cb70b52065bbb45c2f",
+        "after": "c0420dc84b28eb6e34f5a78a435c4fccf68e470e9e01887e903ac22c056f1685"
+      },
+      "assets/rail.js": {
+        "before": "a6ae24338f0780ae227f170e672fc3cc5bd7e271117523623c61add06359523a",
+        "after": "19f7a2e01e3d035e91983a61db6eba9752ea03b351e093007def1ece45529527"
+      },
+      "rail/index.html": {
+        "before": "0b8c848f0fdf0ae227f3d05c2b730df46caa7f1bf4e9f7147fe7426847630502",
+        "after": "84db4be17f0ef51512e4e9324c54d8e1928a1ccee07af1c4ce9d71d8780a07e3"
+      }
+    }
   }
 ]

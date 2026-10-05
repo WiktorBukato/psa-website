@@ -47,7 +47,7 @@ for(const page of site.verticals){
   fs.writeFileSync(path.join(out,'assets',`${page.id}.css`),[style,motion,structure].filter(fs.existsSync).map(file=>fs.readFileSync(file,'utf8').replaceAll('{{rail-menu-breakpoint}}',String(navigation.breakpoint(page.id)))).join('\n'));
   if(fs.existsSync(script)){
     const contentScript=`src/scripts/${page.id}-content.js`;
-    fs.writeFileSync(path.join(out,'assets',`${page.id}.js`),[script,contentScript,`src/scripts/${page.id}-map.js`].filter(fs.existsSync).map(file=>fs.readFileSync(file,'utf8')).join('\n'));
+    fs.writeFileSync(path.join(out,'assets',`${page.id}.js`),[script,contentScript,`src/scripts/${page.id}-map.js`,`src/scripts/${page.id}-map-motion.js`].filter(fs.existsSync).map(file=>fs.readFileSync(file,'utf8')).join('\n'));
   }
 }
 fs.copyFileSync('THIRD-PARTY-NOTICES.md',path.join(out,'assets','licenses.txt'));

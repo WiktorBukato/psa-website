@@ -28,7 +28,7 @@ function check(ok,name){report.checks.push({name,passed:!!ok});if(!ok)throw Erro
   await page.addStyleTag({content:'.header,.back-top,.skip{visibility:hidden!important}'});
   await map.screenshot({path:`${out}/local-${width}.png`});
   const a=await page.locator('.map-geography').screenshot();await page.waitForTimeout(450);const b=await page.locator('.map-geography').screenshot();check(!a.equals(b),`${width}: rendered travelling light changes pixels`);
-  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(100);check(await active.locator('.map-rail-travel').first().evaluate(e=>getComputedStyle(e).animationName)==='none',`${width}: reduced motion stops travelling light`);
+  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(100);check(await page.locator('.map-motion-canvas').evaluate(e=>!e.getContext('2d').getImageData(0,0,e.width,e.height).data.some((v,i)=>i%4===3&&v)),`${width}: reduced motion stops travelling light`);
   await page.close();
  }
  check(!report.errors.length,'No runtime errors');report.passed=true;

@@ -49,5 +49,14 @@
       "basis": "Public PSA presentation page 24"
     }
   ],
-  "maximumRadiusKm": 2200
+  "maximumRadiusKm": 2200,
+  "motion": {
+    "fps": 30,
+    "maxRoutes": 12,
+    "stripePixels": 22,
+    "minimumDuration": 650,
+    "maximumDuration": 1500,
+    "screenSpeed": 240,
+    "pixelRatio": 1.5
+  }
 }
